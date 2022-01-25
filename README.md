@@ -21,7 +21,9 @@ All data mapped will be in comparison with the redlined neighborhoods of Lexingt
 
 ### Wealth
 Exploring wealth under the umbrella of the ability to accumulate generational wealth through time.
-- Education location availability of institutions or libraries through time (as higher education can lead to higher income) 
+- Education location proximity of institutions or libraries through time (as higher education can lead to higher income) 
+    - [Current Data](https://data-lfucg.hub.arcgis.com/datasets/67c201f27cd24921a21c69a420f6cae1_0/explore?location=38.039783%2C-84.489022%2C12.21). 
+    - Historical Data (need to locate).
 - Highschool education/college education (as higher education can lead to higher income) (data potentially from US census bureau)
 - Computer/internet accessibility (as higher education can lead to higher income) (data potentially from US census bureau)
 - Median household income today (data potentially from US census bureau)
