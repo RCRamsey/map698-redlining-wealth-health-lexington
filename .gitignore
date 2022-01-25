@@ -1,0 +1,19 @@
+# Dependency directories
+node_modules/
+
+# Large Files
+# project-files/ne_110m_admin_0_countries
+
+# Shapefiles #
+##############
+*.cpg
+*.dbf
+*.prj
+*.shp
+*.shp.ea.iso.xml
+*.shp.iso.xml
+*.shp.xml
+*.shx
+*.zip
+*.sbn
+*.sbx
