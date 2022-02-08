@@ -6,12 +6,27 @@ A repo for exploring a final thesis project related to the wealth and health rip
 ## Table of Contents
 - [Part I. Project Summary Proposal](#part-i-project-summary-proposal)  
 - [Part II. Data Sources](#part-ii-data-sources)  
-    - [Wealth](#Wealth)  
-- [References](#References)  
+    - [HOLC Neighborhoods](#holc-neighborhoods)
+    - [Aspects of Wealth](#aspects-of-wealth)
+        - [Race & Segregation](#race-&-segregation)
+        - [Median Household income](#median-houshold-income)
+        - [Percent of Population in Poverty](#percent-of-population-in-poverty)
+        - [Mortgage Approval Rates through time](#mortgage-approval-rates-through-time) 
+        - [Percent Home Ownership today & Owner Reported Property Value Today](#percet-home-ownership-today-&-owner-reported-property-value-today)
+- [Part III. Proposed Visuals](#part-iii-proposed-visuals)
+    - [Visual 1](#visual-1)
+- [Part IV. Objectives & User Needs](#part-iv-objectives-&-user-needs)
+- [Part V. Data Processing & Storage](#part-v-data-processing-&-stograge)
+- [Part VI. JS Libraries to Employ](#part-vi-js-libraries-to-employ)
+- [Part VII. Relevant Tech & Hosting Platform](#part-vii-relevant-tech-&-hosting-platform)
+- [References](#references)  
 
 <!-- /TOC -->
 
 ## Part I: Project Summary Proposal
+
+Proposed Title: How Racial Capitalism Persists today in Lexington, KY
+Proposed Sub-title: An exploration of 1930s Redlining Practices
 
 Crampton indicated that *"maps are active and not passive"* and *"they frame the narrative"* (Crampton 2014). As such I propose a project to expolore the ripples left behind by the Home Owner's Loan Corporation Redlining Neighborhood Map *Narrative* of Lexington Kentucky and what *Active* results can be interpreted from the map's fingerprint. 
 
@@ -20,6 +35,7 @@ I want to design a map that displays various aspects of wealth of the current lo
 As demand increases for living close to the Central Business District and it's new/improved amenities redlined neighborhoods are at risk of gentrification. It is hoped that maps such as the one I propose can inform a user so that better policies can be enacted to prevent the gentrification of these areas and increase long term resident access to benefit from these revitalized areas they have been excluded from in the past as a beginning effort toward equity.
 
 ## Part II: Data Sources
+
 ### HOLC Neighborhoods
 All data mapped will be in comparison with the redlined neighborhoods of Lexington GeoJSON provided through [Mapping Inequality](https://dsl.richmond.edu/panorama/redlining/#loc=15/38.046/-84.534&city=lexington-ky&text=downloads) (Nelson, Winling, Marciano, Connolly et al.).
 - Data Available as:
@@ -30,7 +46,7 @@ All data mapped will be in comparison with the redlined neighborhoods of Lexingt
 ### Aspects of Wealth
 Exploring wealth under the umbrella of the ability to accumulate generational wealth through time.
 
-#### Race/Segregation
+#### Race & Segregation
 [*Race for the Population 18 years+ 2020*](https://data.census.gov/cedsci/table?q=p3&t=Race%20and%20Ethnicity&g=0500000US21067%241400000&y=2020)
 - Data available to download:
     - CSV metadata
@@ -45,7 +61,7 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
     - TXT file table title
     - 19.4 kb
 
-#### % of Population in Poverty
+#### Percent of Population in Poverty
 [*S1701 Poverty Status in the past 12 months (ACS)*](https://data.census.gov/cedsci/table?q=s1701&g=0500000US21067%241400000&y=2019)
 - Data available to download:
     - CSV File Metadata
@@ -56,7 +72,7 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
 #### Mortgage Approval Rates through time 
 Looking through HMDA Home mortgage disclosure act data to find. Still needs a source.
 
-#### % Home Ownership today & Owner Reported Property Value Today
+#### Percent Home Ownership today & Owner Reported Property Value Today
 [*US census bureau American Community Survey DP04 2019*](https://data.census.gov/cedsci/table?q=DP04&g=0500000US21067%241400000)
 - Data available to download:
 - CSV file metadata
@@ -64,15 +80,20 @@ Looking through HMDA Home mortgage disclosure act data to find. Still needs a so
     - TXT file table title
     - 88.5 kb
 
-### Potential Visuals
+## Part III. Proposed Visuals
 
-#### Visual 1
+### Visual 1
 Timeline of images from papers or hisotric jounral article map depictions. Articales of interest:
      - Kellogg, John. 1982. The Formation of Black Residential Areas in Lexington, Kentucky 1865-1887. Southern Historical Association. Vol 48. No 1. pp. 21-52.
     - O'Malley, Nancy. 2002. The Pursuit of Freedom The Evolution of Kinkeadtown, an African American Post-Civil War Neighborhood in Lexington, Kentucky. Winterthur Portfolio. Vol 37. No. 4. pp. 187-218.
     - Rabinowitz, Howard. 1976. From Reconstruction to Redemption in the Urban South. Journal of Urban History. Vol 2. No 2. pp 169-194
     - Kellogg, John. 1977. Negro Urban Clusters in the Posbellum South. Geographical Review. Vol 67. No 3. pp. 310-321.
     - Kendi, Ibram. 2016. Stamped from the Beginning The Definitive History of Racist Ideas in America. New York, Bold Type Books. pp 583. 
+
+## Part IV. Objectives & User Needs
+## Part V. Data Processing & Storage
+## Part VI. JS Libraries to Employ
+## Part VII. Relevant Tech & Hosting Platform
 
 ## References
 - Crampton, J.W. 2014. The power of maps. In: Cloke, P., Crang, P., Goodwin, M. (Eds.), Introducing human geographies, 3. Hodder Education London.
