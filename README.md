@@ -1,44 +1,78 @@
 # redlining-wealth-health-lexington
 A repo for exploring a final thesis project related to the wealth and health ripples through time formed by Redlining in Lexington, Kentucky.
 
+<!-- TOC -->
+
 ## Table of Contents
-- [Project Summary](#Project-Summary)  
-- [Potential Data Sources](#Potential-Data-Sources)  
+- [Part I. Project Summary Proposal](#part-i-project-summary-proposal)  
+- [Part II. Data Sources](#part-ii-data-sources)  
     - [Wealth](#Wealth)  
-    - [Health](#Health)  
 - [References](#References)  
 
-## Project Summary
+<!-- /TOC -->
+
+## Part I: Project Summary Proposal
 
 Crampton indicated that *"maps are active and not passive"* and *"they frame the narrative"* (Crampton 2014). As such I propose a project to expolore the ripples left behind by the Home Owner's Loan Corporation Redlining Neighborhood Map *Narrative* of Lexington Kentucky and what *Active* results can be interpreted from the map's fingerprint. 
 
-I want to design a map that displays various aspects of wealth and health of the current location of historically redlined neighborhoods because I want to find out what inequities have persisted generation to generation in order to help the user understand the impacts inherited by redlined policies in these neighborhoods through time.
+I want to design a map that displays various aspects of wealth of the current location of historically redlined neighborhoods because I want to find out what inequities have persisted generation to generation in order to help the user understand the impacts inherited by redlined policies in these neighborhoods through time.
 
 As demand increases for living close to the Central Business District and it's new/improved amenities redlined neighborhoods are at risk of gentrification. It is hoped that maps such as the one I propose can inform a user so that better policies can be enacted to prevent the gentrification of these areas and increase long term resident access to benefit from these revitalized areas they have been excluded from in the past as a beginning effort toward equity.
 
-## Potential Data Sources
+## Part II: Data Sources
+### HOLC Neighborhoods
 All data mapped will be in comparison with the redlined neighborhoods of Lexington GeoJSON provided through [Mapping Inequality](https://dsl.richmond.edu/panorama/redlining/#loc=15/38.046/-84.534&city=lexington-ky&text=downloads) (Nelson, Winling, Marciano, Connolly et al.).
+- Data Available as:
+    - Shapefile or GeoJSON
+    - Georectified Image
+    - Scan jpg 
 
-### Wealth
+### Aspects of Wealth
 Exploring wealth under the umbrella of the ability to accumulate generational wealth through time.
-- Education location proximity of institutions or libraries through time (as higher education can lead to higher income) 
-    - [Current Data](https://data-lfucg.hub.arcgis.com/datasets/67c201f27cd24921a21c69a420f6cae1_0/explore?location=38.039783%2C-84.489022%2C12.21). 
-    - Historical Data (need to locate).
-- Highschool education/college education (as higher education can lead to higher income) (data potentially from US census bureau)
-- Computer/internet accessibility (as higher education can lead to higher income) (data potentially from US census bureau)
-- Median household income today (data potentially from US census bureau)
-- Mortgage approval rates through time (parse through HMDA home mortgage disclosure act link)
-- Percent homeownership today (data potentially from US census bureau)
-- Property values today (county clerks office?)
 
-### Health
-Exploring Health as a function of environmental exposures and accessibility.
-- Those in the home without health insurance (under 65yo) or with a disability (data potentially from US census bureau)
-- Population density as contagious diseases can run faster through densely populated areas (data potentially from US census bureau) 
-- Life expectancy (data source unknown)
-- Locations of Land use, railroads, highways, byways, proximity to industry, city dumps, cemeteries, elevations, asthma rates, air particulates. 
-- Heat Islands vs cooling ability, paved areas vs recreational waters and parks, and shaded areas
+#### Race/Segregation
+[*Race for the Population 18 years+ 2020*](https://data.census.gov/cedsci/table?q=p3&t=Race%20and%20Ethnicity&g=0500000US21067%241400000&y=2020)
+- Data available to download:
+    - CSV metadata
+    - CSV file data
+    - TXT file table title
 
+#### Median Household income
+[*S1901 Income in the past 12 months (in 2019 inflation-adjusted dollars)*](https://data.census.gov/cedsci/table?q=income&g=0500000US21067%241400000&y=2019)
+- Data available to download: 
+    - CSV file metadata
+    - CSV file data
+    - TXT file table title
+    - 19.4 kb
+
+#### % of Population in Poverty
+[*S1701 Poverty Status in the past 12 months (ACS)*](https://data.census.gov/cedsci/table?q=s1701&g=0500000US21067%241400000&y=2019)
+- Data available to download:
+    - CSV File Metadata
+    - CSV file data
+    - TXT file table title
+    - 59.7 kb
+
+#### Mortgage Approval Rates through time 
+Looking through HMDA Home mortgage disclosure act data to find. Still needs a source.
+
+#### % Home Ownership today & Owner Reported Property Value Today
+[*US census bureau American Community Survey DP04 2019*](https://data.census.gov/cedsci/table?q=DP04&g=0500000US21067%241400000)
+- Data available to download:
+- CSV file metadata
+    - CSV file data
+    - TXT file table title
+    - 88.5 kb
+
+### Potential Visuals
+
+#### Visual 1
+Timeline of images from papers or hisotric jounral article map depictions. Articales of interest:
+     - Kellogg, John. 1982. The Formation of Black Residential Areas in Lexington, Kentucky 1865-1887. Southern Historical Association. Vol 48. No 1. pp. 21-52.
+    - O'Malley, Nancy. 2002. The Pursuit of Freedom The Evolution of Kinkeadtown, an African American Post-Civil War Neighborhood in Lexington, Kentucky. Winterthur Portfolio. Vol 37. No. 4. pp. 187-218.
+    - Rabinowitz, Howard. 1976. From Reconstruction to Redemption in the Urban South. Journal of Urban History. Vol 2. No 2. pp 169-194
+    - Kellogg, John. 1977. Negro Urban Clusters in the Posbellum South. Geographical Review. Vol 67. No 3. pp. 310-321.
+    - Kendi, Ibram. 2016. Stamped from the Beginning The Definitive History of Racist Ideas in America. New York, Bold Type Books. pp 583. 
 
 ## References
 - Crampton, J.W. 2014. The power of maps. In: Cloke, P., Crang, P., Goodwin, M. (Eds.), Introducing human geographies, 3. Hodder Education London.
