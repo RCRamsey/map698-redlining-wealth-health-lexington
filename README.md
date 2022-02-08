@@ -19,6 +19,7 @@ A repo for exploring a final thesis project related to the wealth and health rip
 - [Part V. Data Processing & Storage](#part-v-data-processing-&-stograge)
 - [Part VI. JS Libraries to Employ](#part-vi-js-libraries-to-employ)
 - [Part VII. Relevant Tech & Hosting Platform](#part-vii-relevant-tech-&-hosting-platform)
+- [Inspiration](#inspiration)
 - [References](#references)  
 
 <!-- /TOC -->
@@ -52,6 +53,7 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
     - CSV metadata
     - CSV file data
     - TXT file table title
+
 
 #### Median Household income
 [*S1901 Income in the past 12 months (in 2019 inflation-adjusted dollars)*](https://data.census.gov/cedsci/table?q=income&g=0500000US21067%241400000&y=2019)
@@ -95,6 +97,10 @@ Timeline of images from papers or hisotric jounral article map depictions. Artic
 ## Part VI. JS Libraries to Employ
 ## Part VII. Relevant Tech & Hosting Platform
 
+## Inspiration
+- [ramp styling 2020 census by race](https://mtgis-portal.geo.census.gov/arcgis/apps/MapSeries/index.html?appid=2566121a73de463995ed2b2fd7ff6eb7)
+- [overlap of holc designations & secondary ramp map](https://lojic.maps.arcgis.com/apps/MapSeries/index.html?appid=e4d29907953c4094a17cb9ea8f8f89de)
+
 ## References
 - Crampton, J.W. 2014. The power of maps. In: Cloke, P., Crang, P., Goodwin, M. (Eds.), Introducing human geographies, 3. Hodder Education London.
-- Robert K. Nelson, LaDale Winling, Richard Marciano, Nathan Connolly, et al., “Mapping Inequality,” American Panorama, ed. Robert K. Nelson and Edward L. Ayers, accessed January 25, 2022, https://dsl.richmond.edu/panorama/redlining/[YOUR VIEW]
+- Robert K. Nelson, LaDale Winling, Richard Marciano, Nathan Connolly, et al., “Mapping Inequality,” American Panorama, ed. Robert K. Nelson and Edward L. Ayers, accessed January 25, 2022, https://dsl.richmond.edu/panorama/redlining//#loc=14/38.041/-84.526&city=lexington-ky&text=downloads
