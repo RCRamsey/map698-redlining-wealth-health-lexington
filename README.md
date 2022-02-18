@@ -93,8 +93,15 @@ Timeline of images from papers or hisotric jounral article map depictions. Artic
     - Kendi, Ibram. 2016. Stamped from the Beginning The Definitive History of Racist Ideas in America. New York, Bold Type Books. pp 583. 
 
 ## Part IV. Objectives & User Needs
+
 ## Part V. Data Processing & Storage
 ## Part VI. JS Libraries to Employ
+- Mapbox GL JS for loading vector tiles and smooth interaction
+- D3.js to load data as CSV
+- CSV converted on the fly to geoJSON with personal written JS loop
+- Chroma.js potentially for color scale
+- Sparkline.js potentially for tooltip specs of data or graphing
+
 ## Part VII. Relevant Tech & Hosting Platform
 
 ## Inspiration
