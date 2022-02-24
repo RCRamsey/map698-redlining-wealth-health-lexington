@@ -83,6 +83,8 @@ Looking through HMDA Home mortgage disclosure act data to find. Still needs a so
     - 88.5 kb
 
 ## Part III. Proposed Visuals
+### Mockup WireFrame 1
+![GeoPandas](graphics/wireframe_proposal1.jpg)
 
 ### Visual 1
 Timeline of images from papers or hisotric jounral article map depictions. Articales of interest:
