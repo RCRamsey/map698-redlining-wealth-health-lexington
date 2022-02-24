@@ -85,6 +85,9 @@ Looking through HMDA Home mortgage disclosure act data to find. Still needs a so
 ## Part III. Proposed Visuals
 ### Mockup WireFrame 1
 ![GeoPandas](graphics/wireframe_proposal1.jpg)
+**Figure 1.** Mockup wireframe 1st proposal for project's html look and feel with user interaction buttons labeled.
+
+A similar project to reference was 673 4-5.
 
 ### Visual 1
 Timeline of images from papers or hisotric jounral article map depictions. Articales of interest:
