@@ -71,9 +71,6 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
     - TXT file table title
     - 59.7 kb
 
-#### Mortgage Approval Rates through time 
-Looking through HMDA Home mortgage disclosure act data to find. Still needs a source.
-
 #### Percent Home Ownership today & Owner Reported Property Value Today
 [*US census bureau American Community Survey DP04 2019*](https://data.census.gov/cedsci/table?q=DP04&g=0500000US21067%241400000)
 - Data available to download:
