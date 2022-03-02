@@ -1,7 +1,7 @@
 # Dependency directories
 node_modules/
 
-# Large Files
+# Specifically Identified Large Files
 # project-files/ne_110m_admin_0_countries
 
 # Shapefiles #
