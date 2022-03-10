@@ -26,18 +26,21 @@ A repo for exploring a final thesis project related to the wealth ripples throug
 
 ## Part I: Project Summary Proposal
 
-Proposed Title: How Racial Capitalism Persists today in Lexington, KY
-Proposed Sub-title: An exploration of 1930s Redlining Practices
+Title: How Racial Capitalism Persists today in Lexington, KY
+Sub-title: An exploration of 1930s Redlining Practices
 
 Crampton indicated that *"maps are active and not passive"* and *"they frame the narrative"* (Crampton 2014). As such I propose a project to expolore the ripples left behind by the Home Owner's Loan Corporation Redlining Neighborhood Map *Narrative* of Lexington Kentucky and what *Active* results can be interpreted from the fingerprent left behind by the HOLC map. 
 
 Within this project I will design a map that explores the access (or denial of equitable access) to generational wealth for the current location of historically redlined neighborhoods. The aspects of wealth being considered include:
+- Race 
 - Median Household Income
 - Home Ownership
 - Reported Property Value 
-because I want to find out what inequities have persisted generation to generation in order to help the user understand the impacts inherited by redlined policies in these neighborhoods through time.
+- Poverty Level
 
-As demand increases for living close to the Central Business District and it's new/improved amenities redlined neighborhoods are at risk of gentrification. It is hoped that maps such as the one I propose can inform a user so that better policies can be enacted to prevent the gentrification of these areas and increase long term resident access to benefit from these revitalized areas they have been excluded from in the past as a beginning effort toward equity.
+I want to find out what inequities have persisted generation to generation in order to help the user understand the impacts inherited by 1930s redlined policies in these neighborhoods through time.
+
+As demand increases for living in close proximity to the Central Business District and its accompanying improved amenities, redlined neighborhoods are at risk of gentrification. It is hoped that maps such as the one I propose can inform a user to make more thoughtful decisions with their votes within the Lexington cityscape. Voting can enact better policies to promote community renewal and prevent the gentrification of these areas. Policy changes are how we will begin the effort toward equity for the long term resident's access to benefit from revitalized areas they have been excluded from in the past.
 
 ## Part II: Data Sources
 
@@ -49,7 +52,7 @@ All data mapped will be in comparison with the redlined neighborhoods of Lexingt
     - Scan jpg 
 
 ### Aspects of Wealth
-Exploring wealth under the umbrella of the ability to accumulate generational wealth through time.
+Exploring wealth under the umbrella of the ability to accumulate generational wealth through home ownership.
 
 #### Race & Segregation
 [*Race for the Population 18 years+ 2020*](https://data.census.gov/cedsci/table?q=p3&t=Race%20and%20Ethnicity&g=0500000US21067%241400000&y=2020)
@@ -89,8 +92,11 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
 
 A similar project to reference was 673 4-5.
 
-### Visuals
+### Historical Visuals to Provide context
 Timeline of images from papers, covenants, HOLC plat, or historic journal article map depictions. Potentially store these within the info box panel on the left hand side to give historical context.
+
+HOLC Map scanned from 1930s
+![digital scan of physical HOLC map from 1930s for Lexington KY](graphics/holc-scan.jpg)
 
 Articles of interest:
     - Harriss, C.L. History and Policies of the Home Owners' Loan Corporation (1951)
@@ -140,7 +146,7 @@ Example of cleaned data
 - [Chroma.js](https://gka.github.io/chroma.js/) potentially for color scale
 - [Sparkline.js](https://omnipotent.net/jquery.sparkline/#s-about) potentially for tooltip specs of data or graphing
 
-## Part VII. Relevant Tech & Hosting Platform
+## Part VII. Layout
 
 ## Inspiration
 - [ramp styling 2020 census by race](https://mtgis-portal.geo.census.gov/arcgis/apps/MapSeries/index.html?appid=2566121a73de463995ed2b2fd7ff6eb7)
