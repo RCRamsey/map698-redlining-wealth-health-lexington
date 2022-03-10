@@ -86,11 +86,6 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
     - TXT file table title
 
 ## Part III. Proposed Visuals
-### Mockup WireFrame 1
-![handdrawn wireframe mockup of proposed project map on a users screen](graphics/wireframe_proposal1.jpg)
-**Figure 1.** Mockup wireframe 1st proposal for project's html look and feel with user interaction buttons labeled.
-
-A similar project to reference was 673 4-5.
 
 ### Historical Visuals to Provide context
 Timeline of images from papers, covenants, HOLC plat, or historic journal article map depictions. Potentially store these within the info box panel on the left hand side to give historical context.
@@ -147,6 +142,11 @@ Example of cleaned data
 - [Sparkline.js](https://omnipotent.net/jquery.sparkline/#s-about) potentially for tooltip specs of data or graphing
 
 ## Part VII. Layout
+### Mockup WireFrame 1
+![handdrawn wireframe mockup of proposed project map on a users screen](graphics/wireframe_proposal1.jpg)
+**Figure 1.** Mockup wireframe 1st proposal for project's html look and feel with user interaction buttons labeled.
+
+A similar project to reference was 673 4-5.
 
 ## Inspiration
 - [ramp styling 2020 census by race](https://mtgis-portal.geo.census.gov/arcgis/apps/MapSeries/index.html?appid=2566121a73de463995ed2b2fd7ff6eb7)
