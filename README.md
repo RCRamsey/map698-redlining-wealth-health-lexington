@@ -1,5 +1,5 @@
-# redlining-wealth-health-lexington
-A repo for exploring a final thesis project related to the wealth and health ripples through time formed by Redlining in Lexington, Kentucky.
+# redlining-wealth-lexington
+A repo for exploring a final thesis project related to the wealth ripples through time formed by Redlining in Lexington, Kentucky.
 
 <!-- TOC -->
 
@@ -29,9 +29,13 @@ A repo for exploring a final thesis project related to the wealth and health rip
 Proposed Title: How Racial Capitalism Persists today in Lexington, KY
 Proposed Sub-title: An exploration of 1930s Redlining Practices
 
-Crampton indicated that *"maps are active and not passive"* and *"they frame the narrative"* (Crampton 2014). As such I propose a project to expolore the ripples left behind by the Home Owner's Loan Corporation Redlining Neighborhood Map *Narrative* of Lexington Kentucky and what *Active* results can be interpreted from the map's fingerprint. 
+Crampton indicated that *"maps are active and not passive"* and *"they frame the narrative"* (Crampton 2014). As such I propose a project to expolore the ripples left behind by the Home Owner's Loan Corporation Redlining Neighborhood Map *Narrative* of Lexington Kentucky and what *Active* results can be interpreted from the fingerprent left behind by the HOLC map. 
 
-I want to design a map that displays various aspects of wealth of the current location of historically redlined neighborhoods because I want to find out what inequities have persisted generation to generation in order to help the user understand the impacts inherited by redlined policies in these neighborhoods through time.
+Within this project I will design a map that explores the access (or denial of equitable access) to generational wealth for the current location of historically redlined neighborhoods. The aspects of wealth being considered include:
+- Median Household Income
+- Home Ownership
+- Reported Property Value 
+because I want to find out what inequities have persisted generation to generation in order to help the user understand the impacts inherited by redlined policies in these neighborhoods through time.
 
 As demand increases for living close to the Central Business District and it's new/improved amenities redlined neighborhoods are at risk of gentrification. It is hoped that maps such as the one I propose can inform a user so that better policies can be enacted to prevent the gentrification of these areas and increase long term resident access to benefit from these revitalized areas they have been excluded from in the past as a beginning effort toward equity.
 
@@ -113,3 +117,4 @@ Timeline of images from papers or hisotric jounral article map depictions. Artic
 ## References
 - Crampton, J.W. 2014. The power of maps. In: Cloke, P., Crang, P., Goodwin, M. (Eds.), Introducing human geographies, 3. Hodder Education London.
 - Robert K. Nelson, LaDale Winling, Richard Marciano, Nathan Connolly, et al., “Mapping Inequality,” American Panorama, ed. Robert K. Nelson and Edward L. Ayers, accessed January 25, 2022, https://dsl.richmond.edu/panorama/redlining//#loc=14/38.041/-84.526&city=lexington-ky&text=downloads
+- Harriss, C.L. History and Policies of the Home Owners' Loan Corporation (1951)
