@@ -1,13 +1,14 @@
 The inspiration for digging into this project stemmed from An Environmental Justice & Systemic Racism Speaker Series hosted by the [EPA](https://www.epa.gov/environmentaljustice/environmental-justice-systemic-racism-speaker-series#previous) during 2021. 
 
+Homeownership provides the means to build equity in a home as opposed to giving rent to a landlord, invest in an object whose cost typically would appreciate and protect against inflation, provided a tax deduction, and protect against increased monthly rates (30 year fixed mortgage payment) (Hotchkis 2021).
+
 There is no shying away from the fact that the United States has inherent systemic racism built into policies and legislation. This map project is designed as an effort to assit the user in 'knowing better' so that they can 'do better'. 
 
-Info about HOLC redlining historical practices here.
-Legacy land use practice info here
-Prevented populations living in these redlined areas from acquiring and accumulating generational wealth. info here
-Historical racial zoning. info here
 
-It is my hope that users will take ownership and responsibility for the past generations of inherent racist decision/policies with a specific focus on housing in Lexington. With information in hand, informed users can use their vote to promote equitable projects that benefit the neighborhoods and occumpants continuing to be impacted by redlining practices implemented decades ago. 
+Historical racial zoning, covenants. info here
+Info about HOLC redlining historical practices here.
+
+It is my hope that users will take ownership and responsibility for the past generations of inherent racist decision/policies with a specific focus on housing in Lexington. With information in hand, informed users can use their vote to promote equitable projects that benefit the neighborhoods and occupants continuing to be impacted by redlining practices implemented decades ago. 
 
 Companies and organizations will continue their business as usual, aka inherent/systemic racist practices until their policies are changed. I.e. the people/public vote for the change in policies dictating legally what these companies and organizations can do. 
 
@@ -21,4 +22,5 @@ Transform-Restore-Reinvest-loan/grant opportunities for community level improvem
 
 
 
-
+References:
+Hotchkis, Tara. Seven Ways to Build Wealth And Gain Security Through Homeownership. Forbes Media. 29 September 2021. https://www.forbes.com/sites/forbesrealestatecouncil/2021/09/29/seven-ways-to-build-wealth-and-gain-security-through-homeownership/?sh=5c9bdc6f9280
