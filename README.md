@@ -14,13 +14,13 @@ A repo for exploring a final thesis project related to the wealth ripples throug
         - [Percent Home Ownership today & Owner Reported Property Value Today](#percet-home-ownership-today-&-owner-reported-property-value-today)
         - [Percent of Population in Poverty](#percent-of-population-in-poverty)
 - [Part III. Proposed Visuals](#part-iii-proposed-visuals)
-    - [Visual 1](#visual-1)
 - [Part IV. Objectives & User Needs](#part-iv-objectives-&-user-needs)
-- [Part V. Data Processing & Storage](#part-v-data-processing-&-stograge)
-- [Part VI. JS Libraries to Employ](#part-vi-js-libraries-to-employ)
-- [Part VII. Relevant Tech & Hosting Platform](#part-vii-relevant-tech-&-hosting-platform)
+- [Part V. Data Processing & Storage](#part-v-data-processing-&-storage)
+- [Part VI. Data Stack and JS Libraries to Employ](#part-vi-data-stack-and-js-libraries-to-employ)
+- [Part VII. Layout](#part-vii-layout)
 - [Inspiration](#inspiration)
-- [References](#references)  
+- [References for readme](#references-for-readme)  
+
 
 <!-- /TOC -->
 
