@@ -10,7 +10,7 @@ A repo for exploring a final thesis project related to the wealth ripples throug
     - [Aspects of Wealth](#aspects-of-wealth)
         - [Race and Segregation](#race-and-segregation)
         - [Median Household income](#median-household-income)
-        - [Percent Home Ownership today and Owner Reported Property Value Today](#percet-home-ownership-today-and-owner-reported-property-value-today)
+        - [Percent Home Ownership today and Owner Reported Property Value Today](#percent-home-ownership-today-and-owner-reported-property-value-today)
         - [Percent of Population in Poverty](#percent-of-population-in-poverty)
 - [Part III. Proposed Visuals](#part-iii-proposed-visuals)
 - [Part IV. Objectives and User Needs](#part-iv-objectives-and-user-needs)
