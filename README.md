@@ -8,14 +8,14 @@ A repo for exploring a final thesis project related to the wealth ripples throug
 - [Part II. Data Sources](#part-ii-data-sources)  
     - [HOLC Neighborhoods](#holc-neighborhoods)
     - [Aspects of Wealth](#aspects-of-wealth)
-        - [Race & Segregation](#race-&-segregation)
+        - [Race and Segregation](#race-and-segregation)
         - [Median Household income](#median-houshold-income)
         - [Mortgage Approval Rates through time](#mortgage-approval-rates-through-time) 
         - [Percent Home Ownership today & Owner Reported Property Value Today](#percet-home-ownership-today-&-owner-reported-property-value-today)
         - [Percent of Population in Poverty](#percent-of-population-in-poverty)
 - [Part III. Proposed Visuals](#part-iii-proposed-visuals)
-- [Part IV. Objectives & User Needs](#part-iv-objectives-&-user-needs)
-- [Part V. Data Processing & Storage](#part-v-data-processing-&-storage)
+- [Part IV. Objectives and User Needs](#part-iv-objectives-and-user-needs)
+- [Part V. Data Processing and Storage](#part-v-data-processing-and-storage)
 - [Part VI. Data Stack and JS Libraries to Employ](#part-vi-data-stack-and-js-libraries-to-employ)
 - [Part VII. Layout](#part-vii-layout)
 - [Inspiration](#inspiration)
@@ -54,7 +54,7 @@ All data mapped will be in comparison with the redlined neighborhoods of Lexingt
 ### Aspects of Wealth
 Exploring wealth under the umbrella of the ability to accumulate generational wealth through home ownership.
 
-#### Race & Segregation
+#### Race and Segregation
 [*Race for the Population 18 years+ 2020*](https://data.census.gov/cedsci/table?q=p3&t=Race%20and%20Ethnicity&g=0500000US21067%241400000&y=2020)
 - All of Fayette County 
 - Data available to download:
@@ -70,7 +70,7 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
     - CSV file data (34 kb)
     - TXT file table title (6 kb)
 
-#### Percent Home Ownership today & Owner Reported Property Value Today
+#### Percent Home Ownership today and Owner Reported Property Value Today
 [*US census bureau American Community Survey DP04 2019*](https://data.census.gov/cedsci/table?q=DP04&g=0500000US21067%241400000)
 - Only census tracts clipped by HOLC were downloaded from website
 - Data available to download:
@@ -101,7 +101,7 @@ Articles of interest:
 - O'Malley, Nancy. 2002. The Pursuit of Freedom The Evolution of Kinkeadtown, an African American Post-Civil War Neighborhood in Lexington, Kentucky. Winterthur Portfolio. Vol 37. No. 4. pp. 187-218.  
 - Rabinowitz, Howard. 1976. From Reconstruction to Redemption in the Urban South. Journal of Urban History. Vol 2. No 2. pp 169-194  
     
-## Part IV. Objectives & User Needs
+## Part IV. Objectives and User Needs
 INFORMATION HERE WILL FOR OBJECTIVE WILL BE PULLED FROM BACGRKOUND.MD
 
 User will need to be able to make comparisons between the HOLC neighborhood grades and the current status of a data set (simultaneously) within/across those graded areas. HOLC layer will be a polygon layer whose outline color will correspond to grade level/hazard risk assigned by HOLC. HOLC grades traditionally used Green (Grade A)-Blue (Grade B)-Yellow (Grade C)-Red (Grade D). All other data sets will be colored based on polygon of census bureau tract data in a color ramp. Since the census bureau tracts will not always align with HOLC grades UI/UX will be utilized to interpret data in the same space.
@@ -120,7 +120,7 @@ The following UI/UX items will be included to make the experience personalized a
 - Zoom for closer views
 - Info button to hide/reveal ui info panel
 
-## Part V. Data Processing & Storage
+## Part V. Data Processing and Storage
 Unprocessed data to be downloaded, date accessed notated above in Part II, unzipped and stored initially in the notebooks/data directory of this repo. Files are included on .gitignore to prevent excessive file sizes being pushed to github repo. Data will be loaded into a [Python/Jupyter Notebook](notebooks/lex-redlined-wealth.ipynb) for pre-processing. Specific steps in processing data will be indicated using markdown cells in the Jupyter Notebook, including the code used to process. Finalized data will be written to JSON file from Jupyter Notebook to data folder within repo directory as opposed to data folder within notebook directory.
 
 Environmental Dependencies Anticipated:
@@ -152,7 +152,7 @@ A similar project to reference was 673 4-5.
 - [ramp styling 2020 census by race](https://mtgis-portal.geo.census.gov/arcgis/apps/MapSeries/index.html?appid=2566121a73de463995ed2b2fd7ff6eb7)
 - [overlap of holc designations & secondary ramp map](https://lojic.maps.arcgis.com/apps/MapSeries/index.html?appid=e4d29907953c4094a17cb9ea8f8f89de)
 
-## References (of this readme.md)
+## References for readme
 - Crampton, J.W. 2014. The power of maps. In: Cloke, P., Crang, P., Goodwin, M. (Eds.), Introducing human geographies, 3. Hodder Education London.
 - Robert K. Nelson, LaDale Winling, Richard Marciano, Nathan Connolly, et al., “Mapping Inequality,” American Panorama, ed. Robert K. Nelson and Edward L. Ayers, accessed January 25, 2022, https://dsl.richmond.edu/panorama/redlining//#loc=14/38.041/-84.526&city=lexington-ky&text=downloads
 
