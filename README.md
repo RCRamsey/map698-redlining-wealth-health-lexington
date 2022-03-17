@@ -6,6 +6,7 @@ A repo for exploring a final thesis project related to the wealth ripples throug
 ## Table of Contents
 - [Part I. Project Summary Proposal](#part-i-project-summary-proposal)  
 - [Part II. Data Sources](#part-ii-data-sources)  
+    - [Census Bureau Tracts](#census-bureau-tracts)
     - [HOLC Neighborhoods](#holc-neighborhoods)
     - [Aspects of Wealth](#aspects-of-wealth)
         - [Race and Segregation](#race-and-segregation)
@@ -42,13 +43,19 @@ I want to find out what inequities have persisted generation to generation in or
 As demand increases for living in close proximity to the Central Business District and its accompanying improved amenities, redlined neighborhoods are at risk of gentrification. It is hoped that maps such as the one I propose can inform a user to make more thoughtful decisions with their votes within the Lexington cityscape. Voting can enact better policies to promote community renewal and prevent the gentrification of these areas. Policy changes are how we will begin the effort toward equity for the long term resident's access to benefit from revitalized areas they have been excluded from in the past.
 
 ## Part II: Data Sources
+### Census Bureau Tracts
+[US Census Bureau Tracts 2019 Shapefile](https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.2019.html)
+- Data Available as:
+    - Shapefile (2.27 mb)
+    - Accessed 13 February 2022
 
 ### HOLC Neighborhoods
 All data mapped will be in comparison with the redlined neighborhoods of Lexington GeoJSON provided through [Mapping Inequality](https://dsl.richmond.edu/panorama/redlining/#loc=15/38.046/-84.534&city=lexington-ky&text=downloads) (Nelson, Winling, Marciano, Connolly et al.).
 - Data Available as:
-    - Shapefile or GeoJSON
+    - Shapefile or GeoJSON (17.8 kb)
     - Georectified Image
     - Scan jpg 
+    - Accessed: 2 Feb 2022
 
 ### Aspects of Wealth
 Exploring wealth under the umbrella of the ability to accumulate generational wealth through home ownership.
@@ -60,6 +67,7 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
     - CSV metadata (10 kb)
     - CSV file data (40 kb)
     - TXT file table title (1 kb)
+    - Accessed: 8 Feb 2022
 
 #### Median Household income
 [*S1901 Income in the past 12 months (in 2019 inflation-adjusted dollars)*](https://data.census.gov/cedsci/table?q=income&g=0500000US21067%241400000&y=2019)
@@ -68,6 +76,7 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
     - CSV file metadata (11 kb)
     - CSV file data (34 kb)
     - TXT file table title (6 kb)
+    - Accessed: 2 March 2022
 
 #### Percent Home Ownership today and Owner Reported Property Value Today
 [*US census bureau American Community Survey DP04 2019*](https://data.census.gov/cedsci/table?q=DP04&g=0500000US21067%241400000)
@@ -76,13 +85,14 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
     - CSV file metadata (61 kb)
     - CSV file data (150 kb)
     - TXT file table title (5 kb)
+    - Accessed: 2 March 2022
 
 #### Percent of Population in Poverty
 [*S1701 Poverty Status in the past 12 months (ACS)*](https://data.census.gov/cedsci/table?q=s1701&g=0500000US21067%241400000&y=2019)
 - Data available to download:
-    - CSV File Metadata
-    - CSV file data
-    - TXT file table title
+    - CSV File Metadata (6 kb)
+    - CSV file data (85 kb)
+    - Accessed: 13 March 2022
 
 ## Part III. Proposed Visuals
 
