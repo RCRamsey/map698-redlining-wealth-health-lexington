@@ -7,7 +7,7 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
     <!-- Mapbox assembly minified css -->
     <link 
-        href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" 
+        href="https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.min.css" 
         rel="stylesheet"
     />
     <!-- Mapbox GL JS Reference -->
@@ -35,17 +35,112 @@
             background: #448ee4; 
         }
 
+        #info {
+            position: absolute;
+            margin-top: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: .04em;
+            color: #3d3d3d;
+            padding: 5px 10px;
+            top: 130px;
+            right: 10px;
+            z-index: 1000;
+            /*can't place button over map without z index default z index is 0, 1000 is higher than all other panes*/
+            border-radius: 4px;
+            border: 1px solid #aaa;
+            background: rgba(256, 256, 256, .3);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
         h1 {
             color: orange;
+        }
+
+        .map-overlay {
+            font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            position: absolute;
+            width: 25%;
+            top: 0;
+            left: 0;
+            padding: 10px;
+        }
+
+        .map-overlay .map-overlay-inner {
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        padding: 10px;
+        margin-bottom: 10px;
+        }
+        
+        .map-overlay label {
+        display: block;
+        margin: 0 0 10px;
+        }
+        
+        .map-overlay input {
+        background-color: transparent;
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        margin: 0;
+        cursor: ew-resize;
         }
 
     </style>
 </head>
 
 <body>
+    
+        
+
     <div id ='map'></div>
 
-    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
+    <div class="map-overlay top">
+        <div class="map-overlay-inner">
+        <label>Layer opacity: <span id="slider-value">100%</span></label>
+        <input id="slider" type="range" min="0" max="100" step="0" value="100">
+        </div>
+    </div>
+
+    <!-- info button to hide scrolling info panel -->
+    <!-- <button id='info'>Info</button> -->
+            
+    <!-- info floating side panel -->
+    <!-- <div class='absolute top-ml left bottom z1 w-full w300-ml px12 py12-ml events-none'> -->
+        <div class='flex flex--column h-viewport-full h-auto-ml hmax-full bg-white round-ml shadow-darken10 events-all'>
+            <!-- scrolling text -->
+            <div class='scroll-styled px12 py12 overflow-auto h-full'>
+                <h3 class='txt-m txt-bold mb6'>Title here</h3>
+                <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You can spend all day playing with mountains.
+                    In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature.
+                    See how easy it is to create a little tree right in your world. It's important to me that you're happy. Let's make a nice big leafy tree.
+                    A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create anything that makes you happy. Anyone can paint. We don't need any guidelines or formats. All we need to do is just let it flow right out of us.
+                     With something so strong, a little bit can go a long way. Even the worst thing we can do here is good. Isn't that fantastic? You can just push a little tree out of your brush like that. We'll paint one happy little tree right here. Let that brush dance around there and play.
+                    Let's put some highlights on these little trees. The sun wouldn't forget them. You don't have to be crazy to do this but it does help. And just raise cain. We'll put some happy little leaves here and there.
+                    Have fun with it. This piece of canvas is your world. We start with a vision in our heart, and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and fall like a little waterfall. There comes a nice little fluffer.
+                </p>
+            </div>
+        
+            <footer class='px12 py12 bg-gray-faint round-b-ml txt-s'>
+                Footer content here
+            </footer>
+        </div>
+    </div>
+
+    <div class='absolute top z1 w-240 px150 py150-ml events-none'>
+        <div class='flex flex--center-main'>
+            <div class='flex flex--column h-viewport-full h-auto-ml hmax-full bg-white round-ml shadow-darken10 events-all'>
+            <h1 class ='txt-m txt-bold mb6'>Main Title</h1>
+            </div>
+        </div>
+    </div>   
+       
+   
+
+
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.js"></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     
@@ -54,10 +149,76 @@
         'pk.eyJ1IjoicmNyYW1zZXkiLCJhIjoiY2wxNTJkeDkxMmE2NzNrcnR1YWp4bTJuZSJ9.VJgeO7B_6LZ3Uv9NTzaNVQ'
         const map = new mapboxgl.Map({
             container: 'map', //container ID
-            style: 'mapbox://styles/mapbox/streets-v11',// style URL
-            center: [-74.5, 40], //strating position [lng, lat]
-            zoom: 9 //starting zoom
+            style: 'mapbox://styles/rcramsey/cl0fo22zx000514ms9ohin6tx',// style URL
+            center: [-84.51, 38.04], //strating position [lng, lat]
+            zoom: 12 //starting zoom
         });
+
+        // use D3 method to load GeoJSON when the map is finished loading
+        map.on('load',() => {
+            // request GEOJSON data
+            d3.json('./data/race_cbtracts_hhi_own_val_pov_2019_gdf_json.json').then((geojson) => {
+                // when loaded
+                 console.log(geojson);
+
+                // call addLayer() function in scope
+                addLayer(geojson);
+            });
+        });
+
+        // define addLayer() function outside of scope
+        function addLayer(geojson) {
+            // add the source to the map
+            map.addSource('poverty-data', {
+                'type': 'geojson',
+                'data': geojson // use my data as source
+            });
+            
+            // add the GeoJSON data as a mapbox gl layer to visualize polygon
+            map.addLayer({
+                'id': 'text', // provide new id for later reference 
+                'type': 'fill',
+                'source': 'poverty-data', //refers to data source name entered above
+                'paint': {
+                    'fill-color': '#00364e', //initial fill color until legend added
+                    'fill-opacity': .75, //initial opacity until slider added
+                    'fill-outline-color': 'black'
+                }
+            });
+        };
+        
+        const slider = document.getElementById('slider');
+        const sliderValue = document.getElementById('slider-value');
+
+        // map.on('load', () => {
+        //     map.addSource('nocomputer', {
+        //         'type': 'vector',
+        //         'url': 'mapbox://mapbox.u8yyzaor'
+        //     });
+
+        //     map.addLayer({
+        //         'id': 'nocomputer',
+        //         'source': 'nocomputer',
+        //         'type': 'vector'
+        //     });
+        
+        // slider.addEventListener('input', (e) => {
+        //     // Adjust the layers opacity. layer here is arbitrary - this could
+        //     // be another layer name found in your style or a custom layer
+        //     // added on the fly using `addSource`.
+        //     map.setPaintProperty(
+        //         'chicago',
+        //         'raster-opacity',
+        //         parseInt(e.target.value, 10) / 100
+        //     );
+        
+        // // Value indicator
+        // sliderValue.textContent = e.target.value + '%';
+        // });
+
+
+        // add zoom and rotation controls to map
+        map.addControl(new mapboxgl.NavigationControl());
 
     </script>
 
