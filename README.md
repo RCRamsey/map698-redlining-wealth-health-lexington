@@ -111,8 +111,6 @@ Articles of interest:
 - Rabinowitz, Howard. 1976. From Reconstruction to Redemption in the Urban South. Journal of Urban History. Vol 2. No 2. pp 169-194  
     
 ## Part IV. Objectives and User Needs
-INFORMATION HERE WILL FOR OBJECTIVE WILL BE PULLED FROM BACGRKOUND.MD
-
 User will need to be able to make comparisons between the HOLC neighborhood grades and the current status of a data set (simultaneously) within/across those graded areas. HOLC layer will be a polygon layer whose outline color will correspond to grade level/hazard risk assigned by HOLC. HOLC grades traditionally used Green (Grade A)-Blue (Grade B)-Yellow (Grade C)-Red (Grade D). All other data sets will be colored based on polygon of census bureau tract data in a color ramp. Since the census bureau tracts will not always align with HOLC grades UI/UX will be utilized to interpret data in the same space.
 
 The following UI/UX items will be included to make the experience personalized and map view uncomplicated:  

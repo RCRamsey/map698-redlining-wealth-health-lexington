@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Title Text</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+    <!-- Mapbox assembly minified css -->
+    <link 
+        href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" 
+        rel="stylesheet"
+    />
+    <!-- Mapbox GL JS Reference -->
+    <link 
+        href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" 
+        rel="stylesheet"
+    />
+    
+
+    <!-- <link href='css/styles.css' rel='stylesheet' /> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'> -->
+
+    <style>
+        /* custom CSS style rules*/
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100% ;
+            background: #448ee4; 
+        }
+
+        h1 {
+            color: orange;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id ='map'></div>
+
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    
+    <script>
+        mapboxgl.accessToken =
+        'pk.eyJ1IjoicmNyYW1zZXkiLCJhIjoiY2wxNTJkeDkxMmE2NzNrcnR1YWp4bTJuZSJ9.VJgeO7B_6LZ3Uv9NTzaNVQ'
+        const map = new mapboxgl.Map({
+            container: 'map', //container ID
+            style: 'mapbox://styles/mapbox/streets-v11',// style URL
+            center: [-74.5, 40], //strating position [lng, lat]
+            zoom: 9 //starting zoom
+        });
+
+    </script>
+
+</body>
+</html>
