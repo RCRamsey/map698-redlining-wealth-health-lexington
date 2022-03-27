@@ -4,10 +4,10 @@ Homeownership provides the means to build equity in a home as opposed to giving 
 
 There is no shying away from the fact that the United States has inherent systemic racism built into policies and legislation. This map project is designed as an effort to assist the user in 'knowing better' so that they can 'do better'. 
 
-*Historical town development since 1800's to be inserted here*
-*Historical racial zoning, covenants etc to be inserted here.*  
-*Info about HOLC redlining historical practices to be inserted here* 
-*Info about HOLC redlining impacts studied/researched to be inserted here*
+*Historical town development since 1800's to be inserted here*  
+*Historical racial zoning, covenants etc to be inserted here.*    
+*Info about HOLC redlining historical practices to be inserted here*   
+*Info about HOLC redlining impacts studied/researched to be inserted here*  
 
 It is my hope that users will take ownership and responsibility for the past generations of inherent racist decision/policies with a specific focus on housing in Lexington. With information in hand, informed users can use their vote to promote equitable projects and grant funding that benefit the neighborhoods and occupants continuing to be impacted by redlining practices implemented decades ago. 
 
