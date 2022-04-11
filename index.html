@@ -14,98 +14,35 @@
     <!-- Plugin for opacity tool -->
     <link href="plugin/mapbox-gl-opacity/dist/mapbox-gl-opacity.css" rel="stylesheet">
 
-    <!-- general css styles -->
+    <!-- my general css styles -->
     <link href='css/styles.css' rel='stylesheet' />
     
     <!-- to consider loading other font -->
     <!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'> -->
 
     <style>
-        /* custom CSS style rules*/
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100% ;
-            background: #448ee4; 
-        }
-
-        #info {
-            position: absolute;
-            margin-top: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            letter-spacing: .04em;
-            color: #3d3d3d;
-            padding: 5px 10px;
-            top: 130px;
-            right: 10px;
-            z-index: 1000;
-            /*can't place button over map without z index default z index is 0, 1000 is higher than all other panes*/
-            border-radius: 4px;
-            border: 1px solid #aaa;
-            background: rgba(256, 256, 256, .3);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-        }
-
-        h1 {
-            color: orange;
-        }
-
-        .map-overlay {
-            font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-            position: absolute;
-            width: 25%;
-            top: 0;
-            left: 0;
-            padding: 10px;
-        }
-
-        .map-overlay .map-overlay-inner {
-        background-color: #fff;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        border-radius: 3px;
-        padding: 10px;
-        margin-bottom: 10px;
-        }
-        
-        .map-overlay label {
-        display: block;
-        margin: 0 0 10px;
-        }
-        
-        .map-overlay input {
-        background-color: transparent;
-        display: inline-block;
-        width: 100%;
-        position: relative;
-        margin: 0;
-        cursor: ew-resize;
-        }
-
+        /* styles stored in styles.css file */
     </style>
 </head>
 
 <body>
     <div id ='map'></div>
 
-    <div class="map-overlay top">
+    <!-- ✏️ need % opacity to populate in box -->
+    <!-- ✏️ need slider bar to be moved to right of info panel -->
+    <!-- <div class="map-overlay top">
         <div class="map-overlay-inner">
-        <label>Layer opacity: <span id="slider-value">100%</span></label>
+        <label>Layer opacity: <span id="slider-value">% to report???</span></label>
         <input id="slider" type="range" min="0" max="100" step="0" value="100">
         </div>
-    </div>
+    </div> -->
 
     <!-- info button to hide scrolling info panel -->
+    <!-- ✏️ need info button to function and hide info panel -->
     <!-- <button id='info'>Info</button> -->
             
     <!-- info floating side panel -->
-    <!-- <div class='absolute top-ml left bottom z1 w-full w300-ml px12 py12-ml events-none'> -->
+    <!-- <div class='absolute top-ml left bottom z1 w-full w300-ml px12 py12-ml events-none'>
         <div class='flex flex--column h-viewport-full h-auto-ml hmax-full bg-white round-ml shadow-darken10 events-all'>
             <!-- scrolling text -->
             <div class='scroll-styled px12 py12 overflow-auto h-full'>
@@ -124,24 +61,17 @@
                 Footer content here
             </footer>
         </div>
-    </div>
+    </div> -->
 
-    <div class='absolute top z1 w-240 px150 py150-ml events-none'>
-        <div class='flex flex--center-main'>
-            <div class='flex flex--column h-viewport-full h-auto-ml hmax-full bg-white round-ml shadow-darken10 events-all'>
-            <h1 class ='txt-m txt-bold mb6'>Main Title</h1>
-            </div>
-        </div>
-    </div>   
+    <div id="title" value="newest title"> <p>The title of which is tbd</p></div>
        
    
-
-
     <script async defer src="https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.js"></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     
     <!-- attempt using plugin for opacity -->
+    <!-- ✏️ where is the app file needed for this? -->
     <script type ='module' src="js/app.js"></script>
 
     <script>
@@ -149,7 +79,7 @@
         'pk.eyJ1IjoicmNyYW1zZXkiLCJhIjoiY2wxNTJkeDkxMmE2NzNrcnR1YWp4bTJuZSJ9.VJgeO7B_6LZ3Uv9NTzaNVQ'
         const map = new mapboxgl.Map({
             container: 'map', //container ID
-            style: 'mapbox://styles/rcramsey/cl0fo22zx000514ms9ohin6tx',// style URL
+            style: 'mapbox://styles/rcramsey/cl0fo22zx000514ms9ohin6tx',// ✏️ style URL refine later
             center: [-84.51, 38.04], //strating position [lng, lat]
             zoom: 12 //starting zoom
         });
@@ -182,12 +112,11 @@
                 'paint': {
                     'fill-color': '#00364e', //initial fill color until legend added
                     'fill-opacity': .75, //initial opacity until slider added
-                    'fill-outline-color': 'black'
+                    'fill-outline-color': 'white'
                 }
             });
         };
         
-      
         // add zoom and rotation controls to map
         map.addControl(new mapboxgl.NavigationControl());
 
