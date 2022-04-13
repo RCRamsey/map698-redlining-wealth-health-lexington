@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-    <meta charset=utf-8 />
-    <title>Tab Text</title>
+    <meta charset='utf-8'/>
+    <title>Redlining Prevents Wealth</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
     
     <!-- Mapbox assembly minified css stylesheet-->
@@ -22,6 +22,7 @@
 
     <style>
         /* styles stored in styles.css file */
+
     </style>
 </head>
 
@@ -32,7 +33,7 @@
     <!-- ✏️ need slider bar to be moved to right of info panel -->
     <div class="map-overlay top">
         <div class="map-overlay-inner">
-        <label>Layer opacity: <span id="slider-value">% to report???</span></label>
+        <label>Layer opacity: <span id="slider-value">100%</span></label>
         <input id="slider" type="range" min="0" max="100" step="0" value="100">
         </div>
     </div>
@@ -84,35 +85,65 @@
             zoom: 12 //starting zoom
         });
 
+        const slider = document.getElementById('slider');
+        const sliderValue = document.getElementById('slider-value');
+
         // use D3 method to load GeoJSON when the map is finished loading
         map.on('load',() => {
             // request GEOJSON data
-            d3.json('./data/race_cbtracts_hhi_own_val_pov_2019_gdf_json.json').then((geojson) => {
+            d3.json('./data/KYLexington1936.geojson').then((geojson) => {
                 // when loaded
                  console.log(geojson);
 
                 // call addLayer() function in scope
                 addLayer(geojson);
             });
+
+            slider.addEventListener('input', (e)=> {
+                // Adjust the layers opacity.
+                map.setPaintProperty(
+                    // source Id
+                    'redlining',
+                    // when the layer is created in mapbox from my geojson, it is added as a raster? right?
+                    'fill-opacity',
+                    parseInt(e.target.value, 10) / 100
+                );
+
+                // Value Indicator
+                sliderValue.textContent = e.target.value + '%';
+            });
         });
 
         // define addLayer() function outside of scope
         function addLayer(geojson) {
             // add the source to the map
-            map.addSource('poverty-data', {
+            map.addSource('redlining', {
                 'type': 'geojson',
                 'data': geojson // use my data as source
             });
             
-            // add the GeoJSON data as a mapbox gl layer to visualize polygon
+            // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
             map.addLayer({
-                'id': 'text', // provide new id for later reference 
+                'id': 'redlining', // provide new id for later reference 
                 'type': 'fill',
-                'source': 'poverty-data', //refers to data source name entered above
+                'source': 'redlining', //refers to data source name entered above
                 'paint': {
-                    'fill-color': '#00364e', //initial fill color until legend added
-                    'fill-opacity': .75, //initial opacity until slider added
-                    'fill-outline-color': 'white'
+                    'fill-color': [ // '#00364e', initial fill color until add identity
+                        'match',
+                        ['get', 'holc_grade'],
+                        'A',
+                        'green',
+                        'B',
+                        'blue',
+                        'C',
+                        'yellow',
+                        'D',
+                        'red',
+                        // other not caught
+                        'black' 
+                    ],
+                    //'fill-opacity': 1, //initial opacity until slider added
+                    //'fill-outline-color': 'white'
                 }
             });
         };

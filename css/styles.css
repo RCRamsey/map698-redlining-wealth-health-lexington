@@ -51,6 +51,8 @@ h1 {
 }
 
 /* CSS Class Selector Styling for group elements */
+
+/* currently applies to map overlay opacity slider */
 .map-overlay {
     font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: absolute;
