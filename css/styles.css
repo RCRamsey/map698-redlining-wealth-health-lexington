@@ -28,7 +28,7 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-#info {
+#infoButton {
     position: absolute;
     margin-top: 0;
     font-family: 'Montserrat', sans-serif;

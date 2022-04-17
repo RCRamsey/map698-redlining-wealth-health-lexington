@@ -17,6 +17,12 @@
     <!-- my general css styles -->
     <link href='css/styles.css' rel='stylesheet' />
     
+    <!-- remove prior to publishing final product DEVELOPMENTAL purposes only -->
+    <!-- request styles for mapbox-gl-inspect  -->
+    <link href='https://github.com/lukasmartinelli/mapbox-gl-inspect/releases/download/v1.3.1/mapbox-gl-inspect.css' rel='stylesheet' />
+    <!-- request js for mapbox-gl-inspect-->
+    <script src='https://github.com/lukasmartinelli/mapbox-gl-inspect/releases/download/v1.3.1/mapbox-gl-inspect.js'></script>
+    
     <!-- to consider loading other font -->
     <!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'> -->
 
@@ -29,7 +35,7 @@
 <body>
     <div id ='map'></div>
 
-    <!-- ✏️ need slider bar to be moved to right of info panel -->
+    <!-- insert opacity slider bar and give initial start opacity-->
     <div class="map-overlay bottom ml24 mb36">
         <div class="map-overlay-inner">
         <label>Layer opacity: <span id="slider-value">100%</span></label>
@@ -39,29 +45,31 @@
 
     <!-- info button to hide scrolling info panel -->
     <!-- ✏️ need info button to function and hide info panel -->
-    <button id='info'>Info</button>
+    <button id='infoButton'>Info</button>
             
     <!-- info floating side panel -->
-    <!-- <div class='absolute top-ml left bottom z1 w-full w300-ml px12 py12-ml events-none'> -->
-        <!-- <div class='flex flex--column h-viewport-full h-auto-ml hmax-full bg-white round-ml shadow-darken10 events-all'> -->
-             <!-- scrolling text -->
-            <div class='scroll-styled px12 py12 overflow-auto h-full'>
-                <h3 class='txt-m txt-bold mb6'>Title here</h3>
-                <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You can spend all day playing with mountains.
-                    In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature.
-                    See how easy it is to create a little tree right in your world. It's important to me that you're happy. Let's make a nice big leafy tree.
-                    A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create anything that makes you happy. Anyone can paint. We don't need any guidelines or formats. All we need to do is just let it flow right out of us.
-                     With something so strong, a little bit can go a long way. Even the worst thing we can do here is good. Isn't that fantastic? You can just push a little tree out of your brush like that. We'll paint one happy little tree right here. Let that brush dance around there and play.
-                    Let's put some highlights on these little trees. The sun wouldn't forget them. You don't have to be crazy to do this but it does help. And just raise cain. We'll put some happy little leaves here and there.
-                    Have fun with it. This piece of canvas is your world. We start with a vision in our heart, and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and fall like a little waterfall. There comes a nice little fluffer.
-                </p>
-            </div> -->
-        
-            <footer class='px12 py12 bg-gray-faint round-b-ml txt-s'>
-                Footer content here
-            </footer>
+    <div id ='infoPanel'>
+        <div class='relative top-ml left bottom z1 w-full w300-ml px12 py12-ml events-none'>
+            <div class='flex flex--column h-viewport-full h-auto-ml hmax-full bg-white round-ml shadow-darken10 events-all'>
+                <!-- scrolling text -->
+                <div class='scroll-styled px12 py12 overflow-auto h-full'>
+                    <h3 class='txt-m txt-bold mb6'>Title here</h3>
+                    <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You can spend all day playing with mountains.
+                        In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature.
+                        See how easy it is to create a little tree right in your world. It's important to me that you're happy. Let's make a nice big leafy tree.
+                        A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create anything that makes you happy. Anyone can paint. We don't need any guidelines or formats. All we need to do is just let it flow right out of us.
+                        With something so strong, a little bit can go a long way. Even the worst thing we can do here is good. Isn't that fantastic? You can just push a little tree out of your brush like that. We'll paint one happy little tree right here. Let that brush dance around there and play.
+                        Let's put some highlights on these little trees. The sun wouldn't forget them. You don't have to be crazy to do this but it does help. And just raise cain. We'll put some happy little leaves here and there.
+                        Have fun with it. This piece of canvas is your world. We start with a vision in our heart, and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and fall like a little waterfall. There comes a nice little fluffer.
+                    </p>
+                </div> -->
+            
+                <footer class='px12 py12 bg-gray-faint round-b-ml txt-s'>
+                    Footer content here
+                </footer>
+            </div>
         </div>
-    </div> -->
+    </div>
 
     <div id="title" value="newest title"> <p>The title of which is tbd</p></div>
        
@@ -69,7 +77,7 @@
     <script async defer src="https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.js"></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    
+
     <!-- using plugin for opacity -->
     <script type ='module' src="js/app.js"></script>
 
@@ -146,8 +154,23 @@
             });
         };
         
+        // select infoPanel using infoButton with click event listener to hide or display infoPanel
+        const targetInfoPanel = document.getElementById('infoPanel');
+        const btn = document.getElementById('infoButton');
+        btn.onclick = function () {
+            if (targetInfoPanel.style.display !== 'none') {
+                targetInfoPanel.style.display = 'none';
+            } else {
+                targetInfoPanel.style.display ='block';
+            }
+        };
         // add zoom and rotation controls to map
-        map.addControl(new mapboxgl.NavigationControl());
+       map.addControl(new mapboxgl.NavigationControl());
+
+        
+        // add mapbox inspection tool for development only
+        // ✏️  when i add this control, click and unclick I lose my layer
+        map.addControl(new MapboxInspect());  // click on box top right hand corner to 
 
     </script>
 
