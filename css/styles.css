@@ -2,8 +2,6 @@
  body {
     /* background: #2ecc71; */
     height: 100%;
-    /* margin: 0; */
-    /* padding: 0; */
 }
 
 /* CSS ID Selector Styles (unique ids) */
@@ -11,7 +9,17 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 100% ;
+    left: 0;
+    width: 50% ;
+    background: #448ee4; 
+}
+
+#map2{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50% ;
     background: #448ee4; 
 }
 
@@ -47,6 +55,9 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
+#infoPanel{
+    display: '';
+}
 /* #infoPanel {
     background: 'blue';
     overflow: hidden;
