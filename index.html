@@ -37,22 +37,22 @@
     
 
     <!-- insert opacity slider bar and give initial start opacity-->
-    <!-- <div class="map-overlay bottom ml24 mb36 z2" >
+    <div class="map-overlay bottom ml24 mb36 z2" >
         <div class="map-overlay-inner">
         <label>Redlined Layer Opacity: <span id="slider-value">100%</span></label>
         <input id="slider" type="range" min="0" max="100" step="0" value="100">
         </div>
-    </div> -->
+    </div>
 
     <!-- info button to hide scrolling info panel -->
-    <!-- <button id='infoButton'>Info</button> -->
+    <button id='infoButton'>Info</button>
 
     <!-- info floating side panel -->
-    <!-- <div id ='infoPanel'>
+    <div id ='infoPanel'>
         <div class='relative top-ml left z1 w-1/6 px12 py12-ml'>
             <div class='flex flex--column h-viewport-5/6 bg-white round-ml shadow-darken10 events-all'>
                 <!-- scrolling text -->
-                <!-- <div class='px12 py12 overflow-auto h-full'>
+                <div class='px12 py12 overflow-auto h-full'>
                     <h3 class='txt-m txt-bold mb6'>Title here</h3>
                     <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You can spend all day playing with mountains.
                         In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature.
@@ -61,19 +61,19 @@
                         With something so strong, a little bit can go a long way. Even the worst thing we can do here is good. Isn't that fantastic? You can just push a little tree out of your brush like that. We'll paint one happy little tree right here. Let that brush dance around there and play.
                         Let's put some highlights on these little trees. The sun wouldn't forget them. You don't have to be crazy to do this but it does help. And just raise cain. We'll put some happy little leaves here and there.
                         Have fun with it. This piece of canvas is your world. We start with a vision in our heart, and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and fall like a little waterfall. There comes a nice little fluffer.
-                    </p> -->
-                <!-- </div>
+                    </p>
+                </div>
             
                 <footer class='px12 py12 bg-gray-faint round-b-ml txt-s'>
                     Footer content here
                 </footer> -->
             </div>
         </div>
-    </div> -->
+    </div>
 
-    <!-- <div id="title" value="newest title"> <h1 class ='txt-bold'>How Racial Capitalism Persists today in Lexington, KY</h2>
+    <div id="title" value="newest title"> <h1 class ='txt-bold'>How Racial Capitalism Persists today in Lexington, KY</h2>
         <h2 class ='txt-bold'>An exploration of 1930s Redlining Practices</h2>
-    </div> -->
+    </div>
        
     <div id ='map2'></div>
 
@@ -98,8 +98,8 @@
             zoom: 12 //starting zoom
         });
 
-       // const slider = document.getElementById('slider');
-        //  const sliderValue = document.getElementById('slider-value');
+       const slider = document.getElementById('slider');
+       const sliderValue = document.getElementById('slider-value');
 
         // use D3 method on map 1 to load GeoJSON when the map is finished loading
         map.on('load',() => {
@@ -177,7 +177,8 @@
             // use D3 method on map 2 to load GeoJSON when the map is finished loading
             map2.on('load',() => {
                 // request GEOJSON data
-                d3.json('./data/KYLexington1936.geojson').then((geojson) => {
+                //d3.json('./data/KYLexington1936.geojson').then((geojson) => {
+                d3.json('./data/race_cbtracts_hhi_own_val_pov_2019_gdf_json.json').then((geojson) => {
                     // when loaded
                     console.log(geojson);
 
@@ -186,34 +187,34 @@
                     mapSync();
                 });
 
-                slider.addEventListener('input', (e)=> {
-                    // Adjust the layers opacity.
-                    map2.setPaintProperty(
-                        // source Id
-                        'redlining',
-                        // when the layer is created in mapbox from my geojson, it is added as a raster? right?
-                        'fill-opacity',
-                        parseInt(e.target.value, 10) / 100
-                    );
+                // slider.addEventListener('input', (e)=> {
+                //     // Adjust the layers opacity.
+                //     map2.setPaintProperty(
+                //         // source Id
+                //         'other',
+                //         // when the layer is created in mapbox from my geojson, it is added as a raster? right?
+                //         'fill-opacity',
+                //         parseInt(e.target.value, 10) / 100
+                //     );
 
-                    // Value Indicator
-                    sliderValue.textContent = e.target.value + '%';
-                });
+                //     // Value Indicator
+                //     sliderValue.textContent = e.target.value + '%';
+                // });
             });
 
             // define addLayer() function outside of scope
             function addLayer2(geojson) {
                 // add the source to the map
-                map2.addSource('redlining', {
+                map2.addSource('other', {
                     'type': 'geojson',
                     'data': geojson // use my data as source
                 });
                 
                 // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
                 map2.addLayer({
-                    'id': 'redlining', // provide new id for later reference 
+                    'id': 'other', // provide new id for later reference 
                     'type': 'fill',
-                    'source': 'redlining', //refers to data source name entered above
+                    'source': 'other', //refers to data source name entered above
                     'paint': {
                         'fill-color': [ // '#00364e', initial fill color until add identity
                             'match',
@@ -229,25 +230,25 @@
                             // other not caught
                             'black' 
                         ],
-                        //'fill-opacity': 1, //initial opacity until slider added
-                        //'fill-outline-color': 'white'
+                        'fill-opacity': 1, //initial opacity until slider added
+                        'fill-outline-color': 'white'
                     }
                 });
             };
 
     
         // select infoPanel using infoButton with click event listener to hide or display infoPanel
-    //     const targetInfoPanel = document.getElementById('infoPanel');
-    //     const btn = document.getElementById('infoButton');
-    //     btn.onclick = function () {
-    //         if (targetInfoPanel.style.display !== 'block') {
-    //             targetInfoPanel.style.display = 'block';
-    //         } else {
-    //             targetInfoPanel.style.display = 'none';
-    //         }
-    //     };
-    //     // add zoom and rotation controls to map
-    //    map.addControl(new mapboxgl.NavigationControl());
+        const targetInfoPanel = document.getElementById('infoPanel');
+        const btn = document.getElementById('infoButton');
+        btn.onclick = function () {
+            if (targetInfoPanel.style.display !== 'block') {
+                targetInfoPanel.style.display = 'block';
+            } else {
+                targetInfoPanel.style.display = 'none';
+            }
+        };
+        // add zoom and rotation controls to map
+       map.addControl(new mapboxgl.NavigationControl());
 
     // Map & Map 2 syncing movement
     function mapSync(){ 
