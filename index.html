@@ -86,9 +86,11 @@
 
     <script>
 
-    // map 1 script
+        // map & map 2 access token
         mapboxgl.accessToken =
         'pk.eyJ1IjoicmNyYW1zZXkiLCJhIjoiY2wxNTJkeDkxMmE2NzNrcnR1YWp4bTJuZSJ9.VJgeO7B_6LZ3Uv9NTzaNVQ'
+        
+        // map 1 script
         const map = new mapboxgl.Map({
             container: 'map', //container ID
             style: 'mapbox://styles/rcramsey/cl0fo22zx000514ms9ohin6tx',// ✏️ style URL refine later
@@ -96,10 +98,10 @@
             zoom: 12 //starting zoom
         });
 
-        const slider = document.getElementById('slider');
-        const sliderValue = document.getElementById('slider-value');
+       // const slider = document.getElementById('slider');
+        //  const sliderValue = document.getElementById('slider-value');
 
-        // use D3 method to load GeoJSON when the map is finished loading
+        // use D3 method on map 1 to load GeoJSON when the map is finished loading
         map.on('load',() => {
             // request GEOJSON data
             d3.json('./data/KYLexington1936.geojson').then((geojson) => {
@@ -161,9 +163,7 @@
         
 
 
-    // map 2 script
-        
-            
+        // map 2 script
             const map2 = new mapboxgl.Map({
                 container: 'map2', //container ID
                 style: 'mapbox://styles/rcramsey/cl0fo22zx000514ms9ohin6tx',// ✏️ style URL refine later
@@ -174,20 +174,21 @@
             // const slider2 = document.getElementById('slider2');
             // const sliderValue2 = document.getElementById('slider-value2');
 
-            // use D3 method to load GeoJSON when the map is finished loading
-            map.on('load',() => {
+            // use D3 method on map 2 to load GeoJSON when the map is finished loading
+            map2.on('load',() => {
                 // request GEOJSON data
                 d3.json('./data/KYLexington1936.geojson').then((geojson) => {
                     // when loaded
                     console.log(geojson);
 
                     // call addLayer() function in scope
-                    addLayer(geojson);
+                    addLayer2(geojson);
+                    mapSync();
                 });
 
                 slider.addEventListener('input', (e)=> {
                     // Adjust the layers opacity.
-                    map.setPaintProperty(
+                    map2.setPaintProperty(
                         // source Id
                         'redlining',
                         // when the layer is created in mapbox from my geojson, it is added as a raster? right?
@@ -201,15 +202,15 @@
             });
 
             // define addLayer() function outside of scope
-            function addLayer(geojson) {
+            function addLayer2(geojson) {
                 // add the source to the map
-                map.addSource('redlining', {
+                map2.addSource('redlining', {
                     'type': 'geojson',
                     'data': geojson // use my data as source
                 });
                 
                 // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
-                map.addLayer({
+                map2.addLayer({
                     'id': 'redlining', // provide new id for later reference 
                     'type': 'fill',
                     'source': 'redlining', //refers to data source name entered above
@@ -236,25 +237,25 @@
 
     
         // select infoPanel using infoButton with click event listener to hide or display infoPanel
-        const targetInfoPanel = document.getElementById('infoPanel');
-        const btn = document.getElementById('infoButton');
-        btn.onclick = function () {
-            if (targetInfoPanel.style.display !== 'block') {
-                targetInfoPanel.style.display = 'block';
-            } else {
-                targetInfoPanel.style.display = 'none';
-            }
-        };
-        // add zoom and rotation controls to map
-       map.addControl(new mapboxgl.NavigationControl());
+    //     const targetInfoPanel = document.getElementById('infoPanel');
+    //     const btn = document.getElementById('infoButton');
+    //     btn.onclick = function () {
+    //         if (targetInfoPanel.style.display !== 'block') {
+    //             targetInfoPanel.style.display = 'block';
+    //         } else {
+    //             targetInfoPanel.style.display = 'none';
+    //         }
+    //     };
+    //     // add zoom and rotation controls to map
+    //    map.addControl(new mapboxgl.NavigationControl());
 
     // Map & Map 2 syncing movement
-        
+    function mapSync(){ 
         // if disable true then the map will be displayed as non-interactive
         var disable = false; // interactive
         map.on('move', function(){
            
-            if(!disable) { // boolean, if not true do below
+            if(!disable) { // boolean, if not do below
                 var center = map.getCenter();
                 var zoom = map.getZoom();
                 
@@ -292,7 +293,7 @@
             })
         });
     
-
+    };
 
 
         // add mapbox inspection tool for development only
