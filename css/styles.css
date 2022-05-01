@@ -2,18 +2,10 @@
  body {
     /* background: #2ecc71; */
     height: 100%;
-    /* margin: 0; */
-    /* padding: 0; */
+    background: greenyellow
 }
 
 /* CSS ID Selector Styles (unique ids) */
-#map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100% ;
-    background: #448ee4; 
-}
 
 #title {
     position: absolute;
@@ -47,6 +39,9 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
+/* #infoPanel{
+    display: 'none';
+} */
 /* #infoPanel {
     background: 'blue';
     overflow: hidden;
@@ -89,3 +84,63 @@ h1 {
     margin: 0;
     cursor: ew-resize;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+/* for 50/50 split vertical top/bottom */
+@media (min-width: 300px) {
+    #displayContainer {
+        height: 100vh;
+    }
+    
+    #map {
+        position: absolute;
+        top: 0;
+        width: 100vw ;
+        height: 50vh;
+        background: pink; 
+    }
+    
+    #map2{
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        height: 50vh;
+        background: #448ee4; 
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 740px) {
+    /* for 50/50 split horizontal left/right */
+#displayContainer {
+    height: 100%;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50% ;
+    height: 100%;
+    background: #448ee4; 
+}
+
+#map2{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: #448ee4; 
+}
+} 
+
+
+/* Large devices (desktops, 992px and up) */
+/* @media (min-width: 992px) {} */
+
+/* Extra large devices (large desktops, 1200px and up) */
+/* @media (min-width: 1200px) {} */ 
