@@ -36,7 +36,7 @@
     <div id ='map'></div>
     
 
-    <!-- insert opacity slider bar and give initial start opacity-->
+    <!-- insert opacity slider bar and give initial start opacity, use as developer tool-->
     <div class="map-overlay bottom ml24 mb36 z2" >
         <div class="map-overlay-inner">
         <label>Redlined Layer Opacity: <span id="slider-value">100%</span></label>
@@ -164,78 +164,80 @@
 
 
         // map 2 script
-            const map2 = new mapboxgl.Map({
-                container: 'map2', //container ID
-                style: 'mapbox://styles/rcramsey/cl0fo22zx000514ms9ohin6tx',// ✏️ style URL refine later
-                center: [-84.51, 38.04], //strating position [lng, lat]
-                zoom: 12 //starting zoom
+        const map2 = new mapboxgl.Map({
+            container: 'map2', //container ID
+            style: 'mapbox://styles/rcramsey/cl0fo22zx000514ms9ohin6tx',// ✏️ style URL refine later
+            center: [-84.51, 38.04], //strating position [lng, lat]
+            zoom: 12 //starting zoom
+        });
+
+        // const slider2 = document.getElementById('slider2');
+        // const sliderValue2 = document.getElementById('slider-value2');
+
+        // use D3 method on map 2 to load GeoJSON when the map is finished loading
+        map2.on('load',() => {
+            // request GEOJSON data
+            //d3.json('./data/KYLexington1936.geojson').then((geojson) => {
+            d3.json('./data/race_cbtracts_hhi_own_val_pov_2019_gdf_json.json').then((geojson) => {
+                // when loaded
+                console.log(geojson);
+
+                // call addLayer() function in scope
+                addLayer2(geojson);
+                mapSync();
             });
 
-            // const slider2 = document.getElementById('slider2');
-            // const sliderValue2 = document.getElementById('slider-value2');
+            // slider.addEventListener('input', (e)=> {
+            //     // Adjust the layers opacity.
+            //     map2.setPaintProperty(
+            //         // source Id
+            //         'other',
+            //         // when the layer is created in mapbox from my geojson, it is added as a raster? right?
+            //         'fill-opacity',
+            //         parseInt(e.target.value, 10) / 100
+            //     );
 
-            // use D3 method on map 2 to load GeoJSON when the map is finished loading
-            map2.on('load',() => {
-                // request GEOJSON data
-                //d3.json('./data/KYLexington1936.geojson').then((geojson) => {
-                d3.json('./data/race_cbtracts_hhi_own_val_pov_2019_gdf_json.json').then((geojson) => {
-                    // when loaded
-                    console.log(geojson);
+            //     // Value Indicator
+            //     sliderValue.textContent = e.target.value + '%';
+            // });
+        });
 
-                    // call addLayer() function in scope
-                    addLayer2(geojson);
-                    mapSync();
-                });
-
-                // slider.addEventListener('input', (e)=> {
-                //     // Adjust the layers opacity.
-                //     map2.setPaintProperty(
-                //         // source Id
-                //         'other',
-                //         // when the layer is created in mapbox from my geojson, it is added as a raster? right?
-                //         'fill-opacity',
-                //         parseInt(e.target.value, 10) / 100
-                //     );
-
-                //     // Value Indicator
-                //     sliderValue.textContent = e.target.value + '%';
-                // });
+        // define addLayer() function outside of scope
+        function addLayer2(geojson) {
+            // add the source to the map
+            map2.addSource('other', {
+                'type': 'geojson',
+                'data': geojson // use my data as source
             });
-
-            // define addLayer() function outside of scope
-            function addLayer2(geojson) {
-                // add the source to the map
-                map2.addSource('other', {
-                    'type': 'geojson',
-                    'data': geojson // use my data as source
-                });
                 
-                // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
-                map2.addLayer({
-                    'id': 'other', // provide new id for later reference 
-                    'type': 'fill',
-                    'source': 'other', //refers to data source name entered above
-                    'paint': {
-                        'fill-color': [ // '#00364e', initial fill color until add identity
-                            'match',
-                            ['get', 'holc_grade'],
-                            'A',
-                            'green',
-                            'B',
-                            'blue',
-                            'C',
-                            'yellow',
-                            'D',
-                            'red',
-                            // other not caught
-                            'black' 
-                        ],
-                        'fill-opacity': 1, //initial opacity until slider added
-                        'fill-outline-color': 'white'
-                    }
+            // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
+            map2.addLayer({
+                'id': 'other', // provide new id for later reference 
+                'type': 'fill',
+                'source': 'other', //refers to data source name entered above
+                'paint': {
+                    'fill-color': [ // '#00364e', initial fill color until add identity
+                        'match',
+                        ['get', 'holc_grade'],
+                        'A',
+                        'green',
+                        'B',
+                        'blue',
+                        'C',
+                        'yellow',
+                        'D',
+                        'red',
+                        // other not caught
+                        'black' 
+                    ],
+                    'fill-opacity': 1, //initial opacity until slider added
+                    'fill-outline-color': 'white'
+                }
                 });
             };
 
+        // add zoom and rotation controls to map
+        map2.addControl(new mapboxgl.NavigationControl());
     
         // select infoPanel using infoButton with click event listener to hide or display infoPanel
         const targetInfoPanel = document.getElementById('infoPanel');
@@ -249,54 +251,53 @@
                 targetInfoPanel.style.display = 'none';
             }
         };
-        // add zoom and rotation controls to map
-       map.addControl(new mapboxgl.NavigationControl());
+        
 
-    // Map & Map 2 syncing movement
-    function mapSync(){ 
-        // if disable true then the map will be displayed as non-interactive
-        var disable = false; // interactive
-        map.on('move', function(){
-           
-            if(!disable) { // boolean, if not do below
-                var center = map.getCenter();
-                var zoom = map.getZoom();
-                
-                // convert disable to be true
-                // prevents looping between both maps so only one can be moved
-                disable = true; // map 1 non interactive (static)
+        // Map & Map 2 syncing movement
+        function mapSync(){ 
+            // if disable true then the map will be displayed as non-interactive
+            var disable = false; // interactive
+            map.on('move', function(){
+            
+                if(!disable) { // boolean, if not do below
+                    var center = map.getCenter();
+                    var zoom = map.getZoom();
+                    
+                    // convert disable to be true
+                    // prevents looping between both maps so only one can be moved
+                    disable = true; // map 1 non interactive (static)
 
-                // set map 2 to new map center & zoom
-                map2.setCenter(center);
-                map2.setZoom(zoom);
-                disable = false; // map 1 back to interactive
-            }
-        })
-
-        map2.on('move', function(){
-            if(!disable) { // boolean, it not true do below
-                var center = map2.getCenter();
-                var zoom = map2.getZoom();
-
-                // convert disable to be true
-                // prevents looping between both maps so only one can be moved
-                disable = true; // map 2 non interactive (static)
-
-                // set first map to new map 2 center & zoom
-                map.setCenter(center);
-                map.setZoom(zoom);
-                disable = false; // map 2 back to interactive
-            }
-        })
-
-        // mouse moving event
-        map.on('mousemove', function (e) {
-            map.featuresAt(e.point, {radius: 5}, function (error, features) {
-                if (error) throw error;
+                    // set map 2 to new map center & zoom
+                    map2.setCenter(center);
+                    map2.setZoom(zoom);
+                    disable = false; // map 1 back to interactive
+                }
             })
-        });
-    
-    };
+
+            map2.on('move', function(){
+                if(!disable) { // boolean, it not true do below
+                    var center = map2.getCenter();
+                    var zoom = map2.getZoom();
+
+                    // convert disable to be true
+                    // prevents looping between both maps so only one can be moved
+                    disable = true; // map 2 non interactive (static)
+
+                    // set first map to new map 2 center & zoom
+                    map.setCenter(center);
+                    map.setZoom(zoom);
+                    disable = false; // map 2 back to interactive
+                }
+            })
+
+            // mouse moving event
+            map.on('mousemove', function (e) {
+                map.featuresAt(e.point, {radius: 5}, function (error, features) {
+                    if (error) throw error;
+                })
+            });
+        
+        };
 
 
         // add mapbox inspection tool for development only
