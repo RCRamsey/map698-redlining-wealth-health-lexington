@@ -7,8 +7,6 @@
 
 /* CSS ID Selector Styles (unique ids) */
 
-
-
 #title {
     position: absolute;
     top: 8px;
@@ -89,7 +87,7 @@ h1 {
 
 /* Small devices (landscape phones, 576px and up) */
 /* for 50/50 split vertical top/bottom */
-@media (min-width: 100px) {
+@media (min-width: 300px) {
     #displayContainer {
         height: 100vh;
     }
@@ -97,8 +95,6 @@ h1 {
     #map {
         position: absolute;
         top: 0;
-        /* bottom: 0; */
-        /* left: 0; */
         width: 100vw ;
         height: 50vh;
         background: pink; 
@@ -106,9 +102,7 @@ h1 {
     
     #map2{
         position: absolute;
-        /* top: 0; */
         bottom: 0;
-        /* right: 0; */
         width: 100vw;
         height: 50vh;
         background: #448ee4; 
@@ -117,7 +111,7 @@ h1 {
 
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (min-width: 740px) {
     /* for 50/50 split horizontal left/right */
 #displayContainer {
     height: 100%;
