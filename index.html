@@ -27,16 +27,38 @@
     <!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'> -->
 
     <style>
-        /* styles stored in styles.css file */
-
+        /* styles stored in styles.css file */        
     </style>
 </head>
 
 <body>
-<div id ='displayContainer'> 
-    <div id ='map'></div>
+
+    <div id ='navBar'>
+      <nav>
+        <a class='inline-flex btn color-blue color-white-on-active bg-transparent bg-darken10-on-hover bg-blue-on-active txt-s ml3 is-active' href='#'>
+          <svg class='icon txt-m mr6'><use xlink:href='#icon-home'/></svg> Home
+        </a>
+        <a class='inline-flex btn color-blue color-white-on-active bg-transparent bg-darken10-on-hover bg-blue-on-active txt-s ml3' href='#'>
+          <svg class='icon txt-m mr6'><use xlink:href='#icon-user'/></svg> Account
+        </a>
+        <a class='inline-flex btn color-blue color-white-on-active bg-transparent bg-darken10-on-hover bg-blue-on-active txt-s ml3' href='#'>
+          <svg class='icon txt-m mr6'><use xlink:href='#icon-logout'/></svg> Logout
+        </a>
+        <!-- info button to hide scrolling info panel -->
+        <button id='infoButton'>Info</button>
+        <div id="title" value="newest title"> <h1 class ='txt-bold'>How Racial Capitalism Persists today in Lexington, KY</h2>
+            <h2 class ='txt-bold'>An exploration of 1930s Redlining Practices</h2>
+            </div>
+      </nav>
+    </div>
 
     
+
+    
+
+<div id ='displayContainer'> 
+    
+    <div id ='map'></div>
 
     <!-- insert opacity slider bar and give initial start opacity, use as developer tool-->
     <div class="map-overlay bottom ml24 mb36 z2" >
@@ -46,19 +68,18 @@
         </div>
     </div>
 
-    <!-- info button to hide scrolling info panel -->
-    <button id='infoButton'>Info</button>
+ 
 
     <!-- info floating side panel -->
-    <!-- <div id ='infoPanel'> -->
+    <div id ='infoPanel'>
         <!-- remember margins padding are referenced in the ml or px abberviations -->
-        <!-- <div class='relative top-ml left z1 w-1/6 px12 py12-ml'> -->
-            <!-- <div class='flex flex--column h-viewport-5/6 bg-white round-ml shadow-darken10 events-all'> -->
+        <div class='relative top-ml left z1 w-1/6 px12 py12-ml'> -->
+            <div class='flex flex--column h-viewport-5/6 bg-white round-ml shadow-darken10 events-all'> -->
                 <!-- scrolling text -->
-                <!-- <div class='px12 py12 overflow-auto h-full'> -->
-                    <!-- <h3 class='txt-m txt-bold mb6'>Title here</h3> -->
-                    <!-- <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You can spend all day playing with mountains. -->
-                        <!-- In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature.
+                <div class='px12 py12 overflow-auto h-full'>
+                    <h3 class='txt-m txt-bold mb6'>Title here</h3>
+                    <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You can spend all day playing with mountains.
+                        <!-- <!-- In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature. -->
                         See how easy it is to create a little tree right in your world. It's important to me that you're happy. Let's make a nice big leafy tree.
                         A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create anything that makes you happy. Anyone can paint. We don't need any guidelines or formats. All we need to do is just let it flow right out of us.
                         With something so strong, a little bit can go a long way. Even the worst thing we can do here is good. Isn't that fantastic? You can just push a little tree out of your brush like that. We'll paint one happy little tree right here. Let that brush dance around there and play.
@@ -67,15 +88,11 @@
                     </p>
                 </div> -->
             
-                <!-- <footer class='px12 py12 bg-gray-faint round-b-ml txt-s'>
+                <!-- <footer class='px12 py12 bg-gray-faint round-b-ml txt-s'> -->
                     Footer content here
-                </footer> -->
-            <!-- </div> -->
-        <!-- </div> -->
-    <!-- </div> --> -->
-
-    <div id="title" value="newest title"> <h1 class ='txt-bold'>How Racial Capitalism Persists today in Lexington, KY</h2>
-        <h2 class ='txt-bold'>An exploration of 1930s Redlining Practices</h2>
+                </footer>
+            </div>
+        </div>
     </div>
        
     <div id ='map2'></div>
@@ -245,7 +262,7 @@
             };
 
         // add zoom and rotation controls to map
-        map2.addControl(new mapboxgl.NavigationControl());
+        //map2.addControl(new mapboxgl.NavigationControl());
     
         // select infoPanel using infoButton with click event listener to hide or display infoPanel
         const targetInfoPanel = document.getElementById('infoPanel');
