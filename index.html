@@ -76,10 +76,6 @@
         </nav>
     </div>
 
-    
-
-    
-
 <div id ='displayContainer'> 
     
     <div id ='map'></div>
@@ -91,8 +87,8 @@
         <input id="slider" type="range" min="0" max="100" step="0" value="100">
         </div>
     </div>
-
- 
+       
+    <div id ='map2'></div>
 
     <!-- info floating side panel -->
     <div id ='infoPanel'>
@@ -118,8 +114,6 @@
             </div>
         </div>
     </div>
-       
-    <div id ='map2'></div>
 </div>
 
 <!-- when I need to enter a modal, it can go here outside of the split screen elements. visit assembly modal example -->
@@ -210,8 +204,6 @@
             });
         };
         
-
-
         // map 2 script
         const map2 = new mapboxgl.Map({
             container: 'map2', //container ID
@@ -301,7 +293,6 @@
             }
         };
         
-
         // Map & Map 2 syncing movement
         function mapSync(){ 
             // if disable true then the map will be displayed as non-interactive
@@ -347,7 +338,6 @@
             });
         
         };
-
 
         // add mapbox inspection tool for development only
         // ✏️  when i add this control, click and unclick I lose my layer
