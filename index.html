@@ -246,46 +246,117 @@
         // define addLayer() function outside of scope
         function addLayer2(geojson) {
             // add the source to the map
-            map2.addSource('other', {
+            map2.addSource('census', {
                 'type': 'geojson',
                 'data': geojson // use my data as source
             });
                 
             // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
-            map2.addLayer({
-                'id': 'other', // provide new id for later reference 
-                'type': 'fill',
-                'source': 'other', //refers to data source name entered above
-                'paint': {
-                    'fill-color': [ // '#00364e', initial fill color until add identity
-                        'match',
-                        ['get', 'holc_grade'],
-                        'A',
-                        'green',
-                        'B',
-                        'blue',
-                        'C',
-                        'yellow',
-                        'D',
-                        'red',
-                        // other not caught
-                        'black' 
-                    ],
-                    'fill-opacity': 1, //initial opacity until slider added
-                    'fill-outline-color': 'white'
-                }
-                });
-            };
+           
+            // // access census bureau race/segretation data
+            // map2.addLayer({
+            //     'id': 'race', // provide new id for later reference 
+            //     'type': 'fill',
+            //     'source': 'census', //refers to data source name entered above
+            //     'paint': {
+            //         'fill-color': [ // '#00364e', initial fill color until add identity
+            //             'match',
+            //             ['get', 'Total Other Race'],
+            //             'A',
+            //             'green',
+            //             'B',
+            //             'blue',
+            //             'C',
+            //             'yellow',
+            //             'D',
+            //             'red',
+            //             // other not caught
+            //             'black' 
+            //         ],
+            //         'fill-opacity': 1, //initial opacity until slider added
+            //         'fill-outline-color': 'white'
+            //     }
+            // });
 
-        // add zoom and rotation controls to map
-        //map2.addControl(new mapboxgl.NavigationControl());
+
+            
+
+            // access census bureaus median income data
+            map2.addLayer({
+                'id': 'income', // provide new id for later reference 
+                'type': 'fill',
+                'source': 'census', //refers to data source name entered above
+                'paint': {
+                    'fill-color': {
+                        property: 'median_income_dollars',
+                        stops: [[20000, '#fff'], [120000, '#f00']]
+                    }
+                    // 'fill-opacity': 1, //initial opacity until slider added
+                    // 'fill-outline-color': 'white'
+                }
+            });
+
+            // // access census bureau ownership vs rental status data
+            // map2.addLayer({
+            //     'id': 'ownership', // provide new id for later reference 
+            //     'type': 'fill',
+            //     'source': 'census', //refers to data source name entered above
+            //     'paint': {
+            //         'fill-color': [ // '#00364e', initial fill color until add identity
+            //             'match',
+            //             ['get', '%owner'],
+            //             'A',
+            //             'green',
+            //             'B',
+            //             'blue',
+            //             'C',
+            //             'yellow',
+            //             'D',
+            //             'red',
+            //             // other not caught
+            //             'black' 
+            //         ],
+            //         'fill-opacity': 1, //initial opacity until slider added
+            //         'fill-outline-color': 'white'
+            //     }
+            // });
+
+            // // Access census bureau property data
+            // map2.addLayer({
+            //     'id': 'propertyValue', // provide new id for later reference 
+            //     'type': 'fill',
+            //     'source': 'census', //refers to data source name entered above
+            //     'paint': {
+            //         'fill-color': [ // '#00364e', initial fill color until add identity
+            //             'match',
+            //             ['get', 'median dollar house'],
+            //             'A',
+            //             'green',
+            //             'B',
+            //             'blue',
+            //             'C',
+            //             'yellow',
+            //             'D',
+            //             'red',
+            //             // other not caught
+            //             'black' 
+            //         ],
+            //         'fill-opacity': 1, //initial opacity until slider added
+            //         'fill-outline-color': 'white'
+            //     }
+            // });
+        };
+
+        
+        
+        
     
         // select infoPanel using infoButton with click event listener to hide or display infoPanel
         const targetInfoPanel = document.getElementById('infoPanel');
         targetInfoPanel.style.display = 'none';
         
-        const btn = document.getElementById('infoButton');
-        btn.onclick = function () {
+        const ibtn = document.getElementById('infoButton');
+        ibtn.onclick = function () {
             if (targetInfoPanel.style.display !== 'block') {
                 targetInfoPanel.style.display = 'block';
             } else {
