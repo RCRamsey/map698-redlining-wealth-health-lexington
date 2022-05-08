@@ -49,6 +49,7 @@
     overflow-y: scroll;
 } */
 
+/* specific navbar styling */
 ul {
     list-style-type: none;
     margin: 0;
@@ -141,7 +142,7 @@ h2 {
 /* for 50/50 split vertical top/bottom */
 @media (min-width: 300px) {
     #displayContainer {
-        height: 100vh;
+        height: 100%;
     }
     
     #map {
