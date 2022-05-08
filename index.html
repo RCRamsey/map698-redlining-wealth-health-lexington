@@ -35,28 +35,43 @@
 
     <div id ='navBar'>
       <nav>
-            <div class = 'bg-gray-light border-b border--black flex h100 txt-bold'></a>
-                <!-- info button to hide scrolling info panel -->
-                <!-- -on-active is-active-->
-                <button id = 'infoButton'>
-                    <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-s ml3 ' href='#'>
-                        <svg class='icon txt-s mr6'><use xlink:href='#icon-bookmark'/></svg> Info
-                    </a>
-                </button>  
-            
-                <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-s ml3' href='#'>
-                    <svg class='icon txt-s mr1'><use xlink:href='#icon-layers'/></svg> Layers
-                </a>    
-                <div class = 'flex flex--space-between-main'>
-                    <div id="title" value="newest title"> 
-                        <div class = 'flex flex--space-between-main'>
-                            <h1 class> How Racial Capitalism Persists today in Lexington, KY:</h1> 
-                            <h2 class>An exploration of 1930s Redlining Practices</h2>
+            <div class = 'bg-darken75 border-b border--black flex h100 txt-bold'></a>
+                <!-- unordered list -->
+                <ul>
+                    <li>
+                        <!-- info button to hide scrolling info panel -->
+                        <!-- -on-active is-active-->
+                        <button id = 'infoButton'>
+                            <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-s ml3 ' href='#'>
+                                <svg class='icon txt-s mr6'><use xlink:href='#icon-bookmark'/></svg> Info
+                            </a>
+                        </button>  
+                    </li>
+
+                    <li class = 'dropdown'>
+                        <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-s ml3' href='#'>
+                        <svg class='icon txt-s mr1'><use xlink:href='#icon-layers'/></svg> Layers
+                        </a>
+
+                        <div class = 'dropdown-content'>
+                            <a href ='#'>Segregation/Race</a>
+                            <a href = '#'>Median Household Income</a>
+                            <a href = '#'>% Home Ownership</a>
+                            <a href = '#'>Property Value Reported</a>
                         </div>
-                    </div>
-                </div>
+                    </li>    
 
-
+                    <li>
+                        <div class = 'flex flex--space-between-main'>
+                            <div id="title" value="newest title"> 
+                                <div class = 'flex flex--space-between-main'>
+                                    <h1 class> How Racial Capitalism Persists today in Lexington, KY:</h1> 
+                                    <h2 class>An exploration of 1930s Redlining Practices</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
     </div>
