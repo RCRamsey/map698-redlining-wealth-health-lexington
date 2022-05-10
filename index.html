@@ -228,6 +228,7 @@
                 mapSync();
             });
 
+            // DEVELOPER TOOL TO DELETE PRIOR TO LAUNCH
             // slider.addEventListener('input', (e)=> {
             //     // Adjust the layers opacity.
             //     map2.setPaintProperty(
@@ -253,33 +254,20 @@
                 
             // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
            
-            // // access census bureau race/segretation data
-            // map2.addLayer({
-            //     'id': 'race', // provide new id for later reference 
-            //     'type': 'fill',
-            //     'source': 'census', //refers to data source name entered above
-            //     'paint': {
-            //         'fill-color': [ // '#00364e', initial fill color until add identity
-            //             'match',
-            //             ['get', 'Total Other Race'],
-            //             'A',
-            //             'green',
-            //             'B',
-            //             'blue',
-            //             'C',
-            //             'yellow',
-            //             'D',
-            //             'red',
-            //             // other not caught
-            //             'black' 
-            //         ],
-            //         'fill-opacity': 1, //initial opacity until slider added
-            //         'fill-outline-color': 'white'
-            //     }
-            // });
-
-
-            
+            // access census bureau race/segretation data
+            map2.addLayer({
+                'id': 'race', // provide new id for later reference 
+                'type': 'fill',
+                'source': 'census', //refers to data source name entered above
+                'paint': {
+                    'fill-color': {
+                        property: '%White',
+                        stops: [[0, '#efedf5'], [100, '#756bb1']],
+                    },
+                    'fill-opacity': .45, //initial opacity until slider added
+                    'fill-outline-color': 'white'
+                }
+            });
 
             // access census bureaus median income data
             map2.addLayer({
@@ -291,68 +279,100 @@
                         property: 'median_income_dollars',
                         stops: [[20000, '#fff'], [120000, '#f00']],
                     },
-                    'fill-opacity': 1, //initial opacity until slider added
+                    'fill-opacity': .45, //initial opacity until slider added
                     'fill-outline-color': 'white'
-                    
-             
                 }
             });
 
-            // // access census bureau ownership vs rental status data
-            // map2.addLayer({
-            //     'id': 'ownership', // provide new id for later reference 
-            //     'type': 'fill',
-            //     'source': 'census', //refers to data source name entered above
-            //     'paint': {
-            //         'fill-color': [ // '#00364e', initial fill color until add identity
-            //             'match',
-            //             ['get', '%owner'],
-            //             'A',
-            //             'green',
-            //             'B',
-            //             'blue',
-            //             'C',
-            //             'yellow',
-            //             'D',
-            //             'red',
-            //             // other not caught
-            //             'black' 
-            //         ],
-            //         'fill-opacity': 1, //initial opacity until slider added
-            //         'fill-outline-color': 'white'
-            //     }
-            // });
+            // access census bureau ownership vs rental status data
+            map2.addLayer({
+                'id': 'ownership', // provide new id for later reference 
+                'type': 'fill',
+                'source': 'census', //refers to data source name entered above
+                'paint': {
+                    'fill-color': {
+                        property: '%owner',
+                        stops: [[0, '#deebf7'], [100, '#3182bd']],
+                    },
+                    'fill-opacity': .45, //initial opacity until slider added
+                    'fill-outline-color': 'white'
+                }
+            });
 
             // // Access census bureau property data
+            //🧯 Need to convert string value to number value🧯 
             // map2.addLayer({
             //     'id': 'propertyValue', // provide new id for later reference 
             //     'type': 'fill',
             //     'source': 'census', //refers to data source name entered above
             //     'paint': {
-            //         'fill-color': [ // '#00364e', initial fill color until add identity
-            //             'match',
-            //             ['get', 'median dollar house'],
-            //             'A',
-            //             'green',
-            //             'B',
-            //             'blue',
-            //             'C',
-            //             'yellow',
-            //             'D',
-            //             'red',
-            //             // other not caught
-            //             'black' 
-            //         ],
-            //         'fill-opacity': 1, //initial opacity until slider added
+            //         'fill-color': {
+            //             property: 'median dollar house',
+            //             stops: [[100000, '#e5f5e0'], [1000000, '#31a354']],
+            //         },
+            //         'fill-opacity': .45, //initial opacity until slider added
             //         'fill-outline-color': 'white'
             //     }
             // });
         };
 
+        ///////////////////////////////////////////////////////////////////////////////
+        // 🧯 Place holder for click event of clicking on menu layer to change source layer 
+        // for census bureau data
         
+        //     function setLayerSource (layerId, source, sourceLayer?) {
+        //      const startLayer = map.getStyle().layers;
+        //      const layerIndex = oldLayers.findIndex(l => l.id === layerId);
+        //      const layerDef = oldLayers[layerIndex];
+        //      const before = oldLayers[layerIndex + 1] && oldLayers[layerIndex + 1].id;
+        //      layerDef.source = source;
+        //          if (sourceLayer) {
+        //         layerDef['source-layer'] = sourceLayer;
+        //     }
+        //          map.removeLayer(layerId);
+        //          map.addLayer(layerDef, before);
+        //      }
         
+        // layerButton.on('click', (e) => { //should this be drop-down content click event
+        //     console.log(e);
+        //         {
+        //             target: {...},
+        //             type: 'click'
+        //         }
+        // });
         
+        // will need a function to determine current layer and next layer to go to 
+        // assign menu button a constant var
+        // assign each layer option a constant var
+        // use if else statement to determine if layer id !== or does = to turn layer on and off
+        // baesd on if else change map display layer
+
+        // function setLayerSource (layerID, source, sourceLayer){
+        // if (map.getLayer(id)) {
+        //     map.removeLayer(id);
+        // }
+        // if (map.getSource(id)){
+        //     map.removeSource(id)
+        // }
+
+        // }
+        // methods of potential value
+        // map.removeLayer();
+        // map.addLayer();
     
+
+
+
+
+
+
+
+
+
+
+        //////////////////////////////////////////////////////////////////////////////////
+
+
         // select infoPanel using infoButton with click event listener to hide or display infoPanel
         const targetInfoPanel = document.getElementById('infoPanel');
         targetInfoPanel.style.display = 'none';
