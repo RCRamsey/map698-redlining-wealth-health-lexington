@@ -1,71 +1,77 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
-    <meta charset='utf-8'/>
+    <meta charset='utf-8' />
     <title>Redlining Prevents Wealth</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
-    
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
     <!-- Mapbox assembly minified css stylesheet-->
-    <link 
-        href="https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.min.css" rel="stylesheet"/>
+    <link href="https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.min.css" rel="stylesheet" />
     <!-- Mapbox GL JS Reference stylesheet-->
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet"/>
-    
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet" />
+
     <!-- Plugin for opacity tool -->
     <link href="plugin/mapbox-gl-opacity/dist/mapbox-gl-opacity.css" rel="stylesheet">
 
     <!-- my general css styles -->
     <link href='css/styles.css' rel='stylesheet' />
-    
+
     <!-- remove prior to publishing final product DEVELOPMENTAL purposes only -->
     <!-- request styles for mapbox-gl-inspect  -->
     <!-- <link href='https://github.com/lukasmartinelli/mapbox-gl-inspect/releases/download/v1.3.1/mapbox-gl-inspect.css' rel='stylesheet' /> -->
     <!-- request js for mapbox-gl-inspect-->
     <!-- <script src='https://github.com/lukasmartinelli/mapbox-gl-inspect/releases/download/v1.3.1/mapbox-gl-inspect.js'></script> -->
-    
+
     <!-- to consider loading other font -->
     <!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'> -->
 
     <style>
-        /* styles stored in styles.css file */        
+        /* styles stored in styles.css file */
     </style>
 </head>
 
 <body>
 
-    <div id ='navBar'>
-      <nav>
-            <div class = 'bg-darken75 border-b border--black flex h100 txt-bold'></a>
+    <div id='navBar'>
+        <nav>
+            <div class='bg-darken75 border-b border--black flex h100 txt-bold'></a>
                 <!-- unordered list -->
                 <ul>
                     <li>
                         <!-- info button to hide scrolling info panel -->
                         <!-- -on-active is-active-->
-                        <button id = 'infoButton'>
-                            <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-s ml3 ' href='#'>
-                                <svg class='icon txt-s mr6'><use xlink:href='#icon-bookmark'/></svg> Info
+                        <button id='infoButton'>
+                            <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-s ml3 '
+                                href='#'>
+                                <svg class='icon txt-s mr6'>
+                                    <use xlink:href='#icon-bookmark' />
+                                </svg> Info
                             </a>
-                        </button>  
+                        </button>
                     </li>
 
-                    <li class = 'dropdown'>
-                        <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-s ml3' href='#'>
-                        <svg class='icon txt-s mr1'><use xlink:href='#icon-layers'/></svg> Layers
+                    <li class='dropdown'>
+                        <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-s ml3'
+                            href='#'>
+                            <svg class='icon txt-s mr1'>
+                                <use xlink:href='#icon-layers' />
+                            </svg> Layers
                         </a>
 
-                        <div class = 'dropdown-content'>
-                            <a href ='#'>Segregation/Race</a>
-                            <a href = '#'>Median Household Income</a>
-                            <a href = '#'>% Home Ownership</a>
-                            <a href = '#'>Property Value Reported</a>
+                        <div class='dropdown-content'>
+                            <a value='race' href='#'>Segregation/Race</a>
+                            <a value='income' href='#'>Median Household Income</a>
+                            <a value='ownership' href='#'>% Home Ownership</a>
+                            <a href='#'>Property Value Reported</a>
                         </div>
-                    </li>    
+                    </li>
 
                     <li>
-                        <div class = 'flex flex--space-between-main'>
-                            <div id="title" value="newest title"> 
-                                <div class = 'flex flex--space-between-main'>
-                                    <h1 class> How Racial Capitalism Persists today in Lexington, KY:</h1> 
+                        <div class='flex flex--space-between-main'>
+                            <div id="title" value="newest title">
+                                <div class='flex flex--space-between-main'>
+                                    <h1 class> How Racial Capitalism Persists today in Lexington, KY:</h1>
                                     <h2 class>An exploration of 1930s Redlining Practices</h2>
                                 </div>
                             </div>
@@ -76,63 +82,74 @@
         </nav>
     </div>
 
-<div id ='displayContainer'> 
-    
-    <div id ='map'></div>
+    <div id='displayContainer'>
 
-    <!-- insert opacity slider bar and give initial start opacity, use as developer tool-->
-    <div class="map-overlay bottom ml24 mb36 z2" >
-        <div class="map-overlay-inner">
-        <label>Redlined Layer Opacity: <span id="slider-value">100%</span></label>
-        <input id="slider" type="range" min="0" max="100" step="0" value="100">
+        <div id='map'></div>
+
+        <!-- insert opacity slider bar and give initial start opacity, use as developer tool-->
+        <div class="map-overlay bottom ml24 mb36 z2">
+            <div class="map-overlay-inner">
+                <label>Redlined Layer Opacity: <span id="slider-value">100%</span></label>
+                <input id="slider" type="range" min="0" max="100" step="0" value="100">
+            </div>
         </div>
-    </div>
-       
-    <div id ='map2'></div>
 
-    <!-- info floating side panel -->
-    <div id ='infoPanel'>
-        <!-- remember margins padding are referenced in the ml or px abberviations -->
-        <div class='relative top-ml left z1 w-1/6 px12 py12-ml'> -->
-            <div class='flex flex--column h-viewport-5/6 bg-white round-ml shadow-darken10 events-all'> -->
-                <!-- scrolling text -->
-                <div class='px12 py12 overflow-auto h-full'>
-                    <h3 class='txt-m txt-bold mb6'>Title here</h3>
-                    <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You can spend all day playing with mountains.
-                        <!-- <!-- In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature. -->
-                        See how easy it is to create a little tree right in your world. It's important to me that you're happy. Let's make a nice big leafy tree.
-                        A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create anything that makes you happy. Anyone can paint. We don't need any guidelines or formats. All we need to do is just let it flow right out of us.
-                        With something so strong, a little bit can go a long way. Even the worst thing we can do here is good. Isn't that fantastic? You can just push a little tree out of your brush like that. We'll paint one happy little tree right here. Let that brush dance around there and play.
-                        Let's put some highlights on these little trees. The sun wouldn't forget them. You don't have to be crazy to do this but it does help. And just raise cain. We'll put some happy little leaves here and there.
-                        Have fun with it. This piece of canvas is your world. We start with a vision in our heart, and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and fall like a little waterfall. There comes a nice little fluffer.
-                    </p>
-                </div> -->
-            
-                <!-- <footer class='px12 py12 bg-gray-faint round-b-ml txt-s'> -->
+        <div id='map2'></div>
+
+        <!-- info floating side panel -->
+        <div id='infoPanel'>
+            <!-- remember margins padding are referenced in the ml or px abberviations -->
+            <div class='relative top-ml left z1 w-1/6 px12 py12-ml'> -->
+                <div class='flex flex--column h-viewport-5/6 bg-white round-ml shadow-darken10 events-all'> -->
+                    <!-- scrolling text -->
+                    <div class='px12 py12 overflow-auto h-full'>
+                        <h3 class='txt-m txt-bold mb6'>Title here</h3>
+                        <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You
+                            can spend all day playing with mountains.
+                            <!-- In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature. -->
+                            See how easy it is to create a little tree right in your world. It's important to me that
+                            you're happy. Let's make a nice big leafy tree.
+                            A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create
+                            anything that makes you happy. Anyone can paint. We don't need any guidelines or formats.
+                            All we need to do is just let it flow right out of us.
+                            With something so strong, a little bit can go a long way. Even the worst thing we can do
+                            here is good. Isn't that fantastic? You can just push a little tree out of your brush like
+                            that. We'll paint one happy little tree right here. Let that brush dance around there and
+                            play.
+                            Let's put some highlights on these little trees. The sun wouldn't forget them. You don't
+                            have to be crazy to do this but it does help. And just raise cain. We'll put some happy
+                            little leaves here and there.
+                            Have fun with it. This piece of canvas is your world. We start with a vision in our heart,
+                            and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and
+                            fall like a little waterfall. There comes a nice little fluffer.
+                        </p>
+                    </div> -->
+
+                    <!-- <footer class='px12 py12 bg-gray-faint round-b-ml txt-s'> -->
                     Footer content here
-                </footer>
+                    </footer>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- when I need to enter a modal, it can go here outside of the split screen elements. visit assembly modal example -->
+    <!-- when I need to enter a modal, it can go here outside of the split screen elements. visit assembly modal example -->
 
-</div>
+    </div>
 
     <script async defer src="https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.js"></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <!-- using plugin for opacity -->
-    <script type ='module' src="js/app.js"></script>
+    <script type='module' src="js/app.js"></script>
 
     <script>
 
         // map & map 2 access token
         mapboxgl.accessToken =
-        'pk.eyJ1IjoicmNyYW1zZXkiLCJhIjoiY2wxNTJkeDkxMmE2NzNrcnR1YWp4bTJuZSJ9.VJgeO7B_6LZ3Uv9NTzaNVQ'
-        
+            'pk.eyJ1IjoicmNyYW1zZXkiLCJhIjoiY2wxNTJkeDkxMmE2NzNrcnR1YWp4bTJuZSJ9.VJgeO7B_6LZ3Uv9NTzaNVQ'
+
         // map 1 script
         const map = new mapboxgl.Map({
             container: 'map', //container ID
@@ -141,21 +158,21 @@
             zoom: 12 //starting zoom
         });
 
-       const slider = document.getElementById('slider');
-       const sliderValue = document.getElementById('slider-value');
+        const slider = document.getElementById('slider');
+        const sliderValue = document.getElementById('slider-value');
 
         // use D3 method on map 1 to load GeoJSON when the map is finished loading
-        map.on('load',() => {
+        map.on('load', () => {
             // request GEOJSON data
             d3.json('./data/KYLexington1936.geojson').then((geojson) => {
                 // when loaded
-                 console.log(geojson);
+                console.log(geojson);
 
                 // call addLayer() function in scope
                 addLayer(geojson);
             });
 
-            slider.addEventListener('input', (e)=> {
+            slider.addEventListener('input', (e) => {
                 // Adjust the layers opacity.
                 map.setPaintProperty(
                     // source Id
@@ -177,7 +194,7 @@
                 'type': 'geojson',
                 'data': geojson // use my data as source
             });
-            
+
             // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
             map.addLayer({
                 'id': 'redlining', // provide new id for later reference 
@@ -196,14 +213,14 @@
                         'D',
                         'red',
                         // other not caught
-                        'black' 
+                        'black'
                     ],
                     //'fill-opacity': 1, //initial opacity until slider added
                     //'fill-outline-color': 'white'
                 }
             });
         };
-        
+
         // map 2 script
         const map2 = new mapboxgl.Map({
             container: 'map2', //container ID
@@ -216,7 +233,7 @@
         // const sliderValue2 = document.getElementById('slider-value2');
 
         // use D3 method on map 2 to load GeoJSON when the map is finished loading
-        map2.on('load',() => {
+        map2.on('load', () => {
             // request GEOJSON data
             //d3.json('./data/KYLexington1936.geojson').then((geojson) => {
             d3.json('./data/race_cbtracts_hhi_own_val_pov_2019_gdf_json.json').then((geojson) => {
@@ -251,14 +268,18 @@
                 'type': 'geojson',
                 'data': geojson // use my data as source
             });
-                
+
             // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
-           
+
             // access census bureau race/segretation data
             map2.addLayer({
                 'id': 'race', // provide new id for later reference 
                 'type': 'fill',
                 'source': 'census', //refers to data source name entered above
+                'layout':
+                {
+                    'visibility': 'visible'
+                },
                 'paint': {
                     'fill-color': {
                         property: '%White',
@@ -274,6 +295,10 @@
                 'id': 'income', // provide new id for later reference 
                 'type': 'fill',
                 'source': 'census', //refers to data source name entered above
+                'layout':
+                {
+                    'visibility': 'none'
+                },
                 'paint': {
                     'fill-color': {
                         property: 'median_income_dollars',
@@ -289,6 +314,10 @@
                 'id': 'ownership', // provide new id for later reference 
                 'type': 'fill',
                 'source': 'census', //refers to data source name entered above
+                'layout':
+                {
+                    'visibility': 'none'
+                },
                 'paint': {
                     'fill-color': {
                         property: '%owner',
@@ -298,6 +327,8 @@
                     'fill-outline-color': 'white'
                 }
             });
+
+            addUI();
 
             // // Access census bureau property data
             //🧯 Need to convert string value to number value🧯 
@@ -316,10 +347,25 @@
             // });
         };
 
+        function addUI() {
+            d3.selectAll('.dropdown-content a').on('click', (e) => {
+                let currentValue = d3.select(e.target).attr('value');
+                updateCurrentLayer(currentValue);
+            });
+        }
+
+        function updateCurrentLayer(val) {
+            map2.setLayoutProperty('race', 'visibility', 'none');
+            map2.setLayoutProperty('income', 'visibility', 'none');
+            map2.setLayoutProperty('ownership', 'visibility', 'none');
+
+            map2.setLayoutProperty(val, 'visibility', 'visible');
+        }
+
         ///////////////////////////////////////////////////////////////////////////////
         // 🧯 Place holder for click event of clicking on menu layer to change source layer 
         // for census bureau data
-        
+
         //     function setLayerSource (layerId, source, sourceLayer?) {
         //      const startLayer = map.getStyle().layers;
         //      const layerIndex = oldLayers.findIndex(l => l.id === layerId);
@@ -332,7 +378,7 @@
         //          map.removeLayer(layerId);
         //          map.addLayer(layerDef, before);
         //      }
-        
+
         // layerButton.on('click', (e) => { //should this be drop-down content click event
         //     console.log(e);
         //         {
@@ -340,7 +386,7 @@
         //             type: 'click'
         //         }
         // });
-        
+
         // will need a function to determine current layer and next layer to go to 
         // assign menu button a constant var
         // assign each layer option a constant var
@@ -359,7 +405,7 @@
         // methods of potential value
         // map.removeLayer();
         // map.addLayer();
-    
+
 
 
 
@@ -376,7 +422,7 @@
         // select infoPanel using infoButton with click event listener to hide or display infoPanel
         const targetInfoPanel = document.getElementById('infoPanel');
         targetInfoPanel.style.display = 'none';
-        
+
         const ibtn = document.getElementById('infoButton');
         ibtn.onclick = function () {
             if (targetInfoPanel.style.display !== 'block') {
@@ -385,17 +431,17 @@
                 targetInfoPanel.style.display = 'none';
             }
         };
-        
+
         // Map & Map 2 syncing movement
-        function mapSync(){ 
+        function mapSync() {
             // if disable true then the map will be displayed as non-interactive
             var disable = false; // interactive
-            map.on('move', function(){
-            
-                if(!disable) { // boolean, if not do below
+            map.on('move', function () {
+
+                if (!disable) { // boolean, if not do below
                     var center = map.getCenter();
                     var zoom = map.getZoom();
-                    
+
                     // convert disable to be true
                     // prevents looping between both maps so only one can be moved
                     disable = true; // map 1 non interactive (static)
@@ -407,8 +453,8 @@
                 }
             })
 
-            map2.on('move', function(){
-                if(!disable) { // boolean, it not true do below
+            map2.on('move', function () {
+                if (!disable) { // boolean, it not true do below
                     var center = map2.getCenter();
                     var zoom = map2.getZoom();
 
@@ -424,12 +470,12 @@
             })
 
             // mouse moving event
-            map.on('mousemove', function (e) {
-                map.featuresAt(e.point, {radius: 5}, function (error, features) {
-                    if (error) throw error;
-                })
-            });
-        
+            // map.on('mousemove', function (e) {
+            //     map.featuresAt(e.point, { radius: 5 }, function (error, features) {
+            //         if (error) throw error;
+            //     })
+            // });
+
         };
 
         // add mapbox inspection tool for development only
@@ -439,4 +485,5 @@
     </script>
 
 </body>
+
 </html>
