@@ -56,7 +56,7 @@
                         </div>
                     </li>
                     <li>
-                        <!-- info button to hide scrolling info panel -->
+                        <!-- Info Button to trigger open Modal -->
                         <!-- -on-active is-active-->
                         <button id='infoButton'>
                             <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-s ml3 '
@@ -67,20 +67,11 @@
                             </a>
                         </button>
                     </li>
-                    <!-- 
-                    <li>
-                        <div class='flex flex--space-between-main'>
-                            <div id="title" value="newest title">
-                                <div class='flex flex--space-between-main'>
-                                    <h1 class> How Racial Capitalism Persists today in Lexington, KY:</h1>
-                                    <h2 class>An exploration of 1930s Redlining Practices</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </li> -->
                 </ul>
             </div>
         </nav>
+
+        
 
     </header>
 
@@ -98,17 +89,19 @@
 
         <div id='map2'></div>
 
-        <!-- info floating side panel -->
-        <div id='infoPanel'>
-            <!-- remember margins padding are referenced in the ml or px abberviations -->
-            <div class='relative top-ml left z1 w-1/6 px12 py12-ml'> -->
-                <div class='flex flex--column h-viewport-5/6 bg-white round-ml shadow-darken10 events-all'> -->
-                    <!-- scrolling text -->
-                    <div class='px12 py12 overflow-auto h-full'>
-                        <h3 class='txt-m txt-bold mb6'>Title here</h3>
-                        <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You
+        <!-- The Modal to open from infoButton in nav bar -->
+        <div id="infoModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <!-- Close modal by clicking outside modal -->
+                <span class="close"></span>
+                <!-- scrolling text; not sure you need this now since the modal is outside the map and will scroll -->
+                <div class='px12 py12 overflow-auto h-full'>
+                        <h3 class='txt-m txt-bold mb6'>Title Here</h3>
+                            <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You
                             can spend all day playing with mountains.
-                            <!-- In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature. -->
+                            In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature.
                             See how easy it is to create a little tree right in your world. It's important to me that
                             you're happy. Let's make a nice big leafy tree.
                             A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create
@@ -124,20 +117,43 @@
                             Have fun with it. This piece of canvas is your world. We start with a vision in our heart,
                             and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and
                             fall like a little waterfall. There comes a nice little fluffer.
-                        </p>
-                    </div> -->
 
-                    <!-- <footer class='px12 py12 bg-gray-faint round-b-ml txt-s'> -->
-                    Footer content here
-                    </footer>
+                            In life you need colors. It's beautiful - and we haven't even done anything to it yet. You
+                            can spend all day playing with mountains.
+                            In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature.
+                            See how easy it is to create a little tree right in your world. It's important to me that
+                            you're happy. Let's make a nice big leafy tree.
+                            A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create
+                            anything that makes you happy. Anyone can paint. We don't need any guidelines or formats.
+                            All we need to do is just let it flow right out of us.
+                            With something so strong, a little bit can go a long way. Even the worst thing we can do
+                            here is good. Isn't that fantastic? You can just push a little tree out of your brush like
+                            that. We'll paint one happy little tree right here. Let that brush dance around there and
+                            play.
+                            Let's put some highlights on these little trees. The sun wouldn't forget them. You don't
+                            have to be crazy to do this but it does help. And just raise cain. We'll put some happy
+                            little leaves here and there.
+                            Have fun with it. This piece of canvas is your world. We start with a vision in our heart,
+                            and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and
+                            fall like a little waterfall. There comes a nice little fluffer.
+                            </p>
+                            
+                            <!-- adding any images to the modal -->
+                            <!-- <img class="img-fluid" src="images/na-brew.jpg" alt="2019 North America Concentration of Breweries Map"> -->
+
+                            <div class="modal-footer">
+                                    <a target="_blank" href="https://github.com/RCRamsey/map698-redlining-wealth-lexington">
+                                        <button type="button" class="btn btn-primary">View Repo</button>
+                                    </a>
+                            </div>
+
                 </div>
             </div>
         </div>
+            
     </div>
 
-    <!-- when I need to enter a modal, it can go here outside of the split screen elements. visit assembly modal example -->
 
-    </div>
 
     <script async defer src="https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.js"></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
@@ -365,74 +381,33 @@
         }
 
         ///////////////////////////////////////////////////////////////////////////////
-        // 🧯 Place holder for click event of clicking on menu layer to change source layer 
-        // for census bureau data
+        // 🧯 Place holder for modal script
+        // Get the modal
+            var modal = document.getElementById("infoModal");
 
-        //     function setLayerSource (layerId, source, sourceLayer?) {
-        //      const startLayer = map.getStyle().layers;
-        //      const layerIndex = oldLayers.findIndex(l => l.id === layerId);
-        //      const layerDef = oldLayers[layerIndex];
-        //      const before = oldLayers[layerIndex + 1] && oldLayers[layerIndex + 1].id;
-        //      layerDef.source = source;
-        //          if (sourceLayer) {
-        //         layerDef['source-layer'] = sourceLayer;
-        //     }
-        //          map.removeLayer(layerId);
-        //          map.addLayer(layerDef, before);
-        //      }
+            // Get the button that opens the modal
+            // var btn = document.getElementById("myBtn");
+            const ibtn = document.getElementById('infoButton')
 
-        // layerButton.on('click', (e) => { //should this be drop-down content click event
-        //     console.log(e);
-        //         {
-        //             target: {...},
-        //             type: 'click'
-        //         }
-        // });
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
 
-        // will need a function to determine current layer and next layer to go to 
-        // assign menu button a constant var
-        // assign each layer option a constant var
-        // use if else statement to determine if layer id !== or does = to turn layer on and off
-        // baesd on if else change map display layer
-
-        // function setLayerSource (layerID, source, sourceLayer){
-        // if (map.getLayer(id)) {
-        //     map.removeLayer(id);
-        // }
-        // if (map.getSource(id)){
-        //     map.removeSource(id)
-        // }
-
-        // }
-        // methods of potential value
-        // map.removeLayer();
-        // map.addLayer();
-
-
-
-
-
-
-
-
-
-
-
-        //////////////////////////////////////////////////////////////////////////////////
-
-
-        // select infoPanel using infoButton with click event listener to hide or display infoPanel
-        const targetInfoPanel = document.getElementById('infoPanel');
-        targetInfoPanel.style.display = 'none';
-
-        const ibtn = document.getElementById('infoButton');
-        ibtn.onclick = function () {
-            if (targetInfoPanel.style.display !== 'block') {
-                targetInfoPanel.style.display = 'block';
-            } else {
-                targetInfoPanel.style.display = 'none';
+            // When the user clicks the button, open the modal 
+            ibtn.onclick = function() {
+            modal.style.display = "block";
             }
-        };
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            }
 
         // Map & Map 2 syncing movement
         function mapSync() {
