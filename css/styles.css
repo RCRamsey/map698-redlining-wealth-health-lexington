@@ -55,7 +55,6 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
   }
   
   li {
@@ -65,7 +64,7 @@ ul {
   li a:hover, .dropdown:hover
 
   li.dropdown{
-      display: inline-block;
+      /* display: inline-block; */
   }
   .dropdown-content {
       display: none;
@@ -91,13 +90,12 @@ ul {
 
 h1 {
     color: black;
-    text-align: right;
-    text-shadow: 2px 2px 5px red;
+    color: white;
+    /* text-shadow: 2px 2px 5px red; */
 }
 
 h2 {
     color: white;
-    text-align: right;
     text-shadow: 2px 2px 5px black;
 }
 
