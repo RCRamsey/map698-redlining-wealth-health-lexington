@@ -89,6 +89,8 @@
 
         <div id='map2'></div>
 
+        <div class='map-overlay' id ='legend'></div>
+
         <!-- The Modal to open from infoButton in nav bar -->
         <div id="infoModal" class="modal">
 
@@ -178,6 +180,29 @@
 
         const slider = document.getElementById('slider');
         const sliderValue = document.getElementById('slider-value');
+
+        // Modal UI
+        var modal = document.getElementById("infoModal");
+        // Get the button that opens the modal
+        // var btn = document.getElementById("myBtn");
+        const ibtn = document.getElementById('infoButton');
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal 
+        ibtn.onclick = function() {
+            modal.style.display = "block";
+        };
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        };
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
 
         // use D3 method on map 1 to load GeoJSON when the map is finished loading
         map.on('load', () => {
@@ -288,7 +313,6 @@
             });
 
             // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
-
             // access census bureau race/segretation data
             map2.addLayer({
                 'id': 'race', // provide new id for later reference 
@@ -348,6 +372,7 @@
 
             addUI();
 
+
             // // Access census bureau property data
             //🧯 Need to convert string value to number value🧯 
             // map2.addLayer({
@@ -357,57 +382,34 @@
             //     'paint': {
             //         'fill-color': {
             //             property: 'median dollar house',
+            //           //  ['to-number', ['get', 'median dollar house']],
             //             stops: [[100000, '#e5f5e0'], [1000000, '#31a354']],
             //         },
-            //         'fill-opacity': .45, //initial opacity until slider added
+            //         'fill-opacity': 1, //initial opacity until slider added
             //         'fill-outline-color': 'white'
             //     }
             // });
         };
 
+        // Use d3 to select all 'a' targets in dropdown menu
+        // when clicked the value of that current target is passed to function updateCurrentLayer
         function addUI() {
             d3.selectAll('.dropdown-content a').on('click', (e) => {
                 let currentValue = d3.select(e.target).attr('value');
                 updateCurrentLayer(currentValue);
+                whatsMap2Style(currentValue);
             });
         }
 
+        // pass value from div class drop down content in drop down menu
+        // function to set all visibility to none until.
         function updateCurrentLayer(val) {
             map2.setLayoutProperty('race', 'visibility', 'none');
             map2.setLayoutProperty('income', 'visibility', 'none');
             map2.setLayoutProperty('ownership', 'visibility', 'none');
-
+            // change visibility to visible for whicheer val is clicked in drop down menu
             map2.setLayoutProperty(val, 'visibility', 'visible');
         }
-
-        ///////////////////////////////////////////////////////////////////////////////
-        // 🧯 Place holder for modal script
-        // Get the modal
-            var modal = document.getElementById("infoModal");
-
-            // Get the button that opens the modal
-            // var btn = document.getElementById("myBtn");
-            const ibtn = document.getElementById('infoButton')
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks the button, open the modal 
-            ibtn.onclick = function() {
-            modal.style.display = "block";
-            }
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
-            modal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-            }
 
         // Map & Map 2 syncing movement
         function mapSync() {
@@ -445,15 +447,62 @@
                     disable = false; // map 2 back to interactive
                 }
             })
-
-            // mouse moving event
-            // map.on('mousemove', function (e) {
-            //     map.featuresAt(e.point, { radius: 5 }, function (error, features) {
-            //         if (error) throw error;
-            //     })
-            // });
-
         };
+
+        ///////////////////////////////////////////////////////////////////////////
+        //Place Holder for get styling layers for legend
+         function whatsMap2Style(val) {
+             const map2Style = map2.getStyle(); //array of map2styles set to variable
+
+            //if/else loop to determine which layer is selected
+            // therefore which colors to pass on
+            // need to modify if/else to return colors as map2Colors
+            if (val == 'race') {
+            console.log('value is race'); 
+             //const raceColors = map2Style.layers[86]; //array of color styling array set to variable
+             // return colors
+            } else if (val == 'income') {
+                console.log('value is income');
+                 //const incomeColors = map2Style.layers[87]; //array of color styling array set to variable
+                 // return colors
+            } else if (val == 'ownership') {
+                console.log('value is ownership');
+                 //const ownershipColors = map2Style.layer[88]; //array of color sytling array set to variable
+                 // return colors
+            } 
+            // else if (val == 'propertyValue') {
+            //     console.log('value is propertyValue');
+            // } 
+            else {
+                console.log('no value selected');
+            }; 
+            
+                // puzzle piece
+                //const map2Style = map2.getStyle(); //array of map2styles set to variable
+                //const ownershipColors = style.layer[88]; //array of color sytling array set to variable
+
+        //then call the update legend function to pass on colors to legend div/span
+        //      updateLegend(map2Colors)
+        };
+
+        // this function should send the array of colors returned from whatsmap2style to div/span of legend 
+        // then will need to check css of legend to make sure appears
+        // function updateLegend(map2Style){
+        //     for(var i = 0; i < colors.length; i ++) {
+        //         listItems[i].style.color = colors[i];    
+        //     }
+        // };
+
+        /////////////////////////////////////////////////////////////////////////
+        // alternative is to hard code the color or legend range for each layer
+        // set their visibility to none
+        // add a function just below updateCurrentLayer and use which layer was selected
+        // to change visibility of the hard coded legend
+        // this function is a draft of how it would work....would need a function to access the legend 
+        //  function updateCurrentLayerLegend(val) {
+        //      map2.setLegendProperty('race', 'visibility, 'none');
+        //      map2.setLegendProperty(val, 'visibility, 'visibile');
+        //  };
 
         // add mapbox inspection tool for development only
         // ✏️  when i add this control, click and unclick I lose my layer

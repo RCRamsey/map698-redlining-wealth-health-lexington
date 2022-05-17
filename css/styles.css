@@ -101,13 +101,11 @@ h2 {
 
 /* CSS Class Selector Styling for group elements */
 
-/* currently applies to map overlay opacity slider */
+/* currently applies to map overlay opacity slider  and potentially legend*/
 .map-overlay {
     font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: absolute;
     width: 12%;
-    /* bottom: -100px; */
-    /* padding: 10px; */
 }
 
 .map-overlay .map-overlay-inner {
@@ -132,6 +130,24 @@ h2 {
     cursor: ew-resize;
 }
 
+
+/* applies to map overlay of legend */
+#legend {
+    padding:10px;
+    box-shadow:  0 1px 2px rgba(0,0,0,0.1);
+    line-height: 18px;
+    height:150px;
+    margin-bottom: 40px;
+    width: 100px;
+}
+
+.legend-key{
+    display: inline-block;
+    border-radius: 20%;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+}
 
   /* Modify brand and text color */
   
