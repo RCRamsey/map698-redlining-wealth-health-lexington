@@ -80,16 +80,26 @@
         <div id='map'></div>
 
         <!-- insert opacity slider bar and give initial start opacity, use as developer tool-->
-        <div class="map-overlay bottom ml24 mb36 z2">
-            <div class="map-overlay-inner">
-                <label>Redlined Layer Opacity: <span id="slider-value">100%</span></label>
-                <input id="slider" type="range" min="0" max="100" step="0" value="100">
+        <div class='map-overlay bottom ml24 mb36 z2'>
+            <div class='map-overlay-inner'>
+                <label>Redlined Layer Opacity: <span id='slider-value'>100%</span></label>
+                <input id='slider' type='range' min='0' max='100' step='0' value='100'>
             </div>
         </div>
 
-        <div id='map2'></div>
-
-        <div class='map-overlay' id ='legend'></div>
+        <div id='map2'>
+             <!-- bottom margin left margin bottom -->
+            <div class='map-overlay bottom mr-neg24 mb36 z3'>
+                <div class='map-overlay-inner'>
+                    <div id ='map2Legend' class = 'legend'>
+                        <div class = 'bar'></div>
+                            <div>Legend Label</div>
+                        <!-- <label>Legend Label</label> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+       
 
         <!-- The Modal to open from infoButton in nav bar -->
         <div id="infoModal" class="modal">
@@ -272,6 +282,8 @@
             zoom: 12 //starting zoom
         });
 
+        const map2Legend = document.getElementById('map2Legend');
+
         // const slider2 = document.getElementById('slider2');
         // const sliderValue2 = document.getElementById('slider-value2');
 
@@ -370,6 +382,7 @@
                 }
             });
 
+
             addUI();
 
 
@@ -459,8 +472,15 @@
             // need to modify if/else to return colors as map2Colors
             if (val == 'race') {
             console.log('value is race'); 
-             //const raceColors = map2Style.layers[86]; //array of color styling array set to variable
-             // return colors
+            
+            //var colors = map2Style.layers[86].paint.'fill-color'.stops; //array of color styling array set to variable
+            //console.log(colors);
+            //return colors
+            
+            // access the legend bar and background linear-gradient to change stop colors
+            // var getLegend = document.getElementByID('map2Legend');
+            // getLegend.background = linear-gradient(to right, #efedf5, #756bb1);
+
             } else if (val == 'income') {
                 console.log('value is income');
                  //const incomeColors = map2Style.layers[87]; //array of color styling array set to variable
@@ -477,33 +497,10 @@
                 console.log('no value selected');
             }; 
             
-                // puzzle piece
-                //const map2Style = map2.getStyle(); //array of map2styles set to variable
-                //const ownershipColors = style.layer[88]; //array of color sytling array set to variable
-
-        //then call the update legend function to pass on colors to legend div/span
-        //      updateLegend(map2Colors)
+            
         };
 
-        // this function should send the array of colors returned from whatsmap2style to div/span of legend 
-        // then will need to check css of legend to make sure appears
-        // function updateLegend(map2Style){
-        //     for(var i = 0; i < colors.length; i ++) {
-        //         listItems[i].style.color = colors[i];    
-        //     }
-        // };
-
-        /////////////////////////////////////////////////////////////////////////
-        // alternative is to hard code the color or legend range for each layer
-        // set their visibility to none
-        // add a function just below updateCurrentLayer and use which layer was selected
-        // to change visibility of the hard coded legend
-        // this function is a draft of how it would work....would need a function to access the legend 
-        //  function updateCurrentLayerLegend(val) {
-        //      map2.setLegendProperty('race', 'visibility, 'none');
-        //      map2.setLegendProperty(val, 'visibility, 'visibile');
-        //  };
-
+    
         // add mapbox inspection tool for development only
         // ✏️  when i add this control, click and unclick I lose my layer
         // map.addControl(new MapboxInspect());  // click on box top right hand corner to 

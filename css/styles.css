@@ -141,15 +141,16 @@ h2 {
     width: 100px;
 }
 
-.legend-key{
-    display: inline-block;
-    border-radius: 20%;
-    width: 10px;
+.legend .bar {
+    /* display: inline-block; */
+    /* border-radius: 20%; */
+    /* width: 100px; */
+    width: 100%;
     height: 10px;
-    margin-right: 5px;
+    background: linear-gradient(to right, #fca107, #7f3121);
+    /* margin-right: 5px; */
 }
 
-  /* Modify brand and text color */
   
 
 /* Small devices (portrait orientation, 576px and up) */
