@@ -91,10 +91,12 @@
              <!-- bottom margin left margin bottom -->
             <div class='map-overlay bottom mr-neg24 mb36 z3'>
                 <div class='map-overlay-inner'>
-                    <div id ='map2Legend' class = 'legend'>
-                        <div class = 'bar'></div>
+                    <div id ='map2Legend'> 
+                        <div id = 'legend'>
+                            <div class = 'bar'></div>
                             <div>Legend Label</div>
                         <!-- <label>Legend Label</label> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -190,6 +192,13 @@
 
         const slider = document.getElementById('slider');
         const sliderValue = document.getElementById('slider-value');
+
+        //access color gradient of legend
+       const element = document.getElementById('legend');
+       const style = getComputedStyle(element);
+       //console.log(style.background)
+       const colorGradient = style.background // access to gradient of legend bar 
+       //console.log(colorGradient) 
 
         // Modal UI
         var modal = document.getElementById("infoModal");
@@ -462,6 +471,8 @@
             })
         };
 
+
+        
         ///////////////////////////////////////////////////////////////////////////
         //Place Holder for get styling layers for legend
          function whatsMap2Style(val) {
@@ -477,9 +488,10 @@
             //console.log(colors);
             //return colors
             
-            // access the legend bar and background linear-gradient to change stop colors
-            // var getLegend = document.getElementByID('map2Legend');
-            // getLegend.background = linear-gradient(to right, #efedf5, #756bb1);
+            // 🧯access the legend bar and background linear-gradient to change stop colors
+            //access the colorGradient assigned back on line 200
+            //change the element id style background to these if layer clicked
+            //colorGradient = rgba (0,0,0,0) linear-gradient(to right, #efedf5, #756bb1);
 
             } else if (val == 'income') {
                 console.log('value is income');

@@ -105,7 +105,7 @@ h2 {
 .map-overlay {
     font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: absolute;
-    width: 12%;
+    /* width: 12%; */
 }
 
 .map-overlay .map-overlay-inner {
@@ -132,23 +132,27 @@ h2 {
 
 
 /* applies to map overlay of legend */
-#legend {
+#map2Legend {
     padding:10px;
     box-shadow:  0 1px 2px rgba(0,0,0,0.1);
     line-height: 18px;
-    height:150px;
     margin-bottom: 40px;
     width: 100px;
 }
 
-.legend .bar {
-    /* display: inline-block; */
-    /* border-radius: 20%; */
-    /* width: 100px; */
-    width: 100%;
+#legend {
+    /* width: 100%; */
     height: 10px;
     background: linear-gradient(to right, #fca107, #7f3121);
-    /* margin-right: 5px; */
+}
+
+.bar {
+    /* display: inline-block; */
+    /* border-radius: 20%; */
+    /* width: 100%; */
+    height: 10px;
+    background: linear-gradient(to right, #fca107, #7f3121);
+    margin-right: 5px;
 }
 
   
