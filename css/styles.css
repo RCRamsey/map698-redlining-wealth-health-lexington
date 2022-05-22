@@ -61,11 +61,12 @@ ul {
     float: left;
   }
 
-  /* li a:hover, .dropdown:hover */
+  li a:hover, .dropdown:hover
 
   li.dropdown{
-      /* display: inline-block; */
+      display: inline-block;
   }
+
   .dropdown-content {
       display: none;
       position: absolute;
@@ -99,9 +100,7 @@ h2 {
     text-shadow: 2px 2px 5px black;
 }
 
-/* CSS Class Selector Styling for group elements */
-
-/* currently applies to map overlay opacity slider  and potentially legend*/
+/* currently applies to map overlay opacity slider and legend*/
 .map-overlay {
     background-color: #fff;
     font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -111,7 +110,6 @@ h2 {
 }
 
 .map-overlay-inner {
-
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     padding: 8px 12px;
@@ -132,7 +130,6 @@ h2 {
     cursor: ew-resize;
 }
 
-
 /* applies to map overlay of legend */
 #map2Legend {
     padding:10px;
@@ -142,12 +139,11 @@ h2 {
     width: 100px;
 }
 
-#legend {
-    /* width: 100%; */
-    /* height: 10px; */
-    /* background: linear-gradient(to right, #fca107, #7f3121); */
-
-}
+/* #legend {
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, #fca107, #7f3121);
+} */
 
 #legend-bar {
     /* display: inline-block; */
@@ -156,33 +152,67 @@ h2 {
     height: 10px;
     /* background: linear-gradient(to right, #fca107, #7f3121); */
     margin-right: 5px;
-
 }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
 
 
 /* Small devices (portrait orientation, 576px and up) */
 /* for 50/50 split vertical top/bottom */
-@media (min-width: 300px) and (orientation: portrait) {
+@media (min-width: 250px) and (orientation: portrait) {
     #displayContainer {
         height: 100%;
     }
     
     #map {
         position: absolute;
-        top: 0;
-        width: 100vw ;
+        bottom: 0;
+        width: 100vw;
         height: 50vh;
         background: pink; 
-         z-index: -1;
+        z-index: -1;
+    }
+
+    #map2-container {
+        position: absolute;  
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 100vw;
+        height: 50vh;
+        background: orange; 
+        z-index: -1;
     }
     
     #map2{
         position: absolute;
         bottom: 0;
-        width: 100vw;
-        height: 50vh;
-        background: #448ee4; 
-         z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: purple; 
+        z-index: -1;
     }
 }
 
@@ -203,15 +233,26 @@ h2 {
         background: #448ee4; 
         z-index: -1;
     }
+
+    #map2-container {
+        position: absolute;  
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 50vw;
+        height: 100vh;
+        background: orange; 
+        z-index: -1;
+    }
     
     #map2{
         position: absolute;
         top: 0;
         bottom: 0;
         right: 0;
-        width: 50vw;
-        height: 100vh;
-        background: #448ee4; 
+        width: 100%;
+        height: 100%;
+        background: purple; 
         z-index: -1;
     }
 }
@@ -231,13 +272,24 @@ h2 {
         background: pink; 
          z-index: -1;
     }
+
+    #map2-container {
+        position: absolute;  
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 50%;
+        background: orange; 
+        z-index: -1;
+    }
     
     #map2{
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: 50%;
-        background: #448ee4; 
+        height: 100%;
+        background: purple; 
          z-index: -1;
     }
 }
@@ -261,14 +313,25 @@ h2 {
         z-index: -1;
     }
 
-    #map2{
-        position: absolute;
+    #map2-container {
+        position: absolute;  
         top: 0;
         bottom: 0;
         right: 0;
         width: 50%;
         height: 100%;
-        background: #448ee4; 
+        background: orange; 
+        z-index: -1;
+    }
+
+    #map2{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: purple; 
         z-index: -1;
     }
 } 
@@ -289,12 +352,23 @@ h2 {
          z-index: -1;
     }
     
+    #map2-container {
+        position: absolute;  
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 50%;
+        background: orange; 
+        z-index: -1;
+    }
+
     #map2{
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: 50%;
-        background: #448ee4; 
+        height: 100%;
+        background: purple; 
          z-index: -1;
     }
 }
@@ -324,7 +398,7 @@ h2 {
         right: 0;
         width: 50%;
         height: 100%;
-        background: #448ee4; 
+        background: orange; 
         z-index: -1;
     }
     #map2{
@@ -334,53 +408,11 @@ h2 {
         right: 0;
         width: 100%;
         height: 100%;
-        background: #448ee4; 
+        background: purple; 
         z-index: -1;
     }
 } 
 
-
 /* Extra large devices (large desktops, 1200px and up) */
 /* @media (min-width: 1200px) {} */ 
 
-
-
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-  
-  /* The Close Button
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  } */
-/*   
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  } */
