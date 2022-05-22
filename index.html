@@ -82,14 +82,15 @@
         </div>
         <div id='map2-container' class=''>
             <div id='map2'></div>
-            <!-- bottom margin left margin bottom -->
+            <!-- bottom margin left margin -->
             <div class='map-overlay bottom mr-neg24 mb36 z3 absolute'>
                 <div class='map-overlay-inner'>
-                    <div id='legend'>
-                        <h3>Legend Label</h3>
+                    <div id='legend'><h3>Legend Label</h3></div>
                         <!-- legend-bar will be dynamically updated with JS based on selected attribute -->
                         <div id='legend-bar'></div>
-                    </div>
+                        <!-- Add min & max labels -->
+                        <div id='legend-label-min'><h3>0%</h3></div> 
+                        <div id ='legend-label-max'><h3>100%</h3></div>   
                 </div>
             </div>
 
@@ -202,13 +203,6 @@
         });
 
         const sliderValue = document.getElementById('slider-value');
-
-        //access color gradient of legend
-        // const element = document.getElementById('legend');
-        // const style = getComputedStyle(element);
-        //console.log(style.background)
-        // const colorGradient = style.background // access to gradient of legend bar 
-        // console.log(colorGradient)
 
         // Modal UI access using native js
         var modal = document.getElementById("infoModal");
@@ -450,19 +444,32 @@
         function whatsMap2Style(val) {
             // access legend-bar for color gradient modification
             let legendBar = document.getElementById('legend-bar');
+            let legendTitle = document.getElementById('legend');
+            let legendMin = document.getElementById('legend-label-min');
+            let legendMax = document.getElementById('legend-label-max');
 
             // if value from UI is race update color gradient to legend
             if (val == 'race') {
                 console.log('value is race');
                 legendBar.style.background = 'linear-gradient(to right, #efedf5, #756bb1)';
-            // if value from UI is income update color gradient to legend
+               // place holder for accessing and modifying text to legend
+               legendTitle.innerHTML = '<h3>Race Title</h3>';
+                legendMin.innerHTML = '<h3>low</h3>';
+                legendMax.innerHTML = '<h3>high</h3>';
+           // if value from UI is income update color gradient to legend
             } else if (val == 'income') {
                 console.log('value is income');
                 legendBar.style.background = 'linear-gradient(to right, #fff, #f00)';
+                legendTitle.innerHTML = '<h3>Income Title</h3>';
+                legendMin.innerHTML = '<h3>lower</h3>';
+                legendMax.innerHTML = '<h3>higher</h3>';
             // if value from UI is ownership update color gradient to legend
             } else if (val == 'ownership') {
                 console.log('value is ownership');
                 legendBar.style.background = 'linear-gradient(to right, #deebf7, #3182bd )';
+                legendTitle.innerHTML = '<h3>Ownership Title</h3>';
+                legendMin.innerHTML = '<h3>lowest</h3>';
+                legendMax.innerHTML = '<h3>highest</h3>';
             }
             // if value from UI is propertyValue update color gradient to legend
             // else if (val == 'propertyValue') {
@@ -473,6 +480,8 @@
                 console.log('no value selected');
             };
         };
+
+
     </script>
 
 </body>
