@@ -5,10 +5,6 @@
     background: greenyellow
 }
 
-#infoPanel{
-    display: 'none';
-} 
-
 /* specific navbar styling */
 ul {
     list-style-type: none;
@@ -60,20 +56,25 @@ h2 {
     text-shadow: 2px 2px 5px black;
 }
 
+h3 {
+    font: bold 12px/18px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    color: black;
+}
+
 /* currently applies to map overlay opacity slider and legend*/
 .map-overlay {
     background-color: #fff;
-    font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font: bold 12px/18px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: absolute;
     bottom: 18px;
-    left: 12px;
+    left: 10px;
 }
 
 .map-overlay-inner {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
-    padding: 8px 12px;
-    margin-bottom: 10px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 1px;
+    padding: 2px 4px;
+    margin-bottom: 2px;
 }
 
 .map-overlay label {
@@ -88,15 +89,6 @@ h2 {
     position: relative;
     margin: 0;
     cursor: ew-resize;
-}
-
-/* applies to map overlay of legend */
-#map2Legend {
-    padding:10px;
-    box-shadow:  0 1px 2px rgba(0,0,0,0.1);
-    line-height: 18px;
-    margin-bottom: 40px;
-    width: 100px;
 }
 
 #legend-bar {
@@ -136,7 +128,7 @@ h2 {
 /* Small devices (portrait orientation, 576px and up) */
 /* for 50/50 split vertical top/bottom */
 @media (min-width: 250px) and (orientation: portrait) {
-    #displayContainer {
+    #display-container {
         height: 100%;
     }
     

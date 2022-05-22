@@ -69,7 +69,7 @@
         </nav>
     </header>
 
-    <div id='displayContainer'>
+    <div id='display-container'>
 
         <div id='map'></div>
 
@@ -286,8 +286,6 @@
             zoom: 12 //starting zoom
         });
 
-        const map2Legend = document.getElementById('map2Legend');
-
         // use D3 method on map 2 to load GeoJSON when the map is finished loading
         map2.on('load', () => {
             // request GEOJSON data
@@ -476,6 +474,6 @@
             };
         };
     </script>
-    
+
 </body>
 </html>
