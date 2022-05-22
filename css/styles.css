@@ -61,7 +61,7 @@ ul {
     float: left;
   }
 
-  li a:hover, .dropdown:hover
+  /* li a:hover, .dropdown:hover */
 
   li.dropdown{
       /* display: inline-block; */
@@ -103,16 +103,18 @@ h2 {
 
 /* currently applies to map overlay opacity slider  and potentially legend*/
 .map-overlay {
+    background-color: #fff;
     font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: absolute;
-    /* width: 12%; */
+    bottom: 18px;
+    left: 12px;
 }
 
-.map-overlay .map-overlay-inner {
-    background-color: #fff;
+.map-overlay-inner {
+
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     border-radius: 3px;
-    padding: 2px;
+    padding: 8px 12px;
     margin-bottom: 10px;
 }
 
@@ -142,20 +144,21 @@ h2 {
 
 #legend {
     /* width: 100%; */
-    height: 10px;
-    background: linear-gradient(to right, #fca107, #7f3121);
+    /* height: 10px; */
+    /* background: linear-gradient(to right, #fca107, #7f3121); */
+
 }
 
-.bar {
+#legend-bar {
     /* display: inline-block; */
     /* border-radius: 20%; */
-    /* width: 100%; */
+    width: 100%;
     height: 10px;
-    background: linear-gradient(to right, #fca107, #7f3121);
+    /* background: linear-gradient(to right, #fca107, #7f3121); */
     margin-right: 5px;
+
 }
 
-  
 
 /* Small devices (portrait orientation, 576px and up) */
 /* for 50/50 split vertical top/bottom */
@@ -314,13 +317,22 @@ h2 {
         background: #448ee4; 
         z-index: -1;
     }
-
+    #map2-container {
+        position: absolute;  
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: #448ee4; 
+        z-index: -1;
+    }
     #map2{
         position: absolute;
         top: 0;
         bottom: 0;
         right: 0;
-        width: 50%;
+        width: 100%;
         height: 100%;
         background: #448ee4; 
         z-index: -1;

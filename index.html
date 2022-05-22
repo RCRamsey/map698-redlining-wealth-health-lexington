@@ -12,7 +12,7 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet" />
 
     <!-- Plugin for opacity tool -->
-    <link href="plugin/mapbox-gl-opacity/dist/mapbox-gl-opacity.css" rel="stylesheet">
+    <!-- <link href="plugin/mapbox-gl-opacity/dist/mapbox-gl-opacity.css" rel="stylesheet"> -->
 
     <!-- my general css styles -->
     <link href='css/styles.css' rel='stylesheet' />
@@ -71,7 +71,7 @@
             </div>
         </nav>
 
-        
+
 
     </header>
 
@@ -80,28 +80,30 @@
         <div id='map'></div>
 
         <!-- insert opacity slider bar and give initial start opacity, use as developer tool-->
-        <div class='map-overlay bottom ml24 mb36 z2'>
+        <div class='map-overlay bottom ml24 mb36 z2 absolute'>
             <div class='map-overlay-inner'>
                 <label>Redlined Layer Opacity: <span id='slider-value'>100%</span></label>
                 <input id='slider' type='range' min='0' max='100' step='0' value='100'>
             </div>
         </div>
-
-        <div id='map2'>
-             <!-- bottom margin left margin bottom -->
-            <div class='map-overlay bottom mr-neg24 mb36 z3'>
+        <div id='map2-container' class=''>
+            <div id='map2'></div>
+            <!-- bottom margin left margin bottom -->
+            <div class='map-overlay bottom mr-neg24 mb36 z3 absolute'>
                 <div class='map-overlay-inner'>
-                    <div id ='map2Legend'> 
-                        <div id = 'legend'>
-                            <div class = 'bar'></div>
-                            <div>Legend Label</div>
-                        <!-- <label>Legend Label</label> -->
-                        </div>
+                    <div id='legend'>
+                        <h3>Legend Label</h3>
+                        <!-- legend-bar will be dynamically updated with JS based on selected attribute -->
+                        <div id='legend-bar'></div>
                     </div>
                 </div>
             </div>
+
         </div>
-       
+
+
+
+
 
         <!-- The Modal to open from infoButton in nav bar -->
         <div id="infoModal" class="modal">
@@ -112,59 +114,65 @@
                 <span class="close"></span>
                 <!-- scrolling text; not sure you need this now since the modal is outside the map and will scroll -->
                 <div class='px12 py12 overflow-auto h-full'>
-                        <h3 class='txt-m txt-bold mb6'>Title Here</h3>
-                            <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You
-                            can spend all day playing with mountains.
-                            In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature.
-                            See how easy it is to create a little tree right in your world. It's important to me that
-                            you're happy. Let's make a nice big leafy tree.
-                            A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create
-                            anything that makes you happy. Anyone can paint. We don't need any guidelines or formats.
-                            All we need to do is just let it flow right out of us.
-                            With something so strong, a little bit can go a long way. Even the worst thing we can do
-                            here is good. Isn't that fantastic? You can just push a little tree out of your brush like
-                            that. We'll paint one happy little tree right here. Let that brush dance around there and
-                            play.
-                            Let's put some highlights on these little trees. The sun wouldn't forget them. You don't
-                            have to be crazy to do this but it does help. And just raise cain. We'll put some happy
-                            little leaves here and there.
-                            Have fun with it. This piece of canvas is your world. We start with a vision in our heart,
-                            and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and
-                            fall like a little waterfall. There comes a nice little fluffer.
+                    <h3 class='txt-m txt-bold mb6'>Title Here</h3>
+                    <p>In life you need colors. It's beautiful - and we haven't even done anything to it yet. You
+                        can spend all day playing with mountains.
+                        In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts -
+                        but you have to build the framework first. Anytime you learn something your time and energy are
+                        not wasted. Let your imagination be your guide. There is immense joy in just watching - watching
+                        all the little creatures in nature.
+                        See how easy it is to create a little tree right in your world. It's important to me that
+                        you're happy. Let's make a nice big leafy tree.
+                        A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create
+                        anything that makes you happy. Anyone can paint. We don't need any guidelines or formats.
+                        All we need to do is just let it flow right out of us.
+                        With something so strong, a little bit can go a long way. Even the worst thing we can do
+                        here is good. Isn't that fantastic? You can just push a little tree out of your brush like
+                        that. We'll paint one happy little tree right here. Let that brush dance around there and
+                        play.
+                        Let's put some highlights on these little trees. The sun wouldn't forget them. You don't
+                        have to be crazy to do this but it does help. And just raise cain. We'll put some happy
+                        little leaves here and there.
+                        Have fun with it. This piece of canvas is your world. We start with a vision in our heart,
+                        and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and
+                        fall like a little waterfall. There comes a nice little fluffer.
 
-                            In life you need colors. It's beautiful - and we haven't even done anything to it yet. You
-                            can spend all day playing with mountains.
-                            In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts - but you have to build the framework first. Anytime you learn something your time and energy are not wasted. Let your imagination be your guide. There is immense joy in just watching - watching all the little creatures in nature.
-                            See how easy it is to create a little tree right in your world. It's important to me that
-                            you're happy. Let's make a nice big leafy tree.
-                            A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create
-                            anything that makes you happy. Anyone can paint. We don't need any guidelines or formats.
-                            All we need to do is just let it flow right out of us.
-                            With something so strong, a little bit can go a long way. Even the worst thing we can do
-                            here is good. Isn't that fantastic? You can just push a little tree out of your brush like
-                            that. We'll paint one happy little tree right here. Let that brush dance around there and
-                            play.
-                            Let's put some highlights on these little trees. The sun wouldn't forget them. You don't
-                            have to be crazy to do this but it does help. And just raise cain. We'll put some happy
-                            little leaves here and there.
-                            Have fun with it. This piece of canvas is your world. We start with a vision in our heart,
-                            and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and
-                            fall like a little waterfall. There comes a nice little fluffer.
-                            </p>
-                            
-                            <!-- adding any images to the modal -->
-                            <!-- <img class="img-fluid" src="images/na-brew.jpg" alt="2019 North America Concentration of Breweries Map"> -->
+                        In life you need colors. It's beautiful - and we haven't even done anything to it yet. You
+                        can spend all day playing with mountains.
+                        In nature, dead trees are just as normal as live trees. Everyone wants to enjoy the good parts -
+                        but you have to build the framework first. Anytime you learn something your time and energy are
+                        not wasted. Let your imagination be your guide. There is immense joy in just watching - watching
+                        all the little creatures in nature.
+                        See how easy it is to create a little tree right in your world. It's important to me that
+                        you're happy. Let's make a nice big leafy tree.
+                        A tree cannot be straight if it has a crooked trunk. It is a lot of fun. You can create
+                        anything that makes you happy. Anyone can paint. We don't need any guidelines or formats.
+                        All we need to do is just let it flow right out of us.
+                        With something so strong, a little bit can go a long way. Even the worst thing we can do
+                        here is good. Isn't that fantastic? You can just push a little tree out of your brush like
+                        that. We'll paint one happy little tree right here. Let that brush dance around there and
+                        play.
+                        Let's put some highlights on these little trees. The sun wouldn't forget them. You don't
+                        have to be crazy to do this but it does help. And just raise cain. We'll put some happy
+                        little leaves here and there.
+                        Have fun with it. This piece of canvas is your world. We start with a vision in our heart,
+                        and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and
+                        fall like a little waterfall. There comes a nice little fluffer.
+                    </p>
 
-                            <div class="modal-footer">
-                                    <a target="_blank" href="https://github.com/RCRamsey/map698-redlining-wealth-lexington">
-                                        <button type="button" class="btn btn-primary">View Repo</button>
-                                    </a>
-                            </div>
+                    <!-- adding any images to the modal -->
+                    <!-- <img class="img-fluid" src="images/na-brew.jpg" alt="2019 North America Concentration of Breweries Map"> -->
+
+                    <div class="modal-footer">
+                        <a target="_blank" href="https://github.com/RCRamsey/map698-redlining-wealth-lexington">
+                            <button type="button" class="btn btn-primary">View Repo</button>
+                        </a>
+                    </div>
 
                 </div>
             </div>
         </div>
-            
+
     </div>
 
 
@@ -190,15 +198,31 @@
             zoom: 12 //starting zoom
         });
 
+        // remove later ... part of dev tools
         const slider = document.getElementById('slider');
+        slider.addEventListener('input', (e) => {
+            // Adjust the layers opacity.
+            map.setPaintProperty(
+                // source Id
+                'redlining',
+                // when the layer is created in mapbox from my geojson, it is added as a raster? right?
+                'fill-opacity',
+                parseInt(e.target.value, 10) / 100
+            );
+
+            // Value Indicator
+            sliderValue.textContent = e.target.value + '%';
+        });
+
+
         const sliderValue = document.getElementById('slider-value');
 
         //access color gradient of legend
-       const element = document.getElementById('legend');
-       const style = getComputedStyle(element);
-       //console.log(style.background)
-       const colorGradient = style.background // access to gradient of legend bar 
-       //console.log(colorGradient) 
+        const element = document.getElementById('legend');
+        const style = getComputedStyle(element);
+        //console.log(style.background)
+        const colorGradient = style.background // access to gradient of legend bar 
+        console.log(colorGradient)
 
         // Modal UI
         var modal = document.getElementById("infoModal");
@@ -206,17 +230,17 @@
         // var btn = document.getElementById("myBtn");
         const ibtn = document.getElementById('infoButton');
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementsByClassName("close")[0];  // rename var to const other than span
         // When the user clicks the button, open the modal 
-        ibtn.onclick = function() {
+        ibtn.onclick = function () {
             modal.style.display = "block";
         };
         // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
+        span.onclick = function () {
             modal.style.display = "none";
         };
         // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
@@ -232,20 +256,6 @@
 
                 // call addLayer() function in scope
                 addLayer(geojson);
-            });
-
-            slider.addEventListener('input', (e) => {
-                // Adjust the layers opacity.
-                map.setPaintProperty(
-                    // source Id
-                    'redlining',
-                    // when the layer is created in mapbox from my geojson, it is added as a raster? right?
-                    'fill-opacity',
-                    parseInt(e.target.value, 10) / 100
-                );
-
-                // Value Indicator
-                sliderValue.textContent = e.target.value + '%';
             });
         });
 
@@ -393,7 +403,7 @@
 
 
             addUI();
-
+            whatsMap2Style('race');
 
             // // Access census bureau property data
             //🧯 Need to convert string value to number value🧯 
@@ -472,47 +482,54 @@
         };
 
 
-        
+
         ///////////////////////////////////////////////////////////////////////////
         //Place Holder for get styling layers for legend
-         function whatsMap2Style(val) {
-             const map2Style = map2.getStyle(); //array of map2styles set to variable
-
+        function whatsMap2Style(val) {
+            // const map2Style = map2.getStyle(); //array of map2styles set to variable
+            // console.log(map2Style)
             //if/else loop to determine which layer is selected
             // therefore which colors to pass on
             // need to modify if/else to return colors as map2Colors
+
+            let legendBar = document.getElementById('legend-bar');
+
+
             if (val == 'race') {
-            console.log('value is race'); 
-            
-            //var colors = map2Style.layers[86].paint.'fill-color'.stops; //array of color styling array set to variable
-            //console.log(colors);
-            //return colors
-            
-            // 🧯access the legend bar and background linear-gradient to change stop colors
-            //access the colorGradient assigned back on line 200
-            //change the element id style background to these if layer clicked
-            //colorGradient = rgba (0,0,0,0) linear-gradient(to right, #efedf5, #756bb1);
+                console.log('value is race');
+
+                //var colors = map2Style.layers[86].paint.'fill-color'.stops; //array of color styling array set to variable
+                //console.log(colors);
+                //return colors
+
+                // 🧯access the legend bar and background linear-gradient to change stop colors
+                //access the colorGradient assigned back on line 200
+                //change the element id style background to these if layer clicked
+                //colorGradient = rgba (0,0,0,0) linear-gradient(to right, #efedf5, #756bb1);
+
+                legendBar.style.background = 'linear-gradient(to right, #efedf5, #756bb1)';
+
 
             } else if (val == 'income') {
                 console.log('value is income');
-                 //const incomeColors = map2Style.layers[87]; //array of color styling array set to variable
-                 // return colors
+                //const incomeColors = map2Style.layers[87]; //array of color styling array set to variable
+                // return colors
             } else if (val == 'ownership') {
                 console.log('value is ownership');
-                 //const ownershipColors = map2Style.layer[88]; //array of color sytling array set to variable
-                 // return colors
-            } 
+                //const ownershipColors = map2Style.layer[88]; //array of color sytling array set to variable
+                // return colors
+            }
             // else if (val == 'propertyValue') {
             //     console.log('value is propertyValue');
             // } 
             else {
                 console.log('no value selected');
-            }; 
-            
-            
+            };
+
+
         };
 
-    
+
         // add mapbox inspection tool for development only
         // ✏️  when i add this control, click and unclick I lose my layer
         // map.addControl(new MapboxInspect());  // click on box top right hand corner to 
