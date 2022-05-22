@@ -5,49 +5,9 @@
     background: greenyellow
 }
 
-/* CSS ID Selector Styles (unique ids) */
-
-/* #title {
-    position: absolute;
-    top: 8px;
-    right: 50px;
-    width: auto;
-    margin: auto;
-    padding: 10px;
-    z-index: 1000;
-    border-radius: 4px;
-    border: 1px solid #aaa;
-    background: rgba(256, 256, 256, .3);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-} */
-
-/* old infobutton styling prior to navbar */
-/* #infoButton { */
-    /* position: absolute;
-    margin-top: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 100; */
-    /* letter-spacing: .04em; */
-    /* color: #3d3d3d; */
-    /* padding: 1px 1px; */
-    /* top: 105px;
-    right: 10px;
-    z-index: 1000; */
-    /*can't place button over map without z index default z index is 0, 1000 is higher than all other panes*/
-    /* border-radius: 2px;
-    border: 1px solid #aaa;
-    background: rgba(256, 256, 256, .3);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); */
-/* } */
-
 #infoPanel{
     display: 'none';
 } 
-/* #infoPanel {
-    background: 'blue';
-    overflow: hidden;
-    overflow-y: scroll;
-} */
 
 /* specific navbar styling */
 ul {
@@ -138,12 +98,6 @@ h2 {
     margin-bottom: 40px;
     width: 100px;
 }
-
-/* #legend {
-    width: 100%;
-    height: 10px;
-    background: linear-gradient(to right, #fca107, #7f3121);
-} */
 
 #legend-bar {
     /* display: inline-block; */
