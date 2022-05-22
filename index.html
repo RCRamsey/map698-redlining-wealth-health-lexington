@@ -11,9 +11,6 @@
     <!-- Mapbox GL JS Reference stylesheet-->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet" />
 
-    <!-- Plugin for opacity tool -->
-    <!-- <link href="plugin/mapbox-gl-opacity/dist/mapbox-gl-opacity.css" rel="stylesheet"> -->
-
     <!-- my general css styles -->
     <link href='css/styles.css' rel='stylesheet' />
 
@@ -70,9 +67,6 @@
                 </ul>
             </div>
         </nav>
-
-
-
     </header>
 
     <div id='displayContainer'>
@@ -100,10 +94,6 @@
             </div>
 
         </div>
-
-
-
-
 
         <!-- The Modal to open from infoButton in nav bar -->
         <div id="infoModal" class="modal">
@@ -168,11 +158,9 @@
                             <button type="button" class="btn btn-primary">View Repo</button>
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>
-
     </div>
 
 
@@ -209,43 +197,40 @@
                 'fill-opacity',
                 parseInt(e.target.value, 10) / 100
             );
-
             // Value Indicator
             sliderValue.textContent = e.target.value + '%';
         });
 
-
         const sliderValue = document.getElementById('slider-value');
 
         //access color gradient of legend
-        const element = document.getElementById('legend');
-        const style = getComputedStyle(element);
+        // const element = document.getElementById('legend');
+        // const style = getComputedStyle(element);
         //console.log(style.background)
-        const colorGradient = style.background // access to gradient of legend bar 
-        console.log(colorGradient)
+        // const colorGradient = style.background // access to gradient of legend bar 
+        // console.log(colorGradient)
 
-        // Modal UI
+        // Modal UI access using native js
         var modal = document.getElementById("infoModal");
-        // Get the button that opens the modal
+        // Get button that opens the modal
         // var btn = document.getElementById("myBtn");
         const ibtn = document.getElementById('infoButton');
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];  // rename var to const other than span
+        const spanCloseModal = document.getElementsByClassName("close")[0];  // rename var to const other than span
         // When the user clicks the button, open the modal 
         ibtn.onclick = function () {
             modal.style.display = "block";
         };
         // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
-            modal.style.display = "none";
-        };
+        // spanCloseModal.onclick = function () {
+        //     modal.style.display = "none";
+        // };
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
         };
-
 
         // use D3 method on map 1 to load GeoJSON when the map is finished loading
         map.on('load', () => {
@@ -297,14 +282,11 @@
         const map2 = new mapboxgl.Map({
             container: 'map2', //container ID
             style: 'mapbox://styles/rcramsey/cl0fo22zx000514ms9ohin6tx',// ✏️ style URL refine later
-            center: [-84.51, 38.04], //strating position [lng, lat]
+            center: [-84.51, 38.04], //starting position [lng, lat]
             zoom: 12 //starting zoom
         });
 
         const map2Legend = document.getElementById('map2Legend');
-
-        // const slider2 = document.getElementById('slider2');
-        // const sliderValue2 = document.getElementById('slider-value2');
 
         // use D3 method on map 2 to load GeoJSON when the map is finished loading
         map2.on('load', () => {
@@ -313,26 +295,10 @@
             d3.json('./data/race_cbtracts_hhi_own_val_pov_2019_gdf_json.json').then((geojson) => {
                 // when loaded
                 console.log(geojson);
-
                 // call addLayer() function in scope
                 addLayer2(geojson);
                 mapSync();
             });
-
-            // DEVELOPER TOOL TO DELETE PRIOR TO LAUNCH
-            // slider.addEventListener('input', (e)=> {
-            //     // Adjust the layers opacity.
-            //     map2.setPaintProperty(
-            //         // source Id
-            //         'other',
-            //         // when the layer is created in mapbox from my geojson, it is added as a raster? right?
-            //         'fill-opacity',
-            //         parseInt(e.target.value, 10) / 100
-            //     );
-
-            //     // Value Indicator
-            //     sliderValue.textContent = e.target.value + '%';
-            // });
         });
 
         // define addLayer() function outside of scope
@@ -343,7 +309,7 @@
                 'data': geojson // use my data as source
             });
 
-            // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
+            // add the GeoJSON data as a mapbox gl layer to visualize polygon
             // access census bureau race/segretation data
             map2.addLayer({
                 'id': 'race', // provide new id for later reference 
@@ -481,61 +447,35 @@
             })
         };
 
-
-
-        ///////////////////////////////////////////////////////////////////////////
-        //Place Holder for get styling layers for legend
+        //Updating legend to reflect map2 layer styles
+        //Determine UI layer selected, apply appropriate color gradient to legend
         function whatsMap2Style(val) {
-            // const map2Style = map2.getStyle(); //array of map2styles set to variable
-            // console.log(map2Style)
-            //if/else loop to determine which layer is selected
-            // therefore which colors to pass on
-            // need to modify if/else to return colors as map2Colors
-
+            // access legend-bar for color gradient modification
             let legendBar = document.getElementById('legend-bar');
 
-
+            // if value from UI is race update color gradient to legend
             if (val == 'race') {
                 console.log('value is race');
-
-                //var colors = map2Style.layers[86].paint.'fill-color'.stops; //array of color styling array set to variable
-                //console.log(colors);
-                //return colors
-
-                // 🧯access the legend bar and background linear-gradient to change stop colors
-                //access the colorGradient assigned back on line 200
-                //change the element id style background to these if layer clicked
-                //colorGradient = rgba (0,0,0,0) linear-gradient(to right, #efedf5, #756bb1);
-
                 legendBar.style.background = 'linear-gradient(to right, #efedf5, #756bb1)';
-
-
+            // if value from UI is income update color gradient to legend
             } else if (val == 'income') {
                 console.log('value is income');
-                //const incomeColors = map2Style.layers[87]; //array of color styling array set to variable
-                // return colors
+                legendBar.style.background = 'linear-gradient(to right, #fff, #f00)';
+            // if value from UI is ownership update color gradient to legend
             } else if (val == 'ownership') {
                 console.log('value is ownership');
-                //const ownershipColors = map2Style.layer[88]; //array of color sytling array set to variable
-                // return colors
+                legendBar.style.background = 'linear-gradient(to right, #deebf7, #3182bd )';
             }
+            // if value from UI is propertyValue update color gradient to legend
             // else if (val == 'propertyValue') {
             //     console.log('value is propertyValue');
             // } 
+            // if no value is accessible produce comment in console log
             else {
                 console.log('no value selected');
             };
-
-
         };
-
-
-        // add mapbox inspection tool for development only
-        // ✏️  when i add this control, click and unclick I lose my layer
-        // map.addControl(new MapboxInspect());  // click on box top right hand corner to 
-
     </script>
-
+    
 </body>
-
 </html>
