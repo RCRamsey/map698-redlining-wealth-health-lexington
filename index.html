@@ -30,36 +30,21 @@
 
 <body>
 
-    <header class='align-center bg-darken25 border-b border--white txt-bold pt10 pb10 px30'>
-        <h1 class='inline-block'> How Racial Capitalism Persists today in Lexington, KY:</h1><br>
-        <h2 class='inline-block'>An exploration of 1930s Redlining Practices</h2>
-        <nav class='fl inline-block'>
-            <div class=''>
+    <header class=' bg-darken25 border-b border--white txt-bold pt10 pb10 py10'>        
+        <h1 class='flex flex--center-main'> How Racial Capitalism Persists today in Lexington, KY: <br> An exploration of 1930s Redlining Practices</h1>
+       
+        <nav class='fr flex flex--column'>
+            <div class='layer-button-container'>
                 <!-- unordered list -->
                 <ul>
-                    
-                    <li>
-                        <!-- Info Button to trigger open Modal -->
-                        <!-- -on-active is-active-->
-                        <button id='infoButton'>
-                            <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-xs ml3 '
-                                href='#'>
-                                <svg class='icon txt-s mr6'>
-                                    <use xlink:href='#icon-bookmark' />
-                                </svg> Info
-                            </a>
-                        </button>
-                    </li>
-
-                    <li class='dropdown mr20'>
-                        <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-xs ml3'
+                    <li class='dropdown mx20 my25 '>
+                        <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3'
                             href='#'>
                             <svg class='icon txt-s mr1'>
                                 <use xlink:href='#icon-layers' />
                             </svg> Layers
                         </a>
-
-                        <div class='dropdown-content'>
+                        <div class='dropdown-content txt-s'>
                             <a value='race' href='#'>Segregation/Race</a>
                             <a value='income' href='#'>Median Household Income</a>
                             <a value='ownership' href='#'>% Home Ownership</a>
@@ -85,6 +70,23 @@
                         <div id='legend1-label-min'><h3>Not Likley</h3></div> 
                         <div id ='legend1-label-max'><h3>Likley</h3></div>   
                 </div>
+            </div>
+
+            <div id="info-button-container flex flex--row-reverse">
+                <ul>
+                    <li>
+                        <!-- Info Button to trigger open Modal -->
+                        <!-- -on-active is-active-->
+                        <button id='infoButton'>
+                            <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3 '
+                                href='#'>
+                                <svg class='icon txt-m mr2'>
+                                    <use xlink:href='#icon-bookmark'/>
+                                </svg> Redlining Map Info
+                            </a>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
         <!-- insert opacity slider bar and give initial start opacity, use as developer tool-->
