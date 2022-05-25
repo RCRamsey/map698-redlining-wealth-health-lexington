@@ -30,15 +30,29 @@
 
 <body>
 
-    <header class='bg-darken75 border-b border--black txt-bold pt24 pb24 px30'>
+    <header class='align-center bg-darken25 border-b border--white txt-bold pt10 pb10 px30'>
         <h1 class='inline-block'> How Racial Capitalism Persists today in Lexington, KY:</h1><br>
         <h2 class='inline-block'>An exploration of 1930s Redlining Practices</h2>
-        <nav class='fr inline-block'>
+        <nav class='fl inline-block'>
             <div class=''>
                 <!-- unordered list -->
                 <ul>
-                    <li class='dropdown mr36'>
-                        <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-s ml3'
+                    
+                    <li>
+                        <!-- Info Button to trigger open Modal -->
+                        <!-- -on-active is-active-->
+                        <button id='infoButton'>
+                            <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-xs ml3 '
+                                href='#'>
+                                <svg class='icon txt-s mr6'>
+                                    <use xlink:href='#icon-bookmark' />
+                                </svg> Info
+                            </a>
+                        </button>
+                    </li>
+
+                    <li class='dropdown mr20'>
+                        <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-xs ml3'
                             href='#'>
                             <svg class='icon txt-s mr1'>
                                 <use xlink:href='#icon-layers' />
@@ -52,18 +66,6 @@
                             <a href='#'>Property Value Reported</a>
                         </div>
                     </li>
-                    <li>
-                        <!-- Info Button to trigger open Modal -->
-                        <!-- -on-active is-active-->
-                        <button id='infoButton'>
-                            <a class='inline-flex btn btn--stroke btn--white bg-transparent bg-darken10-on-hover bg-gray-dark-on-active txt-s ml3 '
-                                href='#'>
-                                <svg class='icon txt-s mr6'>
-                                    <use xlink:href='#icon-bookmark' />
-                                </svg> Info
-                            </a>
-                        </button>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -71,26 +73,38 @@
 
     <div id='display-container'>
 
-        <div id='map'></div>
-
+        <div id='map1-container' class=''>
+            <div id='map'></div>
+            <!-- map1 legend -->
+            <div class='map-overlay bottom mr-neg24 mb36 z3 absolute'>
+                <div class='map-overlay-inner'>
+                    <div id='legend1'><h3>Likelihood of Loan</h3></div>
+                        <!-- legend-bar will be dynamically updated with JS based on selected attribute -->
+                        <div id='legend1-bar'></div>
+                        <!-- Add min & max labels -->
+                        <div id='legend1-label-min'><h3>Not Likley</h3></div> 
+                        <div id ='legend1-label-max'><h3>Likley</h3></div>   
+                </div>
+            </div>
+        </div>
         <!-- insert opacity slider bar and give initial start opacity, use as developer tool-->
-        <div class='map-overlay bottom ml24 mb36 z2 absolute'>
+        <!-- <div class='map-overlay bottom ml24 mb36 z2 absolute'>
             <div class='map-overlay-inner'>
                 <label>Redlined Layer Opacity: <span id='slider-value'>100%</span></label>
                 <input id='slider' type='range' min='0' max='100' step='0' value='100'>
             </div>
-        </div>
+        </div> -->
         <div id='map2-container' class=''>
             <div id='map2'></div>
             <!-- bottom margin left margin -->
             <div class='map-overlay bottom mr-neg24 mb36 z3 absolute'>
                 <div class='map-overlay-inner'>
-                    <div id='legend'><h3>Legend Label</h3></div>
+                    <div id='legend2'><h3>Legend Label</h3></div>
                         <!-- legend-bar will be dynamically updated with JS based on selected attribute -->
-                        <div id='legend-bar'></div>
+                        <div id='legend2-bar'></div>
                         <!-- Add min & max labels -->
-                        <div id='legend-label-min'><h3>0%</h3></div> 
-                        <div id ='legend-label-max'><h3>100%</h3></div>   
+                        <div id='legend2-label-min'><h3>0%</h3></div> 
+                        <div id ='legend2-label-max'><h3>100%</h3></div>   
                 </div>
             </div>
 
@@ -182,27 +196,27 @@
         // map 1 script
         const map = new mapboxgl.Map({
             container: 'map', //container ID
-            style: 'mapbox://styles/rcramsey/cl0fo22zx000514ms9ohin6tx',// ✏️ style URL refine later
+            style: 'mapbox://styles/rcramsey/cl3k1etf1002c14lxlfg3l57v',// ✏️ style URL refine later
             center: [-84.51, 38.04], //strating position [lng, lat]
             zoom: 12 //starting zoom
         });
 
         // remove later ... part of dev tools
-        const slider = document.getElementById('slider');
-        slider.addEventListener('input', (e) => {
-            // Adjust the layers opacity.
-            map.setPaintProperty(
-                // source Id
-                'redlining',
-                // when the layer is created in mapbox from my geojson, it is added as a raster? right?
-                'fill-opacity',
-                parseInt(e.target.value, 10) / 100
-            );
-            // Value Indicator
-            sliderValue.textContent = e.target.value + '%';
-        });
+        // const slider = document.getElementById('slider');
+        // slider.addEventListener('input', (e) => {
+        //     // Adjust the layers opacity.
+        //     map.setPaintProperty(
+        //         // source Id
+        //         'redlining',
+        //         // when the layer is created in mapbox from my geojson, it is added as a raster? right?
+        //         'fill-opacity',
+        //         parseInt(e.target.value, 10) / 100
+        //     );
+        //     // Value Indicator
+        //     sliderValue.textContent = e.target.value + '%';
+        // });
 
-        const sliderValue = document.getElementById('slider-value');
+        // const sliderValue = document.getElementById('slider-value');
 
         // Modal UI access using native js
         var modal = document.getElementById("infoModal");
@@ -256,26 +270,26 @@
                         'match',
                         ['get', 'holc_grade'],
                         'A',
-                        'green',
+                        '#6D889C',
                         'B',
-                        'blue',
+                        '#92A6B5',
                         'C',
-                        'yellow',
+                        '#AAB9C5',
                         'D',
-                        'red',
+                        '#C2CDD6',
                         // other not caught
                         'black'
                     ],
-                    //'fill-opacity': 1, //initial opacity until slider added
-                    //'fill-outline-color': 'white'
+                    'fill-opacity': .7, //initial opacity until slider added
+                    'fill-outline-color': 'black'
                 }
             });
         };
-
+        
         // map 2 script
         const map2 = new mapboxgl.Map({
             container: 'map2', //container ID
-            style: 'mapbox://styles/rcramsey/cl0fo22zx000514ms9ohin6tx',// ✏️ style URL refine later
+            style: 'mapbox://styles/rcramsey/cl3k1etf1002c14lxlfg3l57v',// ✏️ style URL refine later
             center: [-84.51, 38.04], //starting position [lng, lat]
             zoom: 12 //starting zoom
         });
@@ -316,8 +330,8 @@
                         property: '%White',
                         stops: [[0, '#efedf5'], [100, '#756bb1']],
                     },
-                    'fill-opacity': .45, //initial opacity until slider added
-                    'fill-outline-color': 'white'
+                    'fill-opacity': .70, //initial opacity until slider added
+                    'fill-outline-color': 'black'
                 }
             });
 
@@ -335,8 +349,8 @@
                         property: 'median_income_dollars',
                         stops: [[20000, '#fff'], [120000, '#f00']],
                     },
-                    'fill-opacity': .45, //initial opacity until slider added
-                    'fill-outline-color': 'white'
+                    'fill-opacity': .70, //initial opacity until slider added
+                    'fill-outline-color': 'black'
                 }
             });
 
@@ -354,8 +368,8 @@
                         property: '%owner',
                         stops: [[0, '#deebf7'], [100, '#3182bd']],
                     },
-                    'fill-opacity': .45, //initial opacity until slider added
-                    'fill-outline-color': 'white'
+                    'fill-opacity': .70, //initial opacity until slider added
+                    'fill-outline-color': 'black'
                 }
             });
 
@@ -443,33 +457,33 @@
         //Determine UI layer selected, apply appropriate color gradient to legend
         function whatsMap2Style(val) {
             // access legend-bar for color gradient modification
-            let legendBar = document.getElementById('legend-bar');
-            let legendTitle = document.getElementById('legend');
-            let legendMin = document.getElementById('legend-label-min');
-            let legendMax = document.getElementById('legend-label-max');
+            let legend2Bar = document.getElementById('legend2-bar');
+            let legend2Title = document.getElementById('legend2');
+            let legend2Min = document.getElementById('legend2-label-min');
+            let legend2Max = document.getElementById('legend2-label-max');
 
             // if value from UI is race update color gradient to legend
             if (val == 'race') {
                 console.log('value is race');
-                legendBar.style.background = 'linear-gradient(to right, #efedf5, #756bb1)';
+                legend2Bar.style.background = 'linear-gradient(to right, #efedf5, #756bb1)';
                // place holder for accessing and modifying text to legend
-               legendTitle.innerHTML = '<h3>Race Title</h3>';
-                legendMin.innerHTML = '<h3>low</h3>';
-                legendMax.innerHTML = '<h3>high</h3>';
+               legend2Title.innerHTML = '<h3>% White</h3>';
+                legend2Min.innerHTML = '<h3>low</h3>';
+                legend2Max.innerHTML = '<h3>high</h3>';
            // if value from UI is income update color gradient to legend
             } else if (val == 'income') {
                 console.log('value is income');
-                legendBar.style.background = 'linear-gradient(to right, #fff, #f00)';
-                legendTitle.innerHTML = '<h3>Income Title</h3>';
-                legendMin.innerHTML = '<h3>lower</h3>';
-                legendMax.innerHTML = '<h3>higher</h3>';
+                legend2Bar.style.background = 'linear-gradient(to right, #fff, #f00)';
+                legend2Title.innerHTML = '<h3>Median Income</h3>';
+                legend2Min.innerHTML = '<h3>lower</h3>';
+                legend2Max.innerHTML = '<h3>higher</h3>';
             // if value from UI is ownership update color gradient to legend
             } else if (val == 'ownership') {
                 console.log('value is ownership');
-                legendBar.style.background = 'linear-gradient(to right, #deebf7, #3182bd )';
-                legendTitle.innerHTML = '<h3>Ownership Title</h3>';
-                legendMin.innerHTML = '<h3>lowest</h3>';
-                legendMax.innerHTML = '<h3>highest</h3>';
+                legend2Bar.style.background = 'linear-gradient(to right, #deebf7, #3182bd )';
+                legend2Title.innerHTML = '<h3>% Ownership</h3>';
+                legend2Min.innerHTML = '<h3>lowest</h3>';
+                legend2Max.innerHTML = '<h3>highest</h3>';
             }
             // if value from UI is propertyValue update color gradient to legend
             // else if (val == 'propertyValue') {
