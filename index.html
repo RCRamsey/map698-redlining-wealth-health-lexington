@@ -37,7 +37,7 @@
             <div class='layer-button-container'>
                 <!-- unordered list -->
                 <ul>
-                    <li class='dropdown mx20 my25 '>
+                    <li class='dropdown mx3 my3 '>
                         <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3'
                             href='#'>
                             <svg class='icon txt-s mr1'>
@@ -67,14 +67,16 @@
                         <!-- legend-bar will be dynamically updated with JS based on selected attribute -->
                         <div id='legend1-bar'></div>
                         <!-- Add min & max labels -->
-                        <div id='legend1-label-min'><h3>Not Likley</h3></div> 
-                        <div id ='legend1-label-max'><h3>Likley</h3></div>   
+                        <div class = 'legend-labels flex'>
+                            <div id='legend1-label-min'><h3>Not Likley</h3></div> 
+                            <div id ='legend1-label-max'><h3>Likley</h3></div>   
+                        </div>
                 </div>
             </div>
 
             <div id="info-button-container flex flex--row-reverse">
                 <ul>
-                    <li>
+                    <li class = 'mx3 my3'>
                         <!-- Info Button to trigger open Modal -->
                         <!-- -on-active is-active-->
                         <button id='infoButton'>
