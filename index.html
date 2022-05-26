@@ -276,13 +276,13 @@
                         'match',
                         ['get', 'holc_grade'],
                         'A',
-                        '#6D889C',
+                        '#5B7386',
                         'B',
                         '#92A6B5',
                         'C',
-                        '#AAB9C5',
-                        'D',
                         '#C2CDD6',
+                        'D',
+                        '#E6EBEF',
                         // other not caught
                         'black'
                     ],
@@ -334,7 +334,7 @@
                 'paint': {
                     'fill-color': {
                         property: '%White',
-                        stops: [[0, '#efedf5'], [100, '#756bb1']],
+                        stops: [[0, '#FFFFFF'], [25, '#C5E2FC'], [75,'#51ABF6'], [100, '#115292']],
                     },
                     'fill-opacity': .70, //initial opacity until slider added
                     'fill-outline-color': 'black'
@@ -353,7 +353,7 @@
                 'paint': {
                     'fill-color': {
                         property: 'median_income_dollars',
-                        stops: [[20000, '#fff'], [120000, '#f00']],
+                        stops: [[20000, '#E7EFEE'], [50000,'#B6CECC'], [80000,'#89B0AE'], [120000, '#629390']],
                     },
                     'fill-opacity': .70, //initial opacity until slider added
                     'fill-outline-color': 'black'
@@ -372,7 +372,7 @@
                 'paint': {
                     'fill-color': {
                         property: '%owner',
-                        stops: [[0, '#deebf7'], [100, '#3182bd']],
+                        stops: [[0, '#F7D1CD'], [25, '#D1B3C4'], [75, '#B392AC'], [100, '#735D78']],
                     },
                     'fill-opacity': .70, //initial opacity until slider added
                     'fill-outline-color': 'black'
@@ -471,7 +471,7 @@
             // if value from UI is race update color gradient to legend
             if (val == 'race') {
                 console.log('value is race');
-                legend2Bar.style.background = 'linear-gradient(to right, #efedf5, #756bb1)';
+                legend2Bar.style.background = 'linear-gradient(to right, #FFFFFF, #C5E2FC, #51ABF6, #115292)';
                // place holder for accessing and modifying text to legend
                legend2Title.innerHTML = '<h3>% White</h3>';
                 legend2Min.innerHTML = '<h3>low</h3>';
@@ -479,17 +479,17 @@
            // if value from UI is income update color gradient to legend
             } else if (val == 'income') {
                 console.log('value is income');
-                legend2Bar.style.background = 'linear-gradient(to right, #fff, #f00)';
+                legend2Bar.style.background = 'linear-gradient(to right, #E7EFEE, #B6CECC, #89B0AE, #629390)';
                 legend2Title.innerHTML = '<h3>Median Income</h3>';
                 legend2Min.innerHTML = '<h3>lower</h3>';
                 legend2Max.innerHTML = '<h3>higher</h3>';
             // if value from UI is ownership update color gradient to legend
             } else if (val == 'ownership') {
                 console.log('value is ownership');
-                legend2Bar.style.background = 'linear-gradient(to right, #deebf7, #3182bd )';
+                legend2Bar.style.background = 'linear-gradient(to right, #F7D1CD, #D1B3C4, #B392AC, #735D78 )';
                 legend2Title.innerHTML = '<h3>% Ownership</h3>';
-                legend2Min.innerHTML = '<h3>lowest</h3>';
-                legend2Max.innerHTML = '<h3>highest</h3>';
+                legend2Min.innerHTML = '<h3>lower</h3>';
+                legend2Max.innerHTML = '<h3>higher</h3>';
             }
             // if value from UI is propertyValue update color gradient to legend
             // else if (val == 'propertyValue') {
