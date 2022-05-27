@@ -381,7 +381,7 @@
 
 
             addUI();
-            whatsMap2Style('race');
+            whatsMap2Style('race', geojson);
 
             // // Access census bureau property data
             //🧯 Need to convert string value to number value🧯 
@@ -461,7 +461,7 @@
 
         //Updating legend to reflect map2 layer styles
         //Determine UI layer selected, apply appropriate color gradient to legend
-        function whatsMap2Style(val) {
+        function whatsMap2Style(val, geojson) {
             // access legend-bar for color gradient modification
             let legend2Bar = document.getElementById('legend2-bar');
             let legend2Title = document.getElementById('legend2');
@@ -476,6 +476,10 @@
                legend2Title.innerHTML = '<h3>% White</h3>';
                 legend2Min.innerHTML = '<h3>low</h3>';
                 legend2Max.innerHTML = '<h3>high</h3>';
+
+                //add popup here? and access
+                console.log(geojson)
+
            // if value from UI is income update color gradient to legend
             } else if (val == 'income') {
                 console.log('value is income');
