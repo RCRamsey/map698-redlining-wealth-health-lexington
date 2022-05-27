@@ -460,7 +460,9 @@
         };
 
         //Updating legend to reflect map2 layer styles
-        //Determine UI layer selected, apply appropriate color gradient to legend
+        //Determine UI layer selected
+        //apply appropriate color gradient to legend
+        //access appropriate set of data for popups
         function whatsMap2Style(val, geojson) {
             // access legend-bar for color gradient modification
             let legend2Bar = document.getElementById('legend2-bar');
@@ -478,7 +480,8 @@
                 legend2Max.innerHTML = '<h3>high</h3>';
 
                 //add popup here? and access
-                console.log(geojson)
+                console.log(geojson) //access geojson data for race layer here
+                //begin popup
 
            // if value from UI is income update color gradient to legend
             } else if (val == 'income') {
