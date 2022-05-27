@@ -311,6 +311,7 @@
                 addLayer2(geojson);
                 mapSync();
             });
+             
         });
 
         // define addLayer() function outside of scope
@@ -379,10 +380,10 @@
                 }
             });
 
-
             addUI();
             whatsMap2Style('race', geojson);
 
+             
             // // Access census bureau property data
             //🧯 Need to convert string value to number value🧯 
             // map2.addLayer({
@@ -401,6 +402,7 @@
             // });
         };
 
+        
         // Use d3 to select all 'a' targets in dropdown menu
         // when clicked the value of that current target is passed to function updateCurrentLayer
         function addUI() {
@@ -470,18 +472,44 @@
             let legend2Min = document.getElementById('legend2-label-min');
             let legend2Max = document.getElementById('legend2-label-max');
 
+            // Create a popup, but don't add it to the map yet.
+            const popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+            });
+
             // if value from UI is race update color gradient to legend
             if (val == 'race') {
                 console.log('value is race');
                 legend2Bar.style.background = 'linear-gradient(to right, #FFFFFF, #C5E2FC, #51ABF6, #115292)';
                // place holder for accessing and modifying text to legend
-               legend2Title.innerHTML = '<h3>% White</h3>';
+                legend2Title.innerHTML = '<h3>% White</h3>';
                 legend2Min.innerHTML = '<h3>low</h3>';
                 legend2Max.innerHTML = '<h3>high</h3>';
 
-                //add popup here? and access
+                //add popup here? and access REFERENCE HARDINESS-ZONES.HTML
                 console.log(geojson) //access geojson data for race layer here
-                //begin popup
+                
+                map2.on('mouseenter', 'race', (e)=>{
+                    //Change the cursor style as UI Indicator
+                    map.getCanvas().style.cursor ='pointer';
+                    // copy coordinates from geojson to array
+                    //const coordinates = e.features[0].geometry.coordinates.slice();
+                    
+                    //Access properties to add to popup
+                    const percentWhite = e.features[0].properties['%White'];
+                    
+                    //Populate popup and set its coordinates based on feature found
+                   // popup.setLngLat(coordinates).setHTML(percentWhite).addTo(map);
+
+                   //Populate poup and set its coordinates based on click
+                   popup.setLngLat(e.lngLat).setHTML("<h3>Percent White</h3>:"+percentWhite).addTo(map2);
+                });
+
+                map2.on('mouseleave', 'race',()=> {
+                    map.getCanvas().style.cursor='';
+                    popup.remove();
+                });
 
            // if value from UI is income update color gradient to legend
             } else if (val == 'income') {
