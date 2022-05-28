@@ -63,10 +63,12 @@ h3 {
 }
 
 /* styling for layer popups */
-.mapboxgl-popup {
-    max-width: 400px;
+.mapboxgl-popup-content {
+    max-width: 300px;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     z-index: 1;
+    padding:0.1;
+    font-weight: bold;
 }
 
 /* currently applies to map overlay opacity slider and legend*/
