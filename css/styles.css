@@ -1,5 +1,5 @@
  /* custom CSS style rules*/
- body {
+body {
     /* background: #2ecc71; */
     height: 100%;
     background: greenyellow
@@ -11,17 +11,13 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-  }
+}
   
-  /* li {
-    float: left;
-  } */
+li a:hover, .dropdown:hover
 
-  li a:hover, .dropdown:hover
-
-  li.dropdown{
+li.dropdown{
       display: inline-block;
-  }
+}
 
   .dropdown-content {
       display: none;
@@ -43,11 +39,10 @@ ul {
   .dropdown-content a:hover {
       background-color: whitesmoke;
       border-radius: 10px;
-    }
+  }
 
-  .dropdown:hover .dropdown-content{
+  .dropdown:hover .dropdown-content {
       display: block;
-     
   }
 
 h1 {
@@ -63,8 +58,8 @@ h2 {
 }
 
 h3 {
-    font: 12px/18px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     color: black;
+    font: 12/15px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 /* styling for layer popups */
