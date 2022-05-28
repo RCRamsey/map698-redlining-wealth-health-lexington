@@ -290,6 +290,29 @@
                     'fill-outline-color': 'black'
                 }
             });
+
+            // Create a popup for redlined map, but don't add it to the map yet.
+            const redlined_popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+            });
+
+            // Click event on layer to produce popup of properties based on event clicked
+            map.on('click', 'redlining', (e)=>{
+                    // Change the cursor style as UI Indicator
+                    map.getCanvas().style.cursor ='pointer';
+                   
+                    //Access properties of event location selected to add to popup
+                    const redlinedGrade = e.features[0].properties.holc_grade;
+                    //Populate popup and set its coordinates based on click
+                    redlined_popup.setLngLat(e.lngLat).setHTML("<h3>Redlined Grade:</h3> " + redlinedGrade).addTo(map);
+                });
+
+                // On leaving layer remove popup and revert back to initial cursor style
+                map.on('mouseleave', 'redlining',()=> {
+                    map.getCanvas().style.cursor='';
+                    redlined_popup.remove();
+                });
         };
         
         // map 2 script
@@ -493,7 +516,7 @@
                 // Click event on layer to produce popup of properties based on event clicked
                 map2.on('click', 'race', (e)=>{
                     // Change the cursor style as UI Indicator
-                    map.getCanvas().style.cursor ='Pointer';
+                    map.getCanvas().style.cursor ='pointer';
                    
                     //Access properties of event location selected to add to popup
                     const percentWhite = e.features[0].properties['%White'];
@@ -518,7 +541,7 @@
                 // Click event on layer to produce popup of properties based on event clicked
                 map2.on('click', 'income', (e)=>{
                     // Change the cursor style as UI Indicator
-                    map.getCanvas().style.cursor ='Pointer';
+                    map.getCanvas().style.cursor ='pointer';
                    
                     //Access properties of event location selected to add to popup
                     const medIncome = e.features[0].properties.median_income_dollars;
@@ -542,7 +565,7 @@
 
                 map2.on('click', 'ownership', (e)=>{
                     // Change the cursor style as UI Indicator
-                    map.getCanvas().style.cursor ='Pointer';
+                    map.getCanvas().style.cursor ='pointer';
                    
                     //Access properties of event location selected to add to popup
                     const percentOwn = e.features[0].properties['%owner'];
