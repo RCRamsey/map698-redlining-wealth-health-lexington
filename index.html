@@ -484,28 +484,24 @@
                 legend2Bar.style.background = 'linear-gradient(to right, #FFFFFF, #C5E2FC, #51ABF6, #115292)';
                // place holder for accessing and modifying text to legend
                 legend2Title.innerHTML = '<h3>% White</h3>';
-                legend2Min.innerHTML = '<h3>low</h3>';
-                legend2Max.innerHTML = '<h3>high</h3>';
+                legend2Min.innerHTML = '<h3>Low</h3>';
+                legend2Max.innerHTML = '<h3>High</h3>';
 
-                //add popup here? and access REFERENCE HARDINESS-ZONES.HTML
-                console.log(geojson) //access geojson data for race layer here
-                
-                map2.on('mouseenter', 'race', (e)=>{
-                    //Change the cursor style as UI Indicator
-                    map.getCanvas().style.cursor ='pointer';
-                    // copy coordinates from geojson to array
-                    //const coordinates = e.features[0].geometry.coordinates.slice();
-                    
-                    //Access properties to add to popup
+                // Access geojson data for race layer here
+                console.log(geojson) 
+
+                // Click event on layer to produce popup of properties based on event clicked
+                map2.on('click', 'race', (e)=>{
+                    // Change the cursor style as UI Indicator
+                    map.getCanvas().style.cursor ='Pointer';
+                   
+                    //Access properties of event location selected to add to popup
                     const percentWhite = e.features[0].properties['%White'];
-                    
-                    //Populate popup and set its coordinates based on feature found
-                   // popup.setLngLat(coordinates).setHTML(percentWhite).addTo(map);
-
-                   //Populate poup and set its coordinates based on click
-                   popup.setLngLat(e.lngLat).setHTML("<h3>Percent White</h3>:"+percentWhite).addTo(map2);
+                    //Populate popup and set its coordinates based on click
+                    popup.setLngLat(e.lngLat).setHTML("<h3>Percent White Population:</h3> " + Math.round(percentWhite)+'%').addTo(map2);
                 });
 
+                // On leaving layer remove popup and revert back to initial cursor style
                 map2.on('mouseleave', 'race',()=> {
                     map.getCanvas().style.cursor='';
                     popup.remove();
@@ -516,15 +512,49 @@
                 console.log('value is income');
                 legend2Bar.style.background = 'linear-gradient(to right, #E7EFEE, #B6CECC, #89B0AE, #629390)';
                 legend2Title.innerHTML = '<h3>Median Income</h3>';
-                legend2Min.innerHTML = '<h3>lower</h3>';
-                legend2Max.innerHTML = '<h3>higher</h3>';
+                legend2Min.innerHTML = '<h3>Lower</h3>';
+                legend2Max.innerHTML = '<h3>Higher</h3>';
+
+                // Click event on layer to produce popup of properties based on event clicked
+                map2.on('click', 'income', (e)=>{
+                    // Change the cursor style as UI Indicator
+                    map.getCanvas().style.cursor ='Pointer';
+                   
+                    //Access properties of event location selected to add to popup
+                    const medIncome = e.features[0].properties.median_income_dollars;
+                    //Populate popup and set its coordinates based on click
+                    popup.setLngLat(e.lngLat).setHTML("<h3>Annual Median Household Income:</h3> " + "$" + medIncome.toLocaleString('en-US')).addTo(map2);
+                });
+
+                // On leaving layer remove popup and revert back to initial cursor style
+                map2.on('mouseleave', 'race',()=> {
+                    map.getCanvas().style.cursor='';
+                    popup.remove();
+                });
+
             // if value from UI is ownership update color gradient to legend
             } else if (val == 'ownership') {
                 console.log('value is ownership');
                 legend2Bar.style.background = 'linear-gradient(to right, #F7D1CD, #D1B3C4, #B392AC, #735D78 )';
                 legend2Title.innerHTML = '<h3>% Ownership</h3>';
-                legend2Min.innerHTML = '<h3>lower</h3>';
-                legend2Max.innerHTML = '<h3>higher</h3>';
+                legend2Min.innerHTML = '<h3>Low</h3>';
+                legend2Max.innerHTML = '<h3>High</h3>';
+
+                map2.on('click', 'ownership', (e)=>{
+                    // Change the cursor style as UI Indicator
+                    map.getCanvas().style.cursor ='Pointer';
+                   
+                    //Access properties of event location selected to add to popup
+                    const percentOwn = e.features[0].properties['%owner'];
+                    //Populate popup and set its coordinates based on click
+                    popup.setLngLat(e.lngLat).setHTML("<h3>Percent of Home Owners:</h3> " + Math.round(percentOwn) + '%').addTo(map2);
+                });
+
+                // On leaving layer remove popup and revert back to initial cursor style
+                map2.on('mouseleave', 'ownership',()=> {
+                    map.getCanvas().style.cursor='';
+                    popup.remove();
+                });
             }
             // if value from UI is propertyValue update color gradient to legend
             // else if (val == 'propertyValue') {
