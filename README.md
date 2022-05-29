@@ -29,14 +29,13 @@ A repo for exploring a final thesis project related to the wealth ripples throug
 Title: How Racial Capitalism Persists today in Lexington, KY
 Sub-title: An exploration of 1930s Redlining Practices
 
-Crampton indicated that *"maps are active and not passive"* and *"they frame the narrative"* (Crampton 2014). As such I propose a project to expolore the ripples left behind by the Home Owner's Loan Corporation Redlining Neighborhood Map *Narrative* of Lexington Kentucky and what *Active* results can be interpreted from the fingerprent left behind by the HOLC map. 
+Crampton indicated that *"maps are active and not passive"* and *"they frame the narrative"* (Crampton 2014). As such I propose a project to expolore the ripples left behind by the Home Owner's Loan Corporation Redlining Neighborhood Map *Narrative* of Lexington Kentucky and what *Active* results can be interpreted from the fingerprint left behind by the HOLC map. 
 
 Within this project I will design a map that explores the access (or denial of equitable access) to generational wealth for the current location of historically redlined neighborhoods. The aspects of wealth being considered include:
 - Race 
 - Median Household Income
 - Home Ownership
 - Reported Property Value 
-- Poverty Level
 
 I want to find out what inequities have persisted generation to generation in order to help the user understand the impacts inherited by 1930s redlined policies in these neighborhoods through time.
 
@@ -97,7 +96,7 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
 ## Part III. Proposed Visuals
 
 ### Historical Visuals to Provide context
-Timeline of images from papers, covenants, HOLC plat, or historic journal article map depictions. Potentially store these within the info box panel on the left hand side to give historical context.
+Timeline of images from papers, covenants, HOLC plat, or historic journal article map depictions. Store these within the info box panel or as a modal on the left hand side to give historical context.
 
 HOLC Map scanned from 1930s
 ![digital scan of physical HOLC map from 1930s for Lexington KY](graphics/holc-scan.jpg)
@@ -111,21 +110,22 @@ Articles of interest:
 - Rabinowitz, Howard. 1976. From Reconstruction to Redemption in the Urban South. Journal of Urban History. Vol 2. No 2. pp 169-194  
     
 ## Part IV. Objectives and User Needs
-User will need to be able to make comparisons between the HOLC neighborhood grades and the current status of a data set (simultaneously) within/across those graded areas. HOLC layer will be a polygon layer whose outline color will correspond to grade level/hazard risk assigned by HOLC. HOLC grades traditionally used Green (Grade A)-Blue (Grade B)-Yellow (Grade C)-Red (Grade D). All other data sets will be colored based on polygon of census bureau tract data in a color ramp. Since the census bureau tracts will not always align with HOLC grades UI/UX will be utilized to interpret data in the same space.
+User will need to be able to make comparisons between the HOLC neighborhood grades and the current status of a data set (simultaneously) within/across those graded areas. HOLC layer will be a polygon layer whose outline color will correspond to grade level/hazard risk assigned by HOLC. HOLC grades traditionally used Green (Grade A)-Blue (Grade B)-Yellow (Grade C)-Red (Grade D). I will diverge from this historical color them to a gradient theme. Reasons for this divergence include:
+1. Increasing accessbility to map as red/green are known to pose challenges for deciphering one from the other based on certain visual abilities.
+2. The *Grades* used to communicate the likelihood of a home obtaining a loan is communicated more clearly through a color gradient using a scale of *Not Likely to obtain loan* (light color) to *Likely to obtain a loan* (darker color). Continuing to utilize *Grades*, would require the user to interpret what each *grade* value means prior to understanding the likelihood of obtaining a load. 
+
+All other data sets will be colored polygons of census bureau tract data using a gradient of lighter shade to darker shade. Since the census bureau tracts will not always align with HOLC grades UI/UX will be utilized to interpret data in the same space (popups for details)
 
 The following UI/UX items will be included to make the experience personalized and map view uncomplicated:  
 
-- ui info Panel with scroll bar. Text within to give historical context of information viwed on map
-- Drop-up menu button so user can select data interested in viewing. Menu Options:
+- UI activated information modal with scroll bar. Text within to give historical context of information viwed on map
+- Drop-down menu button so user can select data interested in viewing. Menu Options:
     - % segregtation/race
     - median household income
     - % home ownership
     - property value reported by owner
-    - % population in poverty
-- Slider bar controlling opacity level of overlayed HOLC neighborhood gradings/polygons.
-- North arrow for user to orient themselves
+- Slider bar controlling opacity level of overlayed HOLC neighborhood gradings/polygons (utilized as development tool only to determine best opacity percentage).
 - Zoom for closer views
-- Info button to hide/reveal ui info panel
 
 ## Part V. Data Processing and Storage
 Unprocessed data to be downloaded, date accessed notated above in Part II, unzipped and stored initially in the notebooks/data directory of this repo. Files are included on .gitignore to prevent excessive file sizes being pushed to github repo. Data will be loaded into a [Python/Jupyter Notebook](notebooks/lex-redlined-wealth.ipynb) for pre-processing. Specific steps in processing data will be indicated using markdown cells in the Jupyter Notebook, including the code used to process. Finalized data will be written to JSON file from Jupyter Notebook to data folder within repo directory as opposed to data folder within notebook directory.
@@ -145,15 +145,11 @@ Example of cleaned data
 - HTML/SVG/CSS for ui/ux and website styling
 - [Mapbox GLJS](https://www.mapbox.com/mapbox-gljs) for loading vector tiles and smooth interaction
 - [D3.js](https://d3js.org/) to load data as json
-- [Chroma.js](https://gka.github.io/chroma.js/) potentially for color scale
-- [Sparkline.js](https://omnipotent.net/jquery.sparkline/#s-about) potentially for tooltip specs of data or graphing
 
 ## Part VII. Layout
 ### Mockup WireFrame 1
 ![handdrawn wireframe mockup of proposed project map on a users screen](graphics/wireframe_proposal1.jpg)
 **Figure 1.** Mockup wireframe 1st proposal for project's html look and feel with user interaction buttons labeled.
-
-A similar project to reference was 673 4-5.
 
 ## Inspiration
 - [ramp styling 2020 census by race](https://mtgis-portal.geo.census.gov/arcgis/apps/MapSeries/index.html?appid=2566121a73de463995ed2b2fd7ff6eb7)
