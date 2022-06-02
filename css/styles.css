@@ -79,13 +79,13 @@ h3 {
     position: absolute;
     bottom: 18px;
     left: 10px;
+    width: 120px;
 }
 
 .map-overlay-inner {
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
     border-radius: 1px;
     padding: 2px 4px;
-    margin-bottom: 2px;
 }
 
 .map-overlay label {
