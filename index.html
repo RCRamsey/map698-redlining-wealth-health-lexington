@@ -30,14 +30,67 @@
 
 <body>
 
-    <header class=' bg-darken25 border-b border--white txt-bold pt10 pb10 py10'>        
-        <h1 class='flex flex--center-main'> How Racial Capitalism Persists today in Lexington, KY: <br> An exploration of 1930s Redlining Practices</h1>
+    <!-- remember padding and margins are in multiples of 3 i.e. 3 6 9 12 etc other values won't change -->
+    <header class=' bg-darken25 border-b border--white txt-bold px12 py12'>        
+        <h1 class='flex'> How Racial Capitalism Persists today in Lexington, KY: <br> An exploration of 1930s Redlining Practices</h1>
        
+        <div id="info-button-container flex flex--row-reverse">
+            <ul>
+                <li class = 'mx3 my6'>
+                    <!-- Info Button to trigger open Modal -->
+                    <!-- -on-active is-active-->
+                    <button id='aboutMapButton'>
+                        <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3 '
+                            href='#'>
+                            <svg class='icon txt-m mr2'>
+                                <use xlink:href='#icon-bookmark'/>
+                            </svg> About Map
+                        </a>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- The Modal to open from infoButton -->
+    <div id="aboutMapModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <!-- Close modal by clicking outside modal -->
+            <span class="closeAbout"></span>
+            <!-- scrolling text; not sure you need this now since the modal is outside the map and will scroll -->
+            <div class='px12 py12 overflow-auto h-full'>
+                <h3 class='txt-m txt-bold mb6'>Title Here</h3>
+                <p> Let's put some highlights on these little trees. The sun wouldn't forget them. You don't
+                    have to be crazy to do this but it does help. And just raise cain. We'll put some happy
+                    little leaves here and there.
+                    Have fun with it. This piece of canvas is your world. We start with a vision in our heart,
+                    and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and
+                    fall like a little waterfall. There comes a nice little fluffer.
+
+                    Let's put some highlights on these little trees. The sun wouldn't forget them. You don't
+                    have to be crazy to do this but it does help. And just raise cain. We'll put some happy
+                    little leaves here and there.
+                    Have fun with it. This piece of canvas is your world. We start with a vision in our heart,
+                    and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and
+                    fall like a little waterfall. There comes a nice little fluffer.
+                </p><br>
+                <!-- adding any images to the modal -->
+                <!-- <img class="img-fluid" src="images/na-brew.jpg" alt="2019 North America Concentration of Breweries Map"> -->
+                <div class="modal-footer">
+                    <a target="_blank" href="https://github.com/RCRamsey/map698-redlining-wealth-lexington">
+                        <button type="button" class="btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3">View Repo</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
         <nav class='fr flex flex--column'>
             <div class='layer-button-container'>
                 <!-- unordered list -->
                 <ul>
-                    <li class='dropdown mx3 my3'>
+                    <li class='dropdown mx3 my18'>
                         <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3'
                             href='#'>
                             <svg class='icon txt-s mr1'>
@@ -48,7 +101,7 @@
                             <a value='race' href='#'>Segregation/Race</a>
                             <a value='income' href='#'>Median Household Income</a>
                             <a value='ownership' href='#'>% Home Ownership</a>
-                            <a href='#'>Property Value Reported</a>
+                            <a value='propertyValue' href='#'>Property Value Reported</a>
                         </div>
                     </li>
                 </ul>
@@ -76,10 +129,10 @@
 
             <div id="info-button-container flex flex--row-reverse">
                 <ul>
-                    <li class = 'mx3 my3'>
+                    <li class = 'mx3 my6'>
                         <!-- Info Button to trigger open Modal -->
                         <!-- -on-active is-active-->
-                        <button id='infoButton'>
+                        <button id='redliningButton'>
                             <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3 '
                                 href='#'>
                                 <svg class='icon txt-m mr2'>
@@ -116,9 +169,8 @@
 
         </div>
 
-        <!-- The Modal to open from infoButton in nav bar -->
-        <div id="infoModal" class="modal">
-
+        <!-- The Modal to open from infoButton -->
+        <div id="redliningModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
                 <!-- Close modal by clicking outside modal -->
@@ -224,25 +276,37 @@
 
         // const sliderValue = document.getElementById('slider-value');
 
-        // Modal UI access using native js
-        var modal = document.getElementById("infoModal");
+        // About Map modal access using native js
+        var aboutMapModal = document.getElementById("aboutMapModal");
         // Get button that opens the modal
-        // var btn = document.getElementById("myBtn");
-        const ibtn = document.getElementById('infoButton');
+        const aboutBtn = document.getElementById('aboutMapButton');
         // Get the <span> element that closes the modal
-        const spanCloseModal = document.getElementsByClassName("close")[0];  // rename var to const other than span
+        const spanCloseAboutMapModal = document.getElementsByClassName("closeAbout")[0];  // rename var to const other than span
         // When the user clicks the button, open the modal 
-        ibtn.onclick = function () {
-            modal.style.display = "block";
+        aboutBtn.onclick = function () {
+            aboutMapModal.style.display = "block";
         };
-        // When the user clicks on <span> (x), close the modal
-        // spanCloseModal.onclick = function () {
-        //     modal.style.display = "none";
-        // };
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == aboutMapModal) {
+                aboutMapModal.style.display = "none";
+            }
+        }; 
+
+        // About Redlining Modal UI access using native js
+        var redliningModal = document.getElementById("redliningModal");
+        // Get button that opens the modal
+        const redliningBtn = document.getElementById('redliningButton');
+        // Get the <span> element that closes the modal
+        const spanCloseRedliningModal = document.getElementsByClassName("close")[0];  // rename var to const other than span
+        // When the user clicks the button, open the modal 
+        redliningBtn.onclick = function () {
+            redliningModal.style.display = "block";
+        };
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == redliningModal) {
+                redliningModal.style.display = "none";
             }
         };
 
@@ -327,7 +391,7 @@
         map2.on('load', () => {
             // request GEOJSON data
             //d3.json('./data/KYLexington1936.geojson').then((geojson) => {
-            d3.json('./data/race_cbtracts_hhi_own_val_pov_2019_gdf_json.json').then((geojson) => {
+            d3.json('./data/race_cbtracts_hhi_own_val_pov_2019_json_numerical.json').then((geojson) => {
                 // when loaded
                 console.log(geojson);
                 // call addLayer() function in scope
@@ -402,27 +466,28 @@
                     'fill-outline-color': 'black'
                 }
             });
+             
+            // // Access census bureau property data
+            map2.addLayer({
+                'id': 'propertyValue', // provide new id for later reference 
+                'type': 'fill',
+                'source': 'census', //refers to data source name entered above
+                'layout':
+                {
+                    'visibility': 'none'
+                },
+                'paint': {
+                    'fill-color': {
+                        property: 'medianDollarHome',
+                        stops: [[40000, '#F7D1CD'], [600000, '#735D78']],
+                    },
+                    'fill-opacity': .70, //initial opacity until slider added
+                    'fill-outline-color': 'black'
+                }
+            });
 
             addUI();
             whatsMap2Style('race', geojson);
-
-             
-            // // Access census bureau property data
-            //🧯 Need to convert string value to number value🧯 
-            // map2.addLayer({
-            //     'id': 'propertyValue', // provide new id for later reference 
-            //     'type': 'fill',
-            //     'source': 'census', //refers to data source name entered above
-            //     'paint': {
-            //         'fill-color': {
-            //             property: 'median dollar house',
-            //           //  ['to-number', ['get', 'median dollar house']],
-            //             stops: [[100000, '#e5f5e0'], [1000000, '#31a354']],
-            //         },
-            //         'fill-opacity': 1, //initial opacity until slider added
-            //         'fill-outline-color': 'white'
-            //     }
-            // });
         };
 
         
@@ -442,6 +507,7 @@
             map2.setLayoutProperty('race', 'visibility', 'none');
             map2.setLayoutProperty('income', 'visibility', 'none');
             map2.setLayoutProperty('ownership', 'visibility', 'none');
+            map2.setLayoutProperty('propertyValue', 'visibility', 'none');
             // change visibility to visible for whicheer val is clicked in drop down menu
             map2.setLayoutProperty(val, 'visibility', 'visible');
         }
@@ -580,9 +646,29 @@
                 });
             }
             // if value from UI is propertyValue update color gradient to legend
-            // else if (val == 'propertyValue') {
-            //     console.log('value is propertyValue');
-            // } 
+            else if (val == 'propertyValue') {
+                console.log('value is propertyValue');
+                legend2Bar.style.background = 'linear-gradient(to right, #F7D1CD, #D1B3C4, #B392AC, #735D78)';
+                legend2Title.innerHTML = '<h3>Reported Property Value</h3>';
+                legend2Min.innerHTML = '<h3>Lower</h3>';
+                legend2Max.innerHTML = '<h3>Higher</h3>';
+
+                map2.on('click', 'propertyValue', (e)=>{
+                    // Change the cursor style as UI Indicator
+                    map.getCanvas().style.cursor ='pointer';
+                   
+                    //Access properties of event location selected to add to popup
+                    const reportedMedPropValue = e.features[0].properties.medianDollarHouse;
+                    //Populate popup and set its coordinates based on click
+                    popup.setLngLat(e.lngLat).setHTML("<h3>Median Property Value Reported:</h3> " +"$"+ reportedMedPropValue).addTo(map2);
+                });
+
+                // On leaving layer remove popup and revert back to initial cursor style
+                map2.on('mouseleave', 'propertyValue',()=> {
+                    map.getCanvas().style.cursor='';
+                    popup.remove();
+                });
+            } 
             // if no value is accessible produce comment in console log
             else {
                 console.log('no value selected');
