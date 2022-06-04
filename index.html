@@ -31,7 +31,7 @@
 <body>
 
     <!-- remember padding and margins are in multiples of 3 i.e. 3 6 9 12 etc other values won't change -->
-    <header class=' bg-darken25 border-b border--white txt-bold px12 py12'>        
+    <header class=' bg-darken25 border-b border--white px12 py12'>        
         <h1 class='flex'> How Racial Capitalism Persists today in Lexington, KY: <br> An exploration of 1930s Redlining Practices</h1>
        
         <div id="info-button-container flex flex--row-reverse">
@@ -60,26 +60,58 @@
             <span class="closeAbout"></span>
             <!-- scrolling text; not sure you need this now since the modal is outside the map and will scroll -->
             <div class='px12 py12 overflow-auto h-full'>
-                <h3 class='txt-m txt-bold mb6'>Title Here</h3>
-                <p> Let's put some highlights on these little trees. The sun wouldn't forget them. You don't
-                    have to be crazy to do this but it does help. And just raise cain. We'll put some happy
-                    little leaves here and there.
-                    Have fun with it. This piece of canvas is your world. We start with a vision in our heart,
-                    and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and
-                    fall like a little waterfall. There comes a nice little fluffer.
+                <h3 class='txt-m txt-bold mb6'>About This Map</h3>
+                <p> This map explores the access (or denial of equitable access) to generational wealth for 
+                    the current location of historically redlined neighborhoods in Lexington, Kentucky. Aspects of wealth mapped 
+                    include Median Household Income, Home Ownership, and Median Reported Property Value. 
+                    Race/Segregation is included as Home Owner's Loan Corporation redlining practices were heavily 
+                    impacted by inherently racist practices negatively impacting populations of color.</p><br>    
+                
+                <p> During the U.S. Great Depression of the 1930s, a drastic increase in unemployment reduced 
+                    the ability of home owner's to continue making payments on their homes mortgages. President Roosevelt
+                    emplored Congress to pass legistlation to: </p><br>
+                    <ul>
+                        <li>1. Prevent foreclosure of small home owners (of which were millions)</li> 
+                        <li>2. Alleviate some of their financial burden of their home</li>
+                    </ul><br>
+                    
+                <p> Roosevelt stated it was of <b>National</b> importance to safeguard home ownership. 
+                    It was these declarations that paved the way for HOLC.</p><br>
+                
+                <p> <i>"Home Owner's Loan Corporation was established during the summer of 1933 to help families 
+                    prevent loss of their homes through mortgage foreclosure."</i> (Harriss 1951)</p> <br>
 
-                    Let's put some highlights on these little trees. The sun wouldn't forget them. You don't
-                    have to be crazy to do this but it does help. And just raise cain. We'll put some happy
-                    little leaves here and there.
-                    Have fun with it. This piece of canvas is your world. We start with a vision in our heart,
-                    and we put it on canvas. Go out on a limb - that's where the fruit is. Just let go - and
-                    fall like a little waterfall. There comes a nice little fluffer.
+                <p> There was nothing gradual about the creation of HOLC. In short notice a nation wide
+                    corporation was cobbled together in attempts to open up the application
+                    process and reduce the loss of the National Treasury while providing aid to what families they 
+                    could. The corporation needed appraisers on the ground, nationwide, with intimate local knowledge, as 
+                    soon as possible. Initially program apprasiers were selected by state managers without any defined
+                    rules or regulation for their selection. It took 6 months before qualifications were outlined
+                    and drawn up limiting the selection pool to real estate brokers, exeperienced appraisers, or 
+                    experienced builders/architects (Harriss 1951). Months passed before these rules were instituted and met in each region. 
+                    It was the appraisers who were responsible, for building the ship while sailing it. In an effort to aid
+                    the appraisal process, appraisers outlined neighborhoods with Grades and color coding corresponding to 
+                    a hazard rating. This hazard rating was intended to indicate to a lending institution the potential foreclosure <i>risk</i> 
+                    posed by a home within neighborhoods outlined. The lowest risk was indicated with green and labeled Grade A while the higest
+                    risk was colored Red and given Grade D for being considered extremely risky or hazardous to loan to.
                 </p><br>
+                
+                <img class="img-fluid" src="graphics/holc-scan.jpg" alt="2019 North America Concentration of Breweries Map">
+                <p> Nelson et al. accessed January 25, 2022</p><br>
+
+                <p></p>
+                <p> C. L. Harriss, History and Policies of the Home Owners' Loan Corporation (New York: National Bureau
+                    of Economic Research, 1951), p. 1.</p><br>
+                <p> Robert K. Nelson, LaDale Winling, Richard Marciano, Nathan Connolly, et al., “Mapping Inequality,” 
+                    American Panorama, ed. Robert K. Nelson and Edward L. Ayers, accessed January 25, 2022, 
+                    <a href="https://dsl.richmond.edu/panorama/redlining//#loc=14/38.041/-84.526&city=lexington-ky&text=downloads">Mapping Inequality-Lexington</a></p><br>
+
+                <p> For more details about the creation of this map visit it's GitHub Repo.</p><br>
                 <!-- adding any images to the modal -->
-                <!-- <img class="img-fluid" src="images/na-brew.jpg" alt="2019 North America Concentration of Breweries Map"> -->
+                
                 <div class="modal-footer">
                     <a target="_blank" href="https://github.com/RCRamsey/map698-redlining-wealth-lexington">
-                        <button type="button" class="btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3">View Repo</button>
+                        <button type="button" class="btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3">View GitHub Repo</button>
                     </a>
                 </div>
             </div>
@@ -479,7 +511,7 @@
                 'paint': {
                     'fill-color': {
                         property: 'medianDollarHome',
-                        stops: [[40000, '#F7D1CD'], [600000, '#735D78']],
+                        stops: [[40000, '#AAC5AA'], [80000,'#92B592'], [160000,'#6E9C6D'], [320000,'#3A5A40'], [640000, '#293D33']],
                     },
                     'fill-opacity': .70, //initial opacity until slider added
                     'fill-outline-color': 'black'
@@ -648,8 +680,8 @@
             // if value from UI is propertyValue update color gradient to legend
             else if (val == 'propertyValue') {
                 console.log('value is propertyValue');
-                legend2Bar.style.background = 'linear-gradient(to right, #F7D1CD, #D1B3C4, #B392AC, #735D78)';
-                legend2Title.innerHTML = '<h3>Reported Property Value</h3>';
+                legend2Bar.style.background = 'linear-gradient(to right, #AAC5AA, #92B592, #6E9C6D, #3A5A40, #293D33)';
+                legend2Title.innerHTML = '<h3>Median Reported Property Value</h3>';
                 legend2Min.innerHTML = '<h3>Lower</h3>';
                 legend2Max.innerHTML = '<h3>Higher</h3>';
 
@@ -658,9 +690,9 @@
                     map.getCanvas().style.cursor ='pointer';
                    
                     //Access properties of event location selected to add to popup
-                    const reportedMedPropValue = e.features[0].properties.medianDollarHouse;
+                    const reportedMedPropValue = e.features[0].properties.medianDollarHome;
                     //Populate popup and set its coordinates based on click
-                    popup.setLngLat(e.lngLat).setHTML("<h3>Median Property Value Reported:</h3> " +"$"+ reportedMedPropValue).addTo(map2);
+                    popup.setLngLat(e.lngLat).setHTML("<h3>Median Property Value Reported:</h3> " +"$"+ reportedMedPropValue.toLocaleString('en-US')).addTo(map2);
                 });
 
                 // On leaving layer remove popup and revert back to initial cursor style
