@@ -32,9 +32,9 @@
 
     <!-- remember padding and margins are in multiples of 3 i.e. 3 6 9 12 etc other values won't change -->
     <header class=' bg-darken25 border-b border--white px12 py12'>        
-        <h1 class='flex'> How Racial Capitalism Persists today in Lexington, KY: <br> An exploration of 1930s Redlining Practices</h1>
+        <h1 class='w-3/4'> How Racial Capitalism Persists today in Lexington, KY: <br> An exploration of 1930s Redlining Practices</h1>
        
-        <div id="info-button-container flex flex--row-reverse">
+        <div id="info-button-container w-1/4">
             <ul>
                 <li class = 'mx3 my6'>
                     <!-- Info Button to trigger open Modal -->
@@ -186,7 +186,7 @@
         <div id='map1-container' class=''>
             <div id='map'></div>
             <!-- map1 legend -->
-            <div class='map-overlay bottom mr-neg24 mb36 z3 absolute'>
+            <div class='map-overlay bottom mr-neg24 mb36 z0 absolute'>
                 <div class='map-overlay-inner mx6 my3'>
                     <div id='legend1'><h3>Likelihood of Loan</h3></div>
                         <!-- legend-bar will be dynamically updated with JS based on selected attribute -->
@@ -396,8 +396,9 @@
         };
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
-            if (event.target == redliningModal) {
+            if (event.target == redliningModal || event.target == aboutMapModal) {
                 redliningModal.style.display = "none";
+                aboutMapModal.style.dipslay = "none";
             }
         };
 
