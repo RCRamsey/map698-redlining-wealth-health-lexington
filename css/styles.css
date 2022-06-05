@@ -5,6 +5,27 @@ body {
     background: greenyellow
 }
 
+/* Specific to hyperlinks */
+a:link {
+    color: #5B7386; 
+    background-color: transparent;
+  }
+  a:visited {
+    color: #5B7386;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #7b5b5b;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
 /* specific navbar styling */
 ul {
     list-style-type: none;
@@ -60,6 +81,12 @@ h2 {
 h3 {
     color: #7b5b5b;
     font: 12/15px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+/* styling for graphic hazard rates */
+.img-about-graphic {
+    width: 20%;
+    height: 80%;
 }
 
 /* styling for layer popups */
