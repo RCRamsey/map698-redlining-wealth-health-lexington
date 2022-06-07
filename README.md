@@ -31,6 +31,9 @@ Sub-title: An exploration of 1930s Redlining Practices
 
 Crampton indicated that *"maps are active and not passive"* and *"they frame the narrative"* (Crampton 2014). As such I propose a project to expolore the ripples left behind by the Home Owner's Loan Corporation Redlining Neighborhood Map *Narrative* of Lexington Kentucky and what *Active* results can be interpreted from the fingerprint left behind by the HOLC map. 
 
+HOLC Map scanned from 1930s
+![digital scan of physical HOLC map from 1930s for Lexington KY](graphics/holc-scan.jpg)
+
 Within this project I will design a map that explores the access (or denial of equitable access) to generational wealth for the current location of historically redlined neighborhoods. The aspects of wealth being considered include:
 - Race 
 - Median Household Income
@@ -86,7 +89,7 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
     - TXT file table title (5 kb)
     - Accessed: 2 March 2022
 
-#### Percent of Population in Poverty
+#### Percent of Population in Poverty 
 [*S1701 Poverty Status in the past 12 months (ACS)*](https://data.census.gov/cedsci/table?q=s1701&g=0500000US21067%241400000&y=2019)
 - Data available to download:
     - CSV File Metadata (6 kb)
@@ -98,9 +101,6 @@ Exploring wealth under the umbrella of the ability to accumulate generational we
 ### Historical Visuals to Provide context
 Timeline of images from papers, covenants, HOLC plat, or historic journal article map depictions. Store these within the info box panel or as a modal on the left hand side to give historical context.
 
-HOLC Map scanned from 1930s
-![digital scan of physical HOLC map from 1930s for Lexington KY](graphics/holc-scan.jpg)
-
 Articles of interest:
 - Harriss, C.L. History and Policies of the Home Owners' Loan Corporation (1951)  
 - Kellogg, John. 1977. Negro Urban Clusters in the Posbellum South. Geographical Review. Vol 67. No 3. pp. 310-321.  
@@ -110,7 +110,7 @@ Articles of interest:
 - Rabinowitz, Howard. 1976. From Reconstruction to Redemption in the Urban South. Journal of Urban History. Vol 2. No 2. pp 169-194  
     
 ## Part IV. Objectives and User Needs
-User will need to be able to make comparisons between the HOLC neighborhood grades and the current status of a data set (simultaneously) within/across those graded areas. HOLC layer will be a polygon layer whose outline color will correspond to grade level/hazard risk assigned by HOLC. HOLC grades traditionally used Green (Grade A)-Blue (Grade B)-Yellow (Grade C)-Red (Grade D). I will diverge from this historical color them to a gradient theme. Reasons for this divergence include:
+User will need to be able to make comparisons between the HOLC neighborhood grades and the current status of a data set (simultaneously) within/across those graded areas. HOLC layer traditionally is a polygon layer whose outline color will correspond to grade level/hazard risk assigned by HOLC. HOLC grades used Green (Grade A)-Blue (Grade B)-Yellow (Grade C)-Red (Grade D). I will diverge from this historical color theme to a gradient theme. Reasons for this divergence include:
 1. Increasing accessbility to map as red/green are known to pose challenges for deciphering one from the other based on certain visual abilities.
 2. The *Grades* used to communicate the likelihood of a home obtaining a loan is communicated more clearly through a color gradient using a scale of *Not Likely to obtain loan* (light color) to *Likely to obtain a loan* (darker color). Continuing to utilize *Grades*, would require the user to interpret what each *grade* value means prior to understanding the likelihood of obtaining a load. 
 
@@ -148,8 +148,12 @@ Example of cleaned data
 
 ## Part VII. Layout
 ### Mockup WireFrame 1
-![handdrawn wireframe mockup of proposed project map on a users screen](graphics/wireframe_proposal1.jpg)
+![handdrawn wireframe mockup of proposed project map on a users screen using singl screen](graphics/wireframe_proposal1.jpg)
 **Figure 1.** Mockup wireframe 1st proposal for project's html look and feel with user interaction buttons labeled.
+
+### Mockup WireFrame 2
+![handdrawn wireframe mockup of proposed project map on a users screen using split screen](graphicas/wireframe_proposal2.jpg)
+**Figure 2.** Mockup wireframe 2nd proposal for project's html look and feel with user interaction buttons labeled, and split screen synced instead of single screen with opacity tool.
 
 ## Inspiration
 - [ramp styling 2020 census by race](https://mtgis-portal.geo.census.gov/arcgis/apps/MapSeries/index.html?appid=2566121a73de463995ed2b2fd7ff6eb7)
