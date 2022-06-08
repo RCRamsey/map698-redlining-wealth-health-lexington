@@ -500,8 +500,8 @@
 
             // Create a popup for redlined map, but don't add it to the map yet.
             const redlined_popup = new mapboxgl.Popup({
-                closeButton: flase,
-                closeOnClick: false
+                closeButton: true,
+                closeOnClick: true
             });
 
             // Click event on layer to produce popup of properties based on event clicked
@@ -518,7 +518,7 @@
             // On leaving layer remove popup and revert back to initial cursor style
             map.on('mouseleave', 'redlining', () => {
                 map.getCanvas().style.cursor = '';
-                redlined_popup.remove();
+                // redlined_popup.remove();
             });
         };
 
@@ -706,8 +706,8 @@
 
             // Create a popup, but don't add it to the map yet.
             const popup = new mapboxgl.Popup({
-                closeButton: false,
-                closeOnClick: false
+                closeButton: true,
+                closeOnClick: true
             });
 
             // if value from UI is race update color gradient to legend
@@ -736,7 +736,7 @@
                 // On leaving layer remove popup and revert back to initial cursor style
                 map2.on('mouseleave', 'race', () => {
                     map.getCanvas().style.cursor = '';
-                    popup.remove();
+                    // popup.remove();
                 });
 
                 // if value from UI is income update color gradient to legend
@@ -761,7 +761,7 @@
                 // On leaving layer remove popup and revert back to initial cursor style
                 map2.on('mouseleave', 'race', () => {
                     map.getCanvas().style.cursor = '';
-                    popup.remove();
+                    // popup.remove();
                 });
 
                 // if value from UI is ownership update color gradient to legend
@@ -785,7 +785,7 @@
                 // On leaving layer remove popup and revert back to initial cursor style
                 map2.on('mouseleave', 'ownership', () => {
                     map.getCanvas().style.cursor = '';
-                    popup.remove();
+                    // popup.remove();
                 });
             }
             // if value from UI is propertyValue update color gradient to legend
@@ -809,7 +809,7 @@
                 // On leaving layer remove popup and revert back to initial cursor style
                 map2.on('mouseleave', 'propertyValue', () => {
                     map.getCanvas().style.cursor = '';
-                    popup.remove();
+                    // popup.remove();
                 });
             }
             // if no value is accessible produce comment in console log
