@@ -1,8 +1,6 @@
  /* custom CSS style rules*/
 body {
     /* background: #2ecc71; */
-    height: 100%;
-    background: greenyellow
 }
 
 /* Specific to hyperlinks */
@@ -33,8 +31,6 @@ ul {
     padding: 0;
     overflow: hidden;
 }
-  
-li a:hover, .dropdown:hover
 
 li.dropdown{
       display: inline-block;
@@ -177,20 +173,20 @@ h3 {
 /* Small devices (portrait orientation, 576px and up) */
 /* for 50/50 split vertical top/bottom */
 @media (min-width: 250px) and (orientation: portrait) {
-    #display-container {
+    /* #display-container {
         height: 100%;
-    }
+    } */
     
-    #map {
+    /* #map {
         position: absolute;
         bottom: 0;
         width: 100vw;
         height: 50vh;
         background: pink; 
         z-index: -1;
-    }
+    } */
 
-    #map2-container {
+    /* #map2-container {
         position: absolute;  
         top: 0;
         bottom: 0;
@@ -199,33 +195,26 @@ h3 {
         height: 50vh;
         background: orange; 
         z-index: -1;
-    }
+    } */
     
-    #map2{
+    /* #map2{
         position: absolute;
         bottom: 0;
         width: 100%;
         height: 100%;
         background: purple; 
         z-index: -1;
-    }
-
-    #info-button-container{
-        position: absolute;  
-        top: 0;
-        bottom: 0;
-        right: 0;
-    }
+    } */
 }
 
 /* Small devices (landscape orientation, 576px and up) */
 /* for 50/50 split horizontal left/right */
 @media (min-width: 300px) and (orientation: landscape) {
-    #displayContainer {
+    /* #displayContainer {
         height: 100%;
-    }
+    } */
     
-    #map {
+    /* #map {
         position: absolute;
         top: 0;
         bottom: 0;
@@ -234,8 +223,8 @@ h3 {
         height: 100%;
         background: #448ee4; 
         z-index: -1;
-    }
-
+    } */
+/* 
     #map2-container {
         position: absolute;  
         top: 0;
@@ -245,9 +234,9 @@ h3 {
         height: 100vh;
         background: orange; 
         z-index: -1;
-    }
+    } */
     
-    #map2{
+    /* #map2{
         position: absolute;
         top: 0;
         bottom: 0;
@@ -256,26 +245,26 @@ h3 {
         height: 100%;
         background: purple; 
         z-index: -1;
-    }
+    } */
 }
 
 /* Medium devices (portrait orientation, 768px and up) */
 /* for 50/50 split vertical top/bottom */
 @media (min-width: 740px) and (orientation: portrait) {
-    #displayContainer {
+    /* #displayContainer {
         height: 100%;
-    }
+    } */
     
-    #map {
+    /* #map {
         position: absolute;
         top: 0;
         width: 100% ;
         height: 50%;
         background: pink; 
          z-index: -1;
-    }
+    } */
 
-    #map2-container {
+    /* #map2-container {
         position: absolute;  
         top: 0;
         bottom: 0;
@@ -284,27 +273,27 @@ h3 {
         height: 50%;
         background: orange; 
         z-index: -1;
-    }
+    } */
     
-    #map2{
+    /* #map2{
         position: absolute;
         bottom: 0;
         width: 100%;
         height: 100%;
         background: purple; 
          z-index: -1;
-    }
+    } */
 }
 
 /* Medium devices (landscape, 768px and up) */
  /* for 50/50 split horizontal left/right */
 @media (min-width: 740px) {
        
-    #displayContainer {
+    /* #displayContainer {
         height: 100%;
-    }
+    } */
 
-    #map {
+    /* #map {
         position: absolute;
         top: 0;
         bottom: 0;
@@ -313,9 +302,9 @@ h3 {
         height: 100%;
         background: #448ee4; 
         z-index: -1;
-    }
+    } */
 
-    #map2-container {
+    /* #map2-container {
         position: absolute;  
         top: 0;
         bottom: 0;
@@ -324,9 +313,9 @@ h3 {
         height: 100%;
         background: orange; 
         z-index: -1;
-    }
+    } */
 
-    #map2{
+    /* #map2{
         position: absolute;
         top: 0;
         bottom: 0;
@@ -335,26 +324,26 @@ h3 {
         height: 100%;
         background: purple; 
         z-index: -1;
-    }
+    } */
 } 
 
 /* Large devices (portrait orientation, 992px and up) */
 /* for 50/50 split vertical top/bottom */
 @media (min-width: 992px) and (orientation: portrait) {
-    #displayContainer {
+    /* #displayContainer {
         height: 100%;
-    }
+    } */
     
-    #map {
+    /* #map {
         position: absolute;
         top: 0;
         width: 100% ;
         height: 50%;
         background: pink; 
          z-index: -1;
-    }
+    } */
     
-    #map2-container {
+    /* #map2-container {
         position: absolute;  
         top: 0;
         bottom: 0;
@@ -363,27 +352,27 @@ h3 {
         height: 50%;
         background: orange; 
         z-index: -1;
-    }
+    } */
 
-    #map2{
+    /* #map2{
         position: absolute;
         bottom: 0;
         width: 100%;
         height: 100%;
         background: purple; 
          z-index: -1;
-    }
+    } */
 }
 
 /* Medium devices (landscape, 992px and up) */
  /* for 50/50 split horizontal left/right */
 @media (min-width: 992px) {
        
-    #displayContainer {
+    /* #displayContainer {
         height: 100%;
-    }
+    } */
 
-    #map {
+    /* #map {
         position: absolute;
         top: 0;
         bottom: 0;
@@ -392,8 +381,8 @@ h3 {
         height: 100%;
         background: #448ee4; 
         z-index: -1;
-    }
-    #map2-container {
+    } */
+    /* #map2-container {
         position: absolute;  
         top: 0;
         bottom: 0;
@@ -402,8 +391,8 @@ h3 {
         height: 100%;
         background: orange; 
         z-index: -1;
-    }
-    #map2{
+    } */
+    /* #map2{
         position: absolute;
         top: 0;
         bottom: 0;
@@ -412,7 +401,7 @@ h3 {
         height: 100%;
         background: purple; 
         z-index: -1;
-    }
+    } */
 } 
 
 /* Extra large devices (large desktops, 1200px and up) */
