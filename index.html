@@ -38,8 +38,7 @@
             <!-- Info Button to trigger open Modal -->
             <!-- -on-active is-active-->
             <button id='aboutMapButton' class='absolute right bottom mr9 mb3'>
-                <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-s ml3 '
-                    href='#'>
+                <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-s ml3'>
                     <svg class='icon txt-m mr2'>
                         <use xlink:href='#icon-bookmark' />
                     </svg> About Map
@@ -51,7 +50,7 @@
         <div id='map1-container' class='col w-full w-1/2-ml h-viewport-1/2 h-viewport-full-ml relative'>
             <div id='map' class='h-full border border--white border--2'></div>
             <!-- map1 legend -->
-            <div class='map-overlay bottom mb36 z0'>
+            <div class='map-overlay bottom mb60 z0'>
                 <div class='map-overlay-inner mx6 my3'>
                     <div id='legend1'>
                         <h3>Likelihood of Loan</h3>
@@ -94,7 +93,7 @@
 
             <div id='map2' class='h-full border border--white border--2'></div>
             <!-- bottom margin left margin -->
-            <div class='map-overlay bottom mr-neg24 mb36 z0 absolute'>
+            <div class='map-overlay bottom mr-neg24 mb60 z0 absolute'>
                 <div class='map-overlay-inner mx6 my3'>
                     <div id='legend2'>
                         <h3>Legend Label</h3>
@@ -138,6 +137,12 @@
             <div class="modal-content">
                 <!-- Close modal by clicking outside modal -->
                 <span class="closeAbout"></span>
+
+                <!-- close modal by clicking x
+                <button class = 'absolute top right px12 py12'>
+                    <svg class ='icon link color-darken50'><use xlink:href='#icon-close'></use></svg>
+                </button> -->
+
                 <!-- scrolling text; not sure you need this now since the modal is outside the map and will scroll -->
                 <div class='px12 py12 overflow-auto h-full'>
 
@@ -423,7 +428,7 @@
         // Get button that opens the modal
         const aboutBtn = document.getElementById('aboutMapButton');
         // Get the <span> element that closes the modal
-        const spanCloseAboutMapModal = document.getElementsByClassName("closeAbout")[0];  // rename var to const other than span
+        const spanCloseAboutMapModal = document.getElementsByClassName("closeAbout")[0];  
         // When the user clicks the button, open the modal 
         aboutBtn.onclick = function () {
             aboutMapModal.style.display = "block";
@@ -440,7 +445,7 @@
         // Get button that opens the modal
         const redliningBtn = document.getElementById('redliningButton');
         // Get the <span> element that closes the modal
-        const spanCloseRedliningModal = document.getElementsByClassName("close")[0];  // rename var to const other than span
+        const spanCloseRedliningModal = document.getElementsByClassName("close")[0];  
         // When the user clicks the button, open the modal 
         redliningBtn.onclick = function () {
             redliningModal.style.display = "block";
@@ -802,8 +807,17 @@
 
                     //Access properties of event location selected to add to popup
                     const reportedMedPropValue = e.features[0].properties.medianDollarHome;
+                    const numberSelfReportedProperty = e.features[0].properties['ownVal1mill+'] 
+                                                        + e.features[0].properties['ownVal50-99.9k']
+                                                        + e.features[0].properties['ownVal100-149.9k']
+                                                        + e.features[0].properties['ownVal150-199.9k']
+                                                        + e.features[0].properties['ownVal200-299.9k']
+                                                        + e.features[0].properties['ownVal300-499.9k']
+                                                        + e.features[0].properties['ownVal500-999.9k']
+                                                        + e.features[0].properties['ownVal<50k']
                     //Populate popup and set its coordinates based on click
-                    popup.setLngLat(e.lngLat).setHTML("<h3>Median Property Value Reported:</h3> " + "$" + reportedMedPropValue.toLocaleString('en-US')).addTo(map2);
+                    popup.setLngLat(e.lngLat).setHTML("<h3>Median Property Value Reported:</h3> " + "$" + reportedMedPropValue.toLocaleString('en-US')
+                    + "<br><h3># Properties Self Reported: </h3>" + numberSelfReportedProperty).addTo(map2);
                 });
 
                 // On leaving layer remove popup and revert back to initial cursor style
