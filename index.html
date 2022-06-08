@@ -29,16 +29,16 @@
 </head>
 
 <body>
-    <div class='grid h-full'>
+    <div id= 'displayContainer' class='grid h-full'>
         <!-- remember padding and margins are in multiples of 3 i.e. 3 6 9 12 etc other values won't change -->
-        <header class='w-full h70 bg-darken25 border-b border--white px12 py12 relative'>
+        <header class='w-full bg-darken25 border-b border--white px12 py12 relative'>
             <h1>How Racial Capitalism Persists today in Lexington, KY: An exploration of 1930s Redlining
                 Practices</h1>
 
             <!-- Info Button to trigger open Modal -->
             <!-- -on-active is-active-->
             <button id='aboutMapButton' class='absolute right bottom mr9 mb3'>
-                <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3 '
+                <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-s ml3 '
                     href='#'>
                     <svg class='icon txt-m mr2'>
                         <use xlink:href='#icon-bookmark' />
@@ -74,7 +74,7 @@
             <!-- Info Button to trigger open Modal -->
             <!-- -on-active is-active-->
             <button id='redliningButton' class='absolute top right mt18 mr18'>
-                <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3 '
+                <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-s ml3 '
                     href='#'>
                     <svg class='icon txt-m mr2'>
                         <use xlink:href='#icon-bookmark' />
@@ -115,13 +115,13 @@
             <!-- unordered list -->
             <ul class='absolute top right'>
                 <li class='dropdown mx3 my18'>
-                    <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-xs ml3'
+                    <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-s ml3'
                         href='#'>
-                        <svg class='icon txt-s mr1'>
+                        <svg class='icon txt-m mr1'>
                             <use xlink:href='#icon-layers' />
                         </svg> Census Data Menu
                     </a>
-                    <div class='dropdown-content txt-s'>
+                    <div class='dropdown-content txt-m'>
                         <a value='race' href='#'>Segregation/Race</a>
                         <a value='income' href='#'>Median Household Income</a>
                         <a value='ownership' href='#'>% Home Ownership</a>
@@ -500,7 +500,7 @@
 
             // Create a popup for redlined map, but don't add it to the map yet.
             const redlined_popup = new mapboxgl.Popup({
-                closeButton: false,
+                closeButton: flase,
                 closeOnClick: false
             });
 

@@ -1,7 +1,6 @@
  /* custom CSS style rules*/
-body {
-    /* background: #2ecc71; */
-}
+/* body {
+} */
 
 /* Specific to hyperlinks */
 a:link {
@@ -76,7 +75,7 @@ h2 {
 
 h3 {
     color: #7b5b5b;
-    font: 12/15px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font: bold 12/15px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 /* styling for graphic hazard rates */
