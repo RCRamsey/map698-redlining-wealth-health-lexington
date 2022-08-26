@@ -51,20 +51,30 @@
             <!-- map1 legend -->
             <div class='map-overlay bottom mb60 z0'>
                 <div class='map-overlay-inner mx6 my3'>
-                    <div id='legend1'>
-                        <h3>Likelihood of Loan</h3>
-                    </div>
+                    <!-- <div id='legend1'> -->
+                        <!-- <h3>Likelihood of Loan</h3> -->
+                    <!-- </div> -->
                     <!-- legend-bar will be dynamically updated with JS based on selected attribute -->
-                    <div id='legend1-bar'></div>
+                    <!-- <div id='legend1-bar'></div> -->
                     <!-- Add min & max labels -->
-                    <div class='legend-label flex flex--space-between-main'>
-                        <div id='legend1-label-min'>
-                            <h3>Not Likley</h3>
+                    <!-- <div class='legend-label flex flex--space-between-main'> -->
+                        <!-- <div id='legend1-label-min'> -->
+                            <!-- <h3>Not Likley</h3> -->
+                        <!-- </div> -->
+                        <!-- <div id='legend1-label-max'> -->
+                            <!-- <h3>Likley</h3> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+
+                    <div class='my-legend'>
+                        <div class='legend-title'>Likelihood of Loan</div>
+                          <ul class='legend-labels'>
+                            <li><span style='background:#E6EBEF;'></span>Not Likely</li>
+                            <li><span style='background:#C2CDD6;'></span>Somewhat Likely</li>
+                            <li><span style='background:#92A6B5;'></span>More Likely</li>
+                            <li><span style='background:#5B7386;'></span>Most Likely</li>
+                          </ul>
                         </div>
-                        <div id='legend1-label-max'>
-                            <h3>Likley</h3>
-                        </div>
-                    </div>
                 </div>
             </div>
 
