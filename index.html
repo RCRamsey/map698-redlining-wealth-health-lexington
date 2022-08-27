@@ -126,19 +126,12 @@
 
         </div>
 
-        <!-- The Modal to open from infoButton -->
+        <!-- The Modal to open from aboutMapButton -->
         <div id="aboutMapModal" class="modal z=0">
             <!-- Modal content -->
             <div class="modal-content">
-                <!-- Close modal by clicking outside modal -->
-                <span class="closeAbout"></span>
-
-                <!-- close modal by clicking x -->
-                <!-- <button class = 'absolute top right px12 py12'>
-                    <svg class ='icon link color-darken50'><use xlink:href='#icon-close'></use></svg>
-                </button> -->
-
-                
+                <!-- Close modal by clicking outside modal NOT WORKING-->
+                <span class="closeAbout">X</span>
 
                 <!-- scrolling text; not sure you need this now since the modal is outside the map and will scroll -->
                 <div class='px12 py12 overflow-auto h-full'>
@@ -275,8 +268,8 @@
         <div id="redliningModal" class="modal z=0">
             <!-- Modal content -->
             <div class="modal-content">
-                <!-- Close modal by clicking outside modal -->
-                <span class="close"></span>
+                <!-- 🧯 Close modal by clicking outside modal DOES WORK -->
+                <span class="close">X</span>
                 <!-- scrolling text; not sure you need this now since the modal is outside the map and will scroll -->
                 <div class='px12 py12 overflow-auto h-full'>
                     <h3 class='txt-m txt-bold mb6'>Home Owner's Loan Corporation</h3>
@@ -425,17 +418,24 @@
         // Get button that opens the modal
         const aboutBtn = document.getElementById('aboutMapButton');
         // Get the <span> element that closes the modal
+        // since the span class for closing is different between the two modals would use 0 in index for both
         const spanCloseAboutMapModal = document.getElementsByClassName("closeAbout")[0];  
         // When the user clicks the button, open the modal 
         aboutBtn.onclick = function () {
             aboutMapModal.style.display = "block";
         };
+
+        //🧯 When user clicks on <spanCloseAboutMapModal> close aboutMapModal
+        // clicking on span close elicits no response
+        spanCloseAboutMapModal.onclick = function () {
+            aboutMapModal.style.display = "none";
+        }
         // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
+        window.addEventListener("click", function (event) {
             if (event.target == aboutMapModal) {
                 aboutMapModal.style.display = "none";
             }
-        };
+        })
 
         // About Redlining Modal UI access using native js
         var redliningModal = document.getElementById("redliningModal");
@@ -447,13 +447,19 @@
         redliningBtn.onclick = function () {
             redliningModal.style.display = "block";
         };
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == redliningModal || event.target == aboutMapModal) {
-                redliningModal.style.display = "none";
-                aboutMapModal.style.dipslay = "none";
-            }
+
+        //🧯 When user clicks on <spanCloseRedliningModal> close redliningModal
+        // clicking on span close elicits no response
+        spanCloseRedliningModal.onclick = function () {
+            redliningModal.style.display = "none";
         };
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.addEventListener("click", function (event) {
+            if (event.target == redliningModal) {
+                redliningModal.style.display = "none";
+            }
+        })
 
         // use D3 method on map 1 to load GeoJSON when the map is finished loading
         map.on('load', () => {
