@@ -50,21 +50,35 @@
             <div id='map' class='h-full border border--white border--2'></div>
             <!-- map1 legend -->
             <div class='map-overlay bottom mb60 z0'>
-                <div class='map-overlay-inner mx6 my3'>
+                <div class='map-overlay-inner mx12 my3'>
+                  
+                    <!-- CODE 1 worked for linear gradient -->
+                    <!-- <div id='legend1'> -->
+                        <!-- <h3>Likelihood of Loan</h3> -->
+                    <!-- </div> -->
+                    <!-- legend-bar will be dynamically updated with JS based on selected attribute -->
+                    <!-- <div id='legend1-bar'></div> -->
+                    <!-- Add min & max labels -->
+                    <!-- <div class='legend-label flex flex--space-between-main'> -->
+                        <!-- <div id='legend1-label-min'> -->
+                            <!-- <h3>Not Likley</h3> -->
+                        <!-- </div> -->
+                        <!-- <div id='legend1-label-max'> -->
+                            <!-- <h3>Likley</h3> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+
+                    <!-- CODE2 worked rough draft working discrete -->
                     <div id='legend1'>
                         <h3>Likelihood of Loan</h3>
+                         <ul class='legend1-labels'>
+                           <h3><li><span style='background:#E6EBEF;'></span> Unlikely</li></h3> 
+                           <h3><li><span style='background:#C2CDD6;'></span> Somewhat Likely</li></h3> 
+                            <h3><li><span style='background:#92A6B5;'></span> More Likely</li></h3> 
+                            <h3><li><span style='background:#5B7386;'></span> Most Likely</li></h3> 
+                         </ul>
                     </div>
-                    <!-- legend-bar will be dynamically updated with JS based on selected attribute -->
-                    <div id='legend1-bar'></div>
-                    <!-- Add min & max labels -->
-                    <div class='legend-label flex flex--space-between-main'>
-                        <div id='legend1-label-min'>
-                            <h3>Not Likley</h3>
-                        </div>
-                        <div id='legend1-label-max'>
-                            <h3>Likley</h3>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -719,7 +733,7 @@
                 console.log('value is race');
                 legend2Bar.style.background = 'linear-gradient(to right, #FFFFFF, #C5E2FC, #51ABF6, #115292)';
                 // place holder for accessing and modifying text to legend
-                legend2Title.innerHTML = '<h3>% White</h3>';
+                legend2Title.innerHTML = '<h3>% White Population</h3>';
                 legend2Min.innerHTML = '<h3>Low</h3>';
                 legend2Max.innerHTML = '<h3>High</h3>';
 
