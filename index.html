@@ -50,7 +50,9 @@
             <div id='map' class='h-full border border--white border--2'></div>
             <!-- map1 legend -->
             <div class='map-overlay bottom mb60 z0'>
-                <div class='map-overlay-inner mx6 my3'>
+                <div class='map-overlay-inner mx12 my3'>
+                  
+                    <!-- CODE 1 worked for linear gradient -->
                     <!-- <div id='legend1'> -->
                         <!-- <h3>Likelihood of Loan</h3> -->
                     <!-- </div> -->
@@ -66,15 +68,17 @@
                         <!-- </div> -->
                     <!-- </div> -->
 
-                    <div class='my-legend'>
-                        <div class='legend-title'>Likelihood of Loan</div>
-                          <ul class='legend-labels'>
-                            <li><span style='background:#E6EBEF;'></span>Not Likely</li>
-                            <li><span style='background:#C2CDD6;'></span>Somewhat Likely</li>
-                            <li><span style='background:#92A6B5;'></span>More Likely</li>
-                            <li><span style='background:#5B7386;'></span>Most Likely</li>
-                          </ul>
-                        </div>
+                    <!-- CODE2 worked rough draft working discrete -->
+                    <div id='legend1'>
+                        <h3>Likelihood of Loan</h3>
+                         <ul class='legend1-labels'>
+                           <h3><li><span style='background:#E6EBEF;'></span>Unlikely</li></h3> 
+                           <h3><li><span style='background:#C2CDD6;'></span>Somewhat Likely</li></h3> 
+                            <h3><li><span style='background:#92A6B5;'></span>More Likely</li></h3> 
+                            <h3><li><span style='background:#5B7386;'></span>Most Likely</li></h3> 
+                         </ul>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -729,7 +733,7 @@
                 console.log('value is race');
                 legend2Bar.style.background = 'linear-gradient(to right, #FFFFFF, #C5E2FC, #51ABF6, #115292)';
                 // place holder for accessing and modifying text to legend
-                legend2Title.innerHTML = '<h3>% White</h3>';
+                legend2Title.innerHTML = '<h3>% White Population</h3>';
                 legend2Min.innerHTML = '<h3>Low</h3>';
                 legend2Max.innerHTML = '<h3>High</h3>';
 
