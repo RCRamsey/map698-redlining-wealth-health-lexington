@@ -181,7 +181,7 @@ h3 {
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
+    display: none; /* Hidden by default goes to block on button click */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
@@ -203,6 +203,15 @@ h3 {
     width: 80%;
   }
 
+  /* Mapbox attribution bottom left */
+.mapboxgl-ctrl-bottom-left {
+    z-index: 1;
+}
+
+  /* Mapbox & openstreetmap attribution bottom right */
+  .mapboxgl-ctrl-bottom-right {
+    z-index: 1;
+}
 
 /* Small devices (portrait orientation, 576px and up) */
 /* for 50/50 split vertical top/bottom */

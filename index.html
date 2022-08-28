@@ -130,8 +130,8 @@
         <div id="aboutMapModal" class="modal z=0">
             <!-- Modal content -->
             <div class="modal-content">
-                <!-- Close modal by clicking outside modal NOT WORKING-->
-                <span class="closeAbout">X</span>
+                <!-- Close modal by clicking on span (x)-->
+                <span class="closeAbout"><svg class ='icon link color-darken50'><use xlink:href='#icon-close'></use></svg></span>
 
                 <!-- scrolling text; not sure you need this now since the modal is outside the map and will scroll -->
                 <div class='px12 py12 overflow-auto h-full'>
@@ -268,8 +268,8 @@
         <div id="redliningModal" class="modal z=0">
             <!-- Modal content -->
             <div class="modal-content">
-                <!-- 🧯 Close modal by clicking outside modal DOES WORK -->
-                <span class="close">X</span>
+                <!-- Close modal by clicking on span (x) -->
+                <span class="close"><svg class ='icon link color-darken50'><use xlink:href='#icon-close'></use></svg></span>
                 <!-- scrolling text; not sure you need this now since the modal is outside the map and will scroll -->
                 <div class='px12 py12 overflow-auto h-full'>
                     <h3 class='txt-m txt-bold mb6'>Home Owner's Loan Corporation</h3>
@@ -425,8 +425,7 @@
             aboutMapModal.style.display = "block";
         };
 
-        //🧯 When user clicks on <spanCloseAboutMapModal> close aboutMapModal
-        // clicking on span close elicits no response
+        // When user clicks on <spanCloseAboutMapModal> close aboutMapModal
         spanCloseAboutMapModal.onclick = function () {
             aboutMapModal.style.display = "none";
         }
@@ -448,8 +447,7 @@
             redliningModal.style.display = "block";
         };
 
-        //🧯 When user clicks on <spanCloseRedliningModal> close redliningModal
-        // clicking on span close elicits no response
+        // When user clicks on <spanCloseRedliningModal> close redliningModal
         spanCloseRedliningModal.onclick = function () {
             redliningModal.style.display = "none";
         };
