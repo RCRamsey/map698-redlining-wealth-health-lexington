@@ -2,6 +2,10 @@
 /* body {
 } */
 
+#displayContainer {
+    height: 100;
+}
+
 /* Specific to hyperlinks */
 a:link {
     color: #5B7386; 
