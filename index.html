@@ -29,16 +29,19 @@
 </head>
 
 <body>
-    <div id= 'displayContainer' class='grid h-full'>
+    <div id='displayContainer' class='grid h-full'>
         <!-- remember padding and margins are in multiples of 3 i.e. 3 6 9 12 etc other values won't change -->
-        <header class='w-full bg-darken25 border-b border--white px12 py12 relative'>
-            <header class='w-3/4'>
-            <h1>Persistence of Racist Loan Practices in Contemporary Landscape of Lexington, KY: An Exploration of 1930s Redlining</h1>
-            </header>
+        <header class='w-full bg-darken25 border-b border--white px12 relative'>
+
+            <h1 class='w-3/4 my120'>Persistence of Racist Loan Practices in Contemporary Landscape of Lexington, KY: An
+                Exploration of
+                1930s Redlining</h1>
+
             <!-- Info Button to trigger open Modal -->
             <!-- -on-active is-active-->
             <button id='aboutMapButton' class='absolute right bottom mr9 mb3'>
-                <a class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-s ml3'>
+                <a
+                    class='flex flex--center-main btn btn--stroke btn--white bg-darken25 bg-darken50-on-hover bg-gray-dark-on-active txt-s ml3'>
                     <svg class='icon txt-m mr2'>
                         <use xlink:href='#icon-bookmark' />
                     </svg> About Map
@@ -54,14 +57,22 @@
                 <div class='map-overlay-inner mx12 my3'>
                     <div id='legend1'>
                         <h3>Likelihood of Loan</h3>
-                         <ul class='legend1-labels'>
-                           <h3><li><span style='background:#E6EBEF;'></span> Unlikely</li></h3> 
-                           <h3><li><span style='background:#C2CDD6;'></span> Somewhat Likely</li></h3> 
-                            <h3><li><span style='background:#92A6B5;'></span> More Likely</li></h3> 
-                            <h3><li><span style='background:#5B7386;'></span> Most Likely</li></h3> 
-                         </ul>
+                        <ul class='legend1-labels'>
+                            <h3>
+                                <li><span style='background:#E6EBEF;'></span> Unlikely</li>
+                            </h3>
+                            <h3>
+                                <li><span style='background:#C2CDD6;'></span> Somewhat Likely</li>
+                            </h3>
+                            <h3>
+                                <li><span style='background:#92A6B5;'></span> More Likely</li>
+                            </h3>
+                            <h3>
+                                <li><span style='background:#5B7386;'></span> Most Likely</li>
+                            </h3>
+                        </ul>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -132,7 +143,9 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <!-- Close modal by clicking on span (x)-->
-                <span class="closeAbout"><svg class ='icon link color-darken50'><use xlink:href='#icon-close'></use></svg></span>
+                <span class="closeAbout"><svg class='icon link color-darken50'>
+                        <use xlink:href='#icon-close'></use>
+                    </svg></span>
 
                 <!-- scrolling text; not sure you need this now since the modal is outside the map and will scroll -->
                 <div class='px12 py12 overflow-auto h-full'>
@@ -270,7 +283,9 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <!-- Close modal by clicking on span (x) -->
-                <span class="close"><svg class ='icon link color-darken50'><use xlink:href='#icon-close'></use></svg></span>
+                <span class="close"><svg class='icon link color-darken50'>
+                        <use xlink:href='#icon-close'></use>
+                    </svg></span>
                 <!-- scrolling text; not sure you need this now since the modal is outside the map and will scroll -->
                 <div class='px12 py12 overflow-auto h-full'>
                     <h3 class='txt-m txt-bold mb6'>Home Owner's Loan Corporation</h3>
@@ -420,7 +435,7 @@
         const aboutBtn = document.getElementById('aboutMapButton');
         // Get the <span> element that closes the modal
         // since the span class for closing is different between the two modals would use 0 in index for both
-        const spanCloseAboutMapModal = document.getElementsByClassName("closeAbout")[0];  
+        const spanCloseAboutMapModal = document.getElementsByClassName("closeAbout")[0];
         // When the user clicks the button, open the modal 
         aboutBtn.onclick = function () {
             aboutMapModal.style.display = "block";
@@ -442,7 +457,7 @@
         // Get button that opens the modal
         const redliningBtn = document.getElementById('redliningButton');
         // Get the <span> element that closes the modal
-        const spanCloseRedliningModal = document.getElementsByClassName("close")[0];  
+        const spanCloseRedliningModal = document.getElementsByClassName("close")[0];
         // When the user clicks the button, open the modal 
         redliningBtn.onclick = function () {
             redliningModal.style.display = "block";
@@ -452,7 +467,7 @@
         spanCloseRedliningModal.onclick = function () {
             redliningModal.style.display = "none";
         };
-        
+
         // When the user clicks anywhere outside of the modal, close it
         window.addEventListener("click", function (event) {
             if (event.target == redliningModal) {
@@ -809,17 +824,17 @@
 
                     //Access properties of event location selected to add to popup
                     const reportedMedPropValue = e.features[0].properties.medianDollarHome;
-                    const numberSelfReportedProperty = e.features[0].properties['ownVal1mill+'] 
-                                                        + e.features[0].properties['ownVal50-99.9k']
-                                                        + e.features[0].properties['ownVal100-149.9k']
-                                                        + e.features[0].properties['ownVal150-199.9k']
-                                                        + e.features[0].properties['ownVal200-299.9k']
-                                                        + e.features[0].properties['ownVal300-499.9k']
-                                                        + e.features[0].properties['ownVal500-999.9k']
-                                                        + e.features[0].properties['ownVal<50k']
+                    const numberSelfReportedProperty = e.features[0].properties['ownVal1mill+']
+                        + e.features[0].properties['ownVal50-99.9k']
+                        + e.features[0].properties['ownVal100-149.9k']
+                        + e.features[0].properties['ownVal150-199.9k']
+                        + e.features[0].properties['ownVal200-299.9k']
+                        + e.features[0].properties['ownVal300-499.9k']
+                        + e.features[0].properties['ownVal500-999.9k']
+                        + e.features[0].properties['ownVal<50k']
                     //Populate popup and set its coordinates based on click
                     popup.setLngLat(e.lngLat).setHTML("<h3>Median Property Value Reported:</h3> " + "$" + reportedMedPropValue.toLocaleString('en-US')
-                    + "<br><h3># Properties Self Reported: </h3>" + numberSelfReportedProperty).addTo(map2);
+                        + "<br><h3># Properties Self Reported: </h3>" + numberSelfReportedProperty).addTo(map2);
                 });
 
                 // On leaving layer remove popup and revert back to initial cursor style
