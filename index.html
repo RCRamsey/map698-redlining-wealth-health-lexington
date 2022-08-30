@@ -549,11 +549,21 @@
                 mapSync();
             });
 
+            ////////////////////// load is working based on console
+            d3.json('./data/KYLexington1936.geojson').then((geojson) => {
+                // when loaded
+                console.log(geojson);
+
+                // call addLayer() function in scope
+                addMap1LayerAsHiddenData(geojson);
+            });
+            //////////////////////
+
         });
 
         // define addLayer() function outside of scope
         function addLayer2(geojson) {
-            // add the source to the map
+            // add the census data source to the map
             map2.addSource('census', {
                 'type': 'geojson',
                 'data': geojson // use my data as source
@@ -640,6 +650,47 @@
             whatsMap2Style('race', geojson);
         };
 
+        ////////////////////////////////
+        // add hidden duplicate layer of HOLC data to map 2 to access and create mirrored popup on map1
+        // based on click of map2 
+        function addMap1LayerAsHiddenData(geojsonMap1) {
+             // add the holc data source to the map
+             map2.addSource('redlining', {
+                'type': 'geojson',
+                'data': geojsonMap1, //use my data as source
+               
+            }) 
+
+            //data still accesible in this function!
+            //console.log(geojson)
+
+            // add the GeoJSON data as a mapbox gl layer (now a raster?) to visualize polygon
+            map2.addLayer({
+                'id': 'redlining', // provide new id for later reference 
+                'type': 'fill',
+                'source': 'redlining', //refers to data source name entered above
+                'paint': {
+                    'fill-color': [ // '#00364e', initial fill color until add identity
+                        'match',
+                        ['get', 'holc_grade'],
+                        'A',
+                        '#5B7386',
+                        'B',
+                        '#92A6B5',
+                        'C',
+                        '#C2CDD6',
+                        'D',
+                        '#E6EBEF',
+                        // other not caught
+                        'black'
+                    ],
+                    'fill-opacity': .7, //initial opacity until slider added
+                    'fill-outline-color': 'black'
+                }
+            });
+        //////////////////////////////////
+        }
+
 
         // Use d3 to select all 'a' targets in dropdown menu
         // when clicked the value of that current target is passed to function updateCurrentLayer
@@ -704,7 +755,7 @@
         //Determine UI layer selected
         //apply appropriate color gradient to legend
         //access appropriate set of data for popups
-        function whatsMap2Style(val, geojson) {
+        function whatsMap2Style(val, geojson, geojsonMap1) {
             // access legend-bar for color gradient modification
             let legend2Bar = document.getElementById('legend2-bar');
             let legend2Title = document.getElementById('legend2');
@@ -728,16 +779,32 @@
 
                 // Access geojson data for race layer here
                 console.log(geojson)
+                // Want Access to geojsonMap1 for hiddenlayer of Holc data on map2
+                // Not currently accessing
+                console.log(geojsonMap1)
 
                 // Click event on layer to produce popup of properties based on event clicked
                 map2.on('click', 'race', (e) => {
                     // Change the cursor style as UI Indicator
                     map.getCanvas().style.cursor = 'pointer';
 
-                    //Access properties of event location selected to add to popup
+                    //Access properties of event location selected to add to popup of map2
                     const percentWhite = e.features[0].properties['%White'];
-                    //Populate popup and set its coordinates based on click
+                    //Populate popup map2 and set its coordinates based on click 
                     popup.setLngLat(e.lngLat).setHTML("<h3>Percent White Population:</h3> " + Math.round(percentWhite) + '%').addTo(map2);
+                
+
+                    //Add popup to synced map1 at same location
+                    const redlined_popup = new mapboxgl.Popup({
+                        closeButton: true,
+                        closeOnClick: true
+                    });
+                     //Access properties of event location selected to add to popup
+                     //Currently this is trying to find holc_grade in the race geojson, 
+                     //need to find a way to access the holc hidden data layer
+                     //This code would need to be repeated for every census bureau data layer
+                    const redlinedGrade = e.features[0].properties.holc_grade;
+                    redlined_popup.setLngLat(e.lngLat).setHTML("<h3>Redlined Grade:</h3> " + redlinedGrade).addTo(map);
                 });
 
                 // On leaving layer remove popup and revert back to initial cursor style
