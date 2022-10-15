@@ -34,13 +34,13 @@ Crampton indicated that *"maps are active and not passive"* and *"they frame the
 HOLC Map scanned from 1930s
 ![digital scan of physical HOLC map from 1930s for Lexington KY](graphics/holc-scan.jpg)
 
-Within this project I will design a map that explores the access (or denial of equitable access) to generational wealth for the current location of historically redlined neighborhoods. The aspects of wealth being considered include:
+Within this project I will design a map that explores the access (or denial of equitable access) to wealth for the current location of historically redlined neighborhoods. The aspects of wealth being considered include:
 - Race 
 - Median Household Income
 - Home Ownership
 - Reported Property Value 
 
-I want to find out what inequities have persisted generation to generation in order to help the user understand the impacts inherited by 1930s redlined policies in these neighborhoods through time.
+I want to find out what inequities have persisted in order to help the user understand the impacts inherited by 1930s redlined policies in these neighborhoods through time.
 
 As demand increases for living in close proximity to the Central Business District and its accompanying improved amenities, redlined neighborhoods are at risk of gentrification. It is hoped that maps such as the one I propose can inform a user to make more thoughtful decisions with their votes within the Lexington cityscape. Voting can enact better policies to promote community renewal and prevent the gentrification of these areas. Policy changes are how we will begin the effort toward equity for the long term resident's access to benefit from revitalized areas they have been excluded from in the past.
 
@@ -60,7 +60,7 @@ All data mapped will be in comparison with the redlined neighborhoods of Lexingt
     - Accessed: 2 Feb 2022
 
 ### Aspects of Wealth
-Exploring wealth under the umbrella of the ability to accumulate generational wealth through home ownership.
+Exploring wealth under the umbrella of the ability to accumulate wealth through home ownership.
 
 #### Race and Segregation
 [*Race for the Population 18 years+ 2020*](https://data.census.gov/cedsci/table?q=p3&t=Race%20and%20Ethnicity&g=0500000US21067%241400000&y=2020)
